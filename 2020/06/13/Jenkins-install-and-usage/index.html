@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Jenkins 的安装与使用 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="记录 Jenkins 在 Mac 上安装与使用的过程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jenkins 的安装与使用">
+<meta property="og:url" content="http://example.com/2020/06/13/Jenkins-install-and-usage/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="记录 Jenkins 在 Mac 上安装与使用的过程">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-13T09:46:19.000Z">
+<meta property="article:modified_time" content="2020-07-07T02:29:23.185Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="CI">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Jenkins-install-and-usage" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/06/13/Jenkins-install-and-usage/" class="article-date">
+  <time class="dt-published" datetime="2020-06-13T09:46:19.000Z" itemprop="datePublished">2020-06-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CI/">CI</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Jenkins 的安装与使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>记录 Jenkins 在 Mac 上安装与使用的过程</p>
+</blockquote>
+<a id="more"></a>
+
+
+<h2 id="1-参考"><a href="#1-参考" class="headerlink" title="1.参考"></a>1.参考</h2><h2 id="2-在-Mac-mini-上安装-Jenkins"><a href="#2-在-Mac-mini-上安装-Jenkins" class="headerlink" title="2.在 Mac mini 上安装 Jenkins"></a>2.在 Mac mini 上安装 Jenkins</h2><h2 id="3-设置-Jenkins-中-Shell-的-PATH"><a href="#3-设置-Jenkins-中-Shell-的-PATH" class="headerlink" title="3.设置 Jenkins 中 Shell 的 PATH"></a>3.设置 Jenkins 中 Shell 的 PATH</h2><h2 id="4-源代码管理"><a href="#4-源代码管理" class="headerlink" title="4.源代码管理"></a>4.源代码管理</h2><h2 id="5-触发机制"><a href="#5-触发机制" class="headerlink" title="5.触发机制"></a>5.触发机制</h2><h2 id="6-Build-的脚本"><a href="#6-Build-的脚本" class="headerlink" title="6.Build 的脚本"></a>6.Build 的脚本</h2><h2 id="7-常用的插件"><a href="#7-常用的插件" class="headerlink" title="7.常用的插件"></a>7.常用的插件</h2><h2 id="8-过程及结果通知"><a href="#8-过程及结果通知" class="headerlink" title="8.过程及结果通知"></a>8.过程及结果通知</h2><h2 id="9-用户管理"><a href="#9-用户管理" class="headerlink" title="9.用户管理"></a>9.用户管理</h2><h2 id="10-自动打包-Xamarin-Android-项目"><a href="#10-自动打包-Xamarin-Android-项目" class="headerlink" title="10.自动打包 Xamarin.Android 项目"></a>10.自动打包 <code>Xamarin.Android</code> 项目</h2><h2 id="11-打包-Xamarin-iOS-项目"><a href="#11-打包-Xamarin-iOS-项目" class="headerlink" title="11.打包 Xamarin.iOS 项目"></a>11.打包 <code>Xamarin.iOS</code> 项目</h2><hr>
+<hr>
+<hr>
+<h2 id="1-参考-1"><a href="#1-参考-1" class="headerlink" title="1.参考"></a>1.参考</h2><ul>
+<li>1.<a target="_blank" rel="noopener" href="https://www.jenkins.io/">Jenkins</a></li>
+<li>2.<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/xamarin/tools/ci/jenkins-walkthrough">Using Jenkins with Xamarin</a></li>
+<li>3.<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/54192905/how-to-save-jenkins-configuration">Save Jenkins configuration</a></li>
+<li>4.<a target="_blank" rel="noopener" href="https://issues.jenkins-ci.org/browse/JENKINS-30107">Login Credentials Brute Force</a></li>
+</ul>
+<h2 id="2-在-Mac-mini-上安装-Jenkins-1"><a href="#2-在-Mac-mini-上安装-Jenkins-1" class="headerlink" title="2.在 Mac mini 上安装 Jenkins"></a>2.在 Mac mini 上安装 Jenkins</h2><h4 id="1-下载安装"><a href="#1-下载安装" class="headerlink" title="1.下载安装"></a>1.下载安装</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.jenkins.io/download/lts/macos/">1.Homebrew Installer</a><br><a target="_blank" rel="noopener" href="https://damien.co/general/how-to-start-stop-restart-or-reload-jenkins-mac-osx-8022/">2.How to Stop, Restart Jenkins - Common URL options</a><br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/11062335/update-jenkins-from-a-war-file">3.Update Jenkins from a war file</a></p>
+</blockquote>
+<ul>
+<li>1.使用 brew 下载</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">brew install jenkins-lts</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 会提示需下载 jdk 8(Jenkins-lts)</span><br><span class="line">brew cask install homebrew&#x2F;cask-versions&#x2F;adoptopenjdk8</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>2.开始/结束 等控制命令</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 作为服务类型去运行</span><br><span class="line">brew services start jenkins-lts</span><br><span class="line">brew services stop jenkins-lts</span><br><span class="line">brew services restart jenkins-lts</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 作为 命令行 程序去运行</span><br><span class="line">$ jenkins-lts</span><br><span class="line"></span><br><span class="line">开启后，可以使用浏览器去控制 Jenkins</span><br><span class="line">&#x2F;&#x2F; http:&#x2F;&#x2F;[jenkins-server]&#x2F;[command] where [command] can be</span><br><span class="line">exit -&gt; shutdown jenkins</span><br><span class="line">restart restart jenkins</span><br><span class="line">reload to reload the configuration</span><br><span class="line"></span><br><span class="line">如: http:&#x2F;&#x2F;10.100.1.172:8080&#x2F;restart 去重启 Jenkins</span><br></pre></td></tr></table></figure>
+
+
+<h5 id="2-Jenkins-配置文件"><a href="#2-Jenkins-配置文件" class="headerlink" title="2.Jenkins 配置文件"></a>2.Jenkins 配置文件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~&#x2F;.jenkins&#x2F;config.xml</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;opt&#x2F;jenkins-lts&#x2F;homebrew.mxcl.jenkins-lts.plist</span><br><span class="line"></span><br><span class="line">任务文件路径:  ~&#x2F;.jenkins&#x2F;jobs&#x2F;[JOB NAME]</span><br><span class="line">任务配置文件路径:  ~&#x2F;.jenkins&#x2F;jobs&#x2F;[JOB NAME]&#x2F;config.xml</span><br><span class="line">项目文件路径: ~&#x2F;.jenkins&#x2F;workspace</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-更新"><a href="#3-更新" class="headerlink" title="3.更新"></a>3.更新</h5><ul>
+<li>1.在 <code>Manage Jenkins -&gt; System Information</code> 中可以看到 <code>jenkins.war</code> 的文件的路径 <code>executable-war</code>，如这里为: </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">System Properties</span><br><span class="line">Name  			Value   </span><br><span class="line">awt.toolkit	sun.lwawt.macosx.LWCToolkit</span><br><span class="line">BUILD_TIMESTAMP	2020-07-06_02:30:05_CST</span><br><span class="line">executable-war	&#x2F;usr&#x2F;local&#x2F;Cellar&#x2F;jenkins-lts&#x2F;2.204.1&#x2F;libexec&#x2F;jenkins.war</span><br></pre></td></tr></table></figure>
+<ul>
+<li>2.在搭建的 <code>Jenkins Server</code> 中下载新版 <code>jenkins.war</code> 包.</li>
+<li>3.停止 Jenkins: <code>brew services stop jenkins-lts</code></li>
+<li>4.用新下载的 <code>jenkins.war</code> 替换 <code>/usr/local/Cellar/jenkins-lts/2.204.1/libexec/jenkins.war</code></li>
+<li>5.重启 Jenkins: <code>brew services start jenkins-lts</code></li>
+</ul>
+<h2 id="3-设置-Jenkins-中-Shell-的-PATH-1"><a href="#3-设置-Jenkins-中-Shell-的-PATH-1" class="headerlink" title="3.设置 Jenkins 中 Shell 的 PATH"></a>3.设置 Jenkins 中 Shell 的 PATH</h2><blockquote>
+<p>如果不设置的话，会导致在 terminal 上能正常运行的脚本在 Jenkins 的 <code>Execute shell</code> 上不能正常运行.</p>
+</blockquote>
+<h5 id="1-参考-2"><a href="#1-参考-2" class="headerlink" title="1.参考"></a>1.参考</h5><ul>
+<li>1.<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/15620369/jenkins-on-mac-path-is-not-set-right-no-usr-local-bin">jenkins on Mac, PATH is not set right, no /usr/local/bin</a></li>
+</ul>
+<h5 id="2-操作"><a href="#2-操作" class="headerlink" title="2.操作"></a>2.操作</h5><ul>
+<li>1.编辑 Jenkins <code>/usr/local/Cellar/jenkins-lts/2.204.1/homebrew.mxcl.jenkins-lts.plist</code> 文件，添加 Mac 的 $PATH 到 Jenkins 中.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 输出 PATH</span><br><span class="line">echo $PATH </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE plist PUBLIC &quot;-&#x2F;&#x2F;Apple&#x2F;&#x2F;DTD PLIST 1.0&#x2F;&#x2F;EN&quot; &quot;http:&#x2F;&#x2F;www.apple.com&#x2F;DTDs&#x2F;PropertyList-1.0.dtd&quot;&gt;</span><br><span class="line">&lt;plist version&#x3D;&quot;1.0&quot;&gt;</span><br><span class="line">  &lt;dict&gt;</span><br><span class="line">    &lt;key&gt;Label&lt;&#x2F;key&gt;</span><br><span class="line">    &lt;string&gt;homebrew.mxcl.jenkins-lts&lt;&#x2F;string&gt;</span><br><span class="line">    &lt;key&gt;ProgramArguments&lt;&#x2F;key&gt;</span><br><span class="line">    &lt;array&gt;</span><br><span class="line">      &lt;string&gt;&#x2F;usr&#x2F;libexec&#x2F;java_home&lt;&#x2F;string&gt;</span><br><span class="line">      &lt;string&gt;-v&lt;&#x2F;string&gt;</span><br><span class="line">      &lt;string&gt;1.8&lt;&#x2F;string&gt;</span><br><span class="line">      &lt;string&gt;--exec&lt;&#x2F;string&gt;</span><br><span class="line">      &lt;string&gt;java&lt;&#x2F;string&gt;</span><br><span class="line">      &lt;string&gt;-Dmail.smtp.starttls.enable&#x3D;true&lt;&#x2F;string&gt;</span><br><span class="line">      &lt;string&gt;-jar&lt;&#x2F;string&gt;</span><br><span class="line">      &lt;string&gt;&#x2F;usr&#x2F;local&#x2F;opt&#x2F;jenkins-lts&#x2F;libexec&#x2F;jenkins.war&lt;&#x2F;string&gt;</span><br><span class="line">      &lt;string&gt;--httpListenAddress&#x3D;127.0.0.1&lt;&#x2F;string&gt;</span><br><span class="line">      &lt;string&gt;--httpPort&#x3D;8080&lt;&#x2F;string&gt;</span><br><span class="line">    &lt;&#x2F;array&gt;</span><br><span class="line">    &lt;key&gt;RunAtLoad&lt;&#x2F;key&gt;</span><br><span class="line">    &lt;true&#x2F;&gt;</span><br><span class="line">    &lt;key&gt;EnvironmentVariables&lt;&#x2F;key&gt;</span><br><span class="line">    &lt;dict&gt;</span><br><span class="line">        &lt;key&gt;PATH&lt;&#x2F;key&gt;</span><br><span class="line">        &lt;string&gt;(You PATH)&lt;&#x2F;string&gt;</span><br><span class="line">    &lt;&#x2F;dict&gt;</span><br><span class="line">  &lt;&#x2F;dict&gt;</span><br><span class="line">&lt;&#x2F;plist&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="4-源代码管理-1"><a href="#4-源代码管理-1" class="headerlink" title="4.源代码管理"></a>4.源代码管理</h2><blockquote>
+<p>首次安装完成后会自动安装 Git 插件</p>
+</blockquote>
+<h2 id="5-触发机制-1"><a href="#5-触发机制-1" class="headerlink" title="5.触发机制"></a>5.触发机制</h2><blockquote>
+<p>一般选择 <code>Poll SCM</code></p>
+</blockquote>
+<h2 id="6-Build-的脚本-1"><a href="#6-Build-的脚本-1" class="headerlink" title="6.Build 的脚本"></a>6.Build 的脚本</h2><blockquote>
+<p>在 Mac 上运行就选择 <code>Execute shell</code>, 然后执行的脚本格式跟在 terminal 上一样.</p>
+</blockquote>
+<h2 id="7-常用的插件-1"><a href="#7-常用的插件-1" class="headerlink" title="7.常用的插件"></a>7.常用的插件</h2><h4 id="1-Build-Timestamp"><a href="#1-Build-Timestamp" class="headerlink" title="1.Build Timestamp"></a>1.<a target="_blank" rel="noopener" href="https://stackoverflow.com/a/44011594/5237440">Build Timestamp</a></h4><ul>
+<li>1.让 Jenkins 使用 Timestamp</li>
+</ul>
+<h4 id="2-Email-Extension"><a href="#2-Email-Extension" class="headerlink" title="2.Email Extension"></a>2.<a target="_blank" rel="noopener" href="https://plugins.jenkins.io/email-ext/">Email Extension</a></h4><ul>
+<li>1.使 Email 的格式更加丰富</li>
+</ul>
+<h4 id="3-Workspace-Cleanup"><a href="#3-Workspace-Cleanup" class="headerlink" title="3.Workspace Cleanup"></a>3.<a target="_blank" rel="noopener" href="https://plugins.jenkins.io/ws-cleanup/">Workspace Cleanup</a></h4><ul>
+<li>1.在每次 Build 前就 Clean 整个项目.</li>
+</ul>
+<h4 id="4-Environment-Injector"><a href="#4-Environment-Injector" class="headerlink" title="4.Environment Injector"></a>4.Environment Injector</h4><ul>
+<li>1.安全地插入 password 等等敏感的数据</li>
+</ul>
+<h4 id="5-Delivery-Pipeline"><a href="#5-Delivery-Pipeline" class="headerlink" title="5.Delivery Pipeline"></a>5.Delivery Pipeline</h4><ul>
+<li>1.可视化 任务管道传递</li>
+</ul>
+<h4 id="6-Role-based-Authorization"><a href="#6-Role-based-Authorization" class="headerlink" title="6.Role-based Authorization"></a>6.Role-based Authorization</h4><ul>
+<li>1.角色权限管理</li>
+</ul>
+<h2 id="8-过程及结果通知-1"><a href="#8-过程及结果通知-1" class="headerlink" title="8.过程及结果通知"></a>8.过程及结果通知</h2><h4 id="1-参考-3"><a href="#1-参考-3" class="headerlink" title="1.参考"></a>1.参考</h4><ul>
+<li>1.<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/cb816b42673d">Jenkins配置邮件提醒</a></li>
+<li>2.<a target="_blank" rel="noopener" href="https://bytefreaks.net/applications/jenkins-improve-the-format-of-the-email">邮件格式定义:Jenkins: Improve the format of the email</a></li>
+</ul>
+<h4 id="2-步骤"><a href="#2-步骤" class="headerlink" title="2.步骤"></a>2.步骤</h4><ul>
+<li>1.Enable <code>Configure Global Security</code> -&gt; <code>Enable proxy compatibility</code></li>
+<li>2.如设置 QQ ，则需要先 <a target="_blank" rel="noopener" href="https://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=331">开启 SMTP 服务</a>,然后使用返回的授权码代替密码进行登录.</li>
+<li>3.正确设置 邮件服务器的信息.</li>
+</ul>
+<h4 id="3-每个-build-都发送邮件"><a href="#3-每个-build-都发送邮件" class="headerlink" title="3.每个 build 都发送邮件"></a>3.每个 build 都发送邮件</h4><ul>
+<li>1.<a target="_blank" rel="noopener" href="https://shalimatech.com/send-email-every-build-jenkins/">send email at every build</a></li>
+</ul>
+<h4 id="4-设置格式"><a href="#4-设置格式" class="headerlink" title="4.设置格式"></a>4.设置格式</h4><ul>
+<li>1.发送人名字设置, 在 <code>Configure System</code> -&gt; <code>System Admin e-mail address</code> 设置为 <code>Name&lt;email address&gt;</code> 格式, 如: <code>Jenkins server &lt;123@qq.com&gt;</code>.</li>
+</ul>
+<h4 id="5-Eamil-模板参考"><a href="#5-Eamil-模板参考" class="headerlink" title="5.Eamil 模板参考"></a>5.Eamil 模板参考</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Hi All,</span><br><span class="line">    &lt;br&#x2F;&gt;</span><br><span class="line">    &lt;br&#x2F;&gt;</span><br><span class="line">    $PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS.&lt;br&#x2F;&gt;</span><br><span class="line">    &lt;br&#x2F;&gt;</span><br><span class="line">    Click &lt;a href&#x3D;&quot;$BUILD_URL&#x2F;console&quot;&gt;$BUILD_URL&#x2F;console&lt;&#x2F;a&gt; to view full &lt;strong&gt;console output&lt;&#x2F;strong&gt; results.&lt;br&#x2F;&gt;</span><br><span class="line">    Click &lt;a href&#x3D;&quot;$JOB_URL&#x2F;ws&#x2F;README.md&quot;&gt;$JOB_URL&#x2F;ws&#x2F;README.md&lt;&#x2F;a&gt; to download the &lt;strong&gt;README.md&lt;&#x2F;strong&gt; file. &lt;br&#x2F;&gt;</span><br><span class="line">    If you cannot connect to the build server, check the attached logs.&lt;br&#x2F;&gt;</span><br><span class="line">    &lt;br&#x2F;&gt;</span><br><span class="line">    --&lt;br&#x2F;&gt;</span><br><span class="line">    Following is the last 100 lines of the log.&lt;br&#x2F;&gt;</span><br><span class="line">    &lt;br&#x2F;&gt;</span><br><span class="line">    --LOG-BEGIN--&lt;br&#x2F;&gt;</span><br><span class="line">    &lt;pre style&#x3D;&#39;line-height: 22px; display: block; color: #333; font-family: Monaco,Menlo,Consolas,&quot;Courier New&quot;,monospace; padding: 10.5px; margin: 0 0 11px; font-size: 13px; word-break: break-all; word-wrap: break-word; white-space: pre-wrap; background-color: #f5f5f5; border: 1px solid #ccc; border: 1px solid rgba(0,0,0,.15); -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px;&#39;&gt;</span><br><span class="line">    $&#123;BUILD_LOG, maxLines&#x3D;100, escapeHtml&#x3D;true&#125;</span><br><span class="line">    &lt;&#x2F;pre&gt;</span><br><span class="line">    --LOG-END--</span><br><span class="line">    &lt;br&#x2F;&gt;</span><br><span class="line">    &lt;br&#x2F;&gt;</span><br><span class="line"></span><br><span class="line">From: Mac mini&#39;s Jenkins server &lt;$BUILD_TIMESTAMP&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="9-用户管理-1"><a href="#9-用户管理-1" class="headerlink" title="9.用户管理"></a>9.用户管理</h2><blockquote>
+<p>需要 <a target="_blank" rel="noopener" href="https://plugins.jenkins.io/matrix-auth/"><code>Matrix Authorization Strategy</code></a> 插件</p>
+</blockquote>
+<h4 id="1-参考-4"><a href="#1-参考-4" class="headerlink" title="1.参考"></a>1.参考</h4><ul>
+<li>1.<a target="_blank" rel="noopener" href="https://www.edureka.co/community/47822/there-restrict-permissions-user-per-individual-job-jenkins">A way to restrict permissions to a user per individual job in jenkins</a></li>
+<li>2.<a target="_blank" rel="noopener" href="https://wiki.jenkins.io/display/jenkins/standard+security+setup">Standard Security Setup(wiki.jenkins.io)</a></li>
+<li>3.<a target="_blank" rel="noopener" href="http://abhijitkakade.com/2019/06/how-to-reset-jenkins-admin-users-password/">How to Reset Jenkins Admin users Password</a></li>
+</ul>
+<h4 id="2-具体操作"><a href="#2-具体操作" class="headerlink" title="2.具体操作"></a>2.具体操作</h4><ul>
+<li><p>1.From the jenkins dashboard,click on Manage Jenkins.</p>
+</li>
+<li><p>2.under Manage jenkins-&gt;Configure Global Security-&gt;select Enable security.</p>
+</li>
+<li><p>3.Under the Authorization section, select the “Project-based Matrix Authorization Strategy”</p>
+</li>
+<li><p>4.Add the particular user and assign the appropriate permissions.(用户必须在这里有 <code>Overall -&gt; Read</code> 的权限，否则在子项目配置的权限也会没有效果.)</p>
+</li>
+<li><p>5.And then to assign Job specific permissions :</p>
+<ul>
+<li><p>1.Go to the job (say job1) for which you need to assign permissions.</p>
+</li>
+<li><p>2.Click Configure-&gt;under the general tab-&gt;Enable Project-based Security.</p>
+</li>
+<li><p>3.Add the particular user (say user1) and assign the required permissions.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="10-自动打包-Xamarin-Android-项目-1"><a href="#10-自动打包-Xamarin-Android-项目-1" class="headerlink" title="10.自动打包 Xamarin.Android 项目"></a>10.自动打包 <code>Xamarin.Android</code> 项目</h2><h4 id="0-前期准备"><a href="#0-前期准备" class="headerlink" title="0.前期准备"></a>0.前期准备</h4><h5 id="1-Mac-安装-xmlstarlet-软件"><a href="#1-Mac-安装-xmlstarlet-软件" class="headerlink" title="1.Mac 安装 xmlstarlet 软件."></a>1.Mac 安装 xmlstarlet 软件.</h5><ul>
+<li><p>1.安装 <a target="_blank" rel="noopener" href="http://macappstore.org/xmlstarlet/"><code>xmlstarlet</code>(Mac xml 解析器)</a></p>
+<ul>
+<li>1.因为打包后生成的 APK 包需要附上版本号，要读取 <code>AndroidManifest.xml</code> 文件才能完成这个操作. </li>
+<li>2.安装: <code>brew install xmlstarlet</code></li>
+</ul>
+</li>
+<li><p>2.使用方法</p>
+<ul>
+<li>1.<a target="_blank" rel="noopener" href="https://stackoverflow.com/a/17333937/5237440">Extract XML Value in bash script</a></li>
+<li>2.<a target="_blank" rel="noopener" href="http://xmlstar.sourceforge.net/doc/UG/xmlstarlet-ug.html">XmlStarlet Command Line XML Toolkit User’s Guide</a></li>
+</ul>
+</li>
+<li><p>3.例子</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; input.xml</span><br><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line"></span><br><span class="line">&lt;Environment xmlns:android&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res&#x2F;android&quot; xmlns&#x3D;&quot;http:&#x2F;&#x2F;schemas.dmtf.org&#x2F;ovf&#x2F;environment&#x2F;1&quot; xmlns:xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot; xmlns:oe&#x3D;&quot;http:&#x2F;&#x2F;schemas.dmtf.org&#x2F;ovf&#x2F;environment&#x2F;1&quot; xmlns:ve&#x3D;&quot;http:&#x2F;&#x2F;www.vmware.com&#x2F;schema&#x2F;ovfenv&quot; oe:id&#x3D;&quot;customerId&quot; ve:vCenterId&#x3D;&quot;centerID&quot; android:versionCode&#x3D;&quot;251&quot; android:versionName&#x3D;&quot;2.4.0&quot; &gt;</span><br><span class="line">  &lt;PropertySection&gt;</span><br><span class="line">&lt;Property oe:key&#x3D;&quot;vami.hostname&quot; oe:value&#x3D;&quot;jal&quot;&#x2F;&gt;</span><br><span class="line">&lt;Property oe:key&#x3D;&quot;vamitimezone&quot; oe:value&#x3D;&quot;Asia&#x2F;Kolkata&quot;&#x2F;&gt;</span><br><span class="line">&lt;Property oe:key&#x3D;&quot;ABC_enable&quot; oe:value&#x3D;&quot;1&quot;&#x2F;&gt;</span><br><span class="line">&lt;Property oe:key&#x3D;&quot;software_only_installer_name&quot; oe:value&#x3D;&quot;install-r8-0-0-0&quot;&#x2F;&gt;</span><br><span class="line">&lt;Property oe:key&#x3D;&quot;software_only_staging_dir&quot; oe:value&#x3D;&quot;&#x2F;media&#x2F;dir&quot;&#x2F;&gt;</span><br><span class="line">&lt;Property oe:key&#x3D;&quot;software_only_mount_dir&quot; oe:value&#x3D;&quot;&#x2F;media&#x2F;cdrom&quot;&#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;PropertySection&gt;</span><br><span class="line">&lt;&#x2F;Environment&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ xmlstarlet sel -t -v &quot;&#x2F;&#x2F;@android:versionCode&quot; input.xml</span><br><span class="line">&#x2F;&#x2F; Output: 251</span><br><span class="line"></span><br><span class="line">$ xmlstarlet sel -t -v &quot;&#x2F;&#x2F;@ve:vCenterId&quot; input.xml</span><br><span class="line">&#x2F;&#x2F; Output: centerID</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="2-把-zipalign-添加到个人目录的环境变量中"><a href="#2-把-zipalign-添加到个人目录的环境变量中" class="headerlink" title="2.把 zipalign 添加到个人目录的环境变量中"></a>2.把 zipalign 添加到个人目录的环境变量中</h5><blockquote>
+<p>Android 打包需要用到的工具.</p>
+</blockquote>
+<h6 id="1-参考-5"><a href="#1-参考-5" class="headerlink" title="1.参考"></a>1.参考</h6><ul>
+<li>1.<a target="_blank" rel="noopener" href="https://stackoverflow.com/a/55135196/5237440">Zipalign - Command not found - MAC terminal</a></li>
+</ul>
+<h6 id="2-配置-zipalign-环境"><a href="#2-配置-zipalign-环境" class="headerlink" title="2.配置 zipalign 环境"></a>2.配置 zipalign 环境</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 查找 zipalign 位置</span><br><span class="line">$ find ~&#x2F;Library&#x2F;Developer&#x2F;Xamarin -name &quot;zipalign&quot;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 把 zipalign 放置到 个人环境目录下</span><br><span class="line">$ echo &quot;export PATH&#x3D;\$PATH:~&#x2F;Library&#x2F;Developer&#x2F;Xamarin&#x2F;android-sdk-macosx&#x2F;build-tools&#x2F;29.0.2&quot; &gt;&gt; ~&#x2F;.bash_profile &amp;&amp; . ~&#x2F;.bash_profile</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 测试效果</span><br><span class="line">$ zipalign</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h6 id="3-实际效果"><a href="#3-实际效果" class="headerlink" title="3.实际效果"></a>3.实际效果</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 模板</span><br><span class="line">zipalign -f -v 4 yourSigned.apk yourFinaleApk</span><br><span class="line"></span><br><span class="line">zipalign -f -v 4 $WORKSPACE&#x2F;BLE_APP.Android&#x2F;Bin&#x2F;Release&#x2F;com.glb.BLE_APP-Signed.apk $WORKSPACE&#x2F;BLE_APP.Android&#x2F;Bin&#x2F;Release&#x2F;finalApp.apk</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="1-项目参数的保存"><a href="#1-项目参数的保存" class="headerlink" title="1.项目参数的保存"></a>1.项目参数的保存</h4><ul>
+<li>0.Build Environment</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Delete workspace before build starts</span><br><span class="line">Add timestamps to the Console Output</span><br><span class="line"></span><br><span class="line">Inject passwords to the build as environment variables(STORE_PASS)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>1.Excute shell</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">pwd</span><br><span class="line"></span><br><span class="line">whoami</span><br><span class="line"></span><br><span class="line">cd MowerGG</span><br><span class="line"></span><br><span class="line">nuget restore</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>2.Inject Environment</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">KEYSTORE_FILE &#x3D; &#x2F;Users&#x2F;glb_gz&#x2F;Desktop&#x2F;GreenworksGreenGuide.keystore</span><br><span class="line">KEYSTORE_ALIAS &#x3D; GreenworksGreenGuide</span><br><span class="line"></span><br><span class="line">APK_BIN_PATH &#x3D;  $WORKSPACE&#x2F;MowerGG&#x2F;MowerGG.Android&#x2F;bin</span><br><span class="line">MANIFEST_PATH &#x3D; $WORKSPACE&#x2F;MowerGG&#x2F;MowerGG.Android&#x2F;Properties</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>4.Excute shell</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"># 必须放置在这里(这个 Execute shell)，否则后面的执行会读取不到这个值</span><br><span class="line">declare -a Environments&#x3D;(</span><br><span class="line">                 &quot;Brand1 - Dev2;AndroidManifest1.xml&quot;</span><br><span class="line">                 &quot;Brand2 - Dev2;AndroidManifest2.xml&quot;</span><br><span class="line">                )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">StartJarSignAndZip() &#123;</span><br><span class="line"></span><br><span class="line">	versionName&#x3D;$(xmlstarlet sel -t -v &quot;&#x2F;&#x2F;@android:versionName&quot; &quot;$MANIFEST_PATH&quot;&#x2F;&quot;$2&quot;)</span><br><span class="line">	versionCode&#x3D;$(xmlstarlet sel -t -v &quot;&#x2F;&#x2F;@android:versionCode&quot; &quot;$MANIFEST_PATH&quot;&#x2F;&quot;$2&quot;)</span><br><span class="line">	packageName&#x3D;$(xmlstarlet sel -t -v &quot;&#x2F;&#x2F;@package&quot; &quot;$MANIFEST_PATH&quot;&#x2F;&quot;$2&quot;)</span><br><span class="line"></span><br><span class="line">	INPUT_APK&#x3D;&quot;$APK_BIN_PATH&quot;&#x2F;&quot;$1&quot;&#x2F;&quot;$packageName&quot;&quot;.apk&quot;</span><br><span class="line">    SIGNED_APK&#x3D;&quot;$APK_BIN_PATH&quot;&#x2F;&quot;$1&quot;&#x2F;&quot;$packageName&quot;&quot;-Signed.apk&quot;</span><br><span class="line">    FINAL_APK&#x3D;&quot;$APK_BIN_PATH&quot;&#x2F;&quot;$1&quot;&#x2F;&quot;$packageName&quot;&quot;_$versionName&quot;&quot;.$versionCode&quot;&quot;.apk&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	jarsigner -verbose -sigalg MD5withRSA -digestalg SHA1 -keystore $KEYSTORE_FILE -storepass $STORE_PASS -signedjar &quot;$SIGNED_APK&quot; &quot;$INPUT_APK&quot; $KEYSTORE_ALIAS</span><br><span class="line"></span><br><span class="line">	zipalign -f -v 4 &quot;$SIGNED_APK&quot; &quot;$FINAL_APK&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">StartMSBuild() &#123;</span><br><span class="line">	msbuild &#x2F;p:Configuration&#x3D;&quot;$1&quot; &#x2F;t:PackageForAndroid &#x2F;t:SignAndroidPackage  MowerGG&#x2F;MowerGG.Android&#x2F;Globe.IoT.App.GreenGuide.Android.csproj</span><br><span class="line">	</span><br><span class="line">    StartJarSignAndZip &quot;$1&quot; &quot;$2&quot;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for environment in &quot;$&#123;Environments[@]&#125;&quot;</span><br><span class="line">   do</span><br><span class="line">     echo &quot;$environment&quot;</span><br><span class="line">     configuration&#x3D;$(echo &quot;$environment&quot; | awk -F&#39;;&#39; &#39;&#123;print $1&#125;&#39;)</span><br><span class="line">     manifestFileName&#x3D;$(echo &quot;$environment&quot; | awk -F&#39;;&#39; &#39;&#123;print $2&#125;&#39;)</span><br><span class="line">     StartMSBuild &quot;$configuration&quot; &quot;$manifestFileName&quot;</span><br><span class="line">   done</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="11-打包-Xamarin-iOS-项目-1"><a href="#11-打包-Xamarin-iOS-项目-1" class="headerlink" title="11.打包 Xamarin.iOS 项目"></a>11.打包 <code>Xamarin.iOS</code> 项目</h2><h4 id="1-参考-6"><a href="#1-参考-6" class="headerlink" title="1.参考"></a>1.参考</h4><ul>
+<li>1.<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/xamarin/ios/deploy-test/app-distribution/ipa-support?tabs=macos">IPA Support in Xamarin.iOS</a></li>
+</ul>
+<h4 id="2-过程"><a href="#2-过程" class="headerlink" title="2.过程"></a>2.过程</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msbuild &#x2F;p:Configuration&#x3D;&quot;APP.iOS - Develop&quot; &#x2F;p:Platform&#x3D;&quot;iPhone&quot; &#x2F;p:IpaPackageDir&#x3D;&quot;&#x2F;Users&#x2F;user&#x2F;Desktop&quot; &#x2F;p:BuildIpa&#x3D;true &#x2F;t:Build Globe.IoT.App.GreenGuide.iOS.csproj</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+<p>/Users/glb_gz/Documents/Xamarin_Workplace/ggmowerapp/MowerGG/MowerGG.iOS/Globe.IoT.App.GreenGuide.iOS.csproj</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/06/13/Jenkins-install-and-usage/" data-id="ckiske02n0052bo66hxr8hbh2" data-title="Jenkins 的安装与使用" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CI/" rel="tag">CI</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/11/Appium-Learn(python)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Appium 自动化测试(python3)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/06/11/Mac-crontab/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Mac 创建定时任务</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Angular/">Angular</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/BLE/">BLE</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CI/">CI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/DB/">DB</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/H5/">H5</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MicroSoft/">MicroSoft</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Office/">Office</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Travel/">Travel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Xamarin/">Xamarin</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/auto-test/">auto-test</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/data/">data</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/frontend/">frontend</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/google/">google</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javaScript/">javaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/postman/">postman</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/speedtest/">speedtest</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ss/">ss</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/word/">word</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E6%9D%82/">日杂</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/" rel="tag">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BLE/" rel="tag">BLE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CI/" rel="tag">CI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DB/" rel="tag">DB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/" rel="tag">H5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MicroSoft/" rel="tag">MicroSoft</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Office/" rel="tag">Office</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Travel/" rel="tag">Travel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xamarin/" rel="tag">Xamarin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auto-test/" rel="tag">auto-test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data/" rel="tag">data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postman/" rel="tag">postman</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ss/" rel="tag">ss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/word/" rel="tag">word</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E6%9D%82/" rel="tag">日杂</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag">虚拟机</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 19px;">Android</a> <a href="/tags/Angular/" style="font-size: 18px;">Angular</a> <a href="/tags/BLE/" style="font-size: 11px;">BLE</a> <a href="/tags/CI/" style="font-size: 10px;">CI</a> <a href="/tags/DB/" style="font-size: 10px;">DB</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/H5/" style="font-size: 10px;">H5</a> <a href="/tags/Linux/" style="font-size: 17px;">Linux</a> <a href="/tags/Mac/" style="font-size: 20px;">Mac</a> <a href="/tags/MicroSoft/" style="font-size: 10px;">MicroSoft</a> <a href="/tags/Office/" style="font-size: 10px;">Office</a> <a href="/tags/Travel/" style="font-size: 15px;">Travel</a> <a href="/tags/Xamarin/" style="font-size: 13px;">Xamarin</a> <a href="/tags/auto-test/" style="font-size: 12px;">auto-test</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/data/" style="font-size: 11px;">data</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/iOS/" style="font-size: 16px;">iOS</a> <a href="/tags/javaScript/" style="font-size: 10px;">javaScript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/php/" style="font-size: 14px;">php</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/ss/" style="font-size: 13px;">ss</a> <a href="/tags/word/" style="font-size: 10px;">word</a> <a href="/tags/%E6%97%A5%E6%9D%82/" style="font-size: 12px;">日杂</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 10px;">虚拟机</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/16/Appium-Learn(javascript)/">Appium-Learn(javascript)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/11/Appium-Learn(python)/">Appium 自动化测试(python3)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/13/Jenkins-install-and-usage/">Jenkins 的安装与使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/11/Mac-crontab/">Mac 创建定时任务</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/08/Mongo-DB/">MongoDB</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2020 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

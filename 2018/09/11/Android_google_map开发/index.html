@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Android Google Map 开发 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="记录 Android_google开发 相关的过程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Google Map 开发">
+<meta property="og:url" content="http://example.com/2018/09/11/Android_google_map%E5%BC%80%E5%8F%91/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="记录 Android_google开发 相关的过程">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/assets/imgs/Android/Snip20180911_11.png">
+<meta property="og:image" content="http://example.com/assets/imgs/Android/Screenshot_20180911-162321.png">
+<meta property="og:image" content="http://example.com/assets/imgs/Android/Screenshot_20180911-165421.png">
+<meta property="article:published_time" content="2018-09-11T09:46:19.000Z">
+<meta property="article:modified_time" content="2018-10-24T09:09:05.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Android">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/assets/imgs/Android/Snip20180911_11.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Android_google_map开发" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/09/11/Android_google_map%E5%BC%80%E5%8F%91/" class="article-date">
+  <time class="dt-published" datetime="2018-09-11T09:46:19.000Z" itemprop="datePublished">2018-09-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Android Google Map 开发
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>记录 Android_google开发 相关的过程</p>
+</blockquote>
+<a id="more"></a>
+
+
+<h2 id="1-参考"><a href="#1-参考" class="headerlink" title="1.参考"></a><a href="#references">1.参考</a></h2><h2 id="2-Google-例子"><a href="#2-Google-例子" class="headerlink" title="2.Google 例子"></a><a href="#google_map_demo">2.Google 例子</a></h2><h2 id="3-取得当前位置的经纬度"><a href="#3-取得当前位置的经纬度" class="headerlink" title="3.取得当前位置的经纬度"></a><a href="#get_current_location">3.取得当前位置的经纬度</a></h2><h2 id="4-国内国外地图切换"><a href="#4-国内国外地图切换" class="headerlink" title="4.国内国外地图切换"></a><a href="#amap_switch">4.国内国外地图切换</a></h2><hr>
+<hr>
+<hr>
+<h2 id="1-参考-1"><a href="#1-参考-1" class="headerlink" title="1.参考"></a>1.参考<a name="references"/></h2><ul>
+<li><a target="_blank" rel="noopener" href="https://developers.google.com/maps/documentation/android-sdk/start">1.Maps SDK for Android:Get Started</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/googlemaps/android-samples">2.GitHub:Google Maps Android API v2 Samples</a></li>
+<li><a target="_blank" rel="noopener" href="https://lbs.amap.com/dev/demo/switch-map#Android">3.高德:国内国外地图切换</a></li>
+</ul>
+<hr>
+<h2 id="2-Google-例子-1"><a href="#2-Google-例子-1" class="headerlink" title="2.Google 例子"></a>2.Google 例子<a name="google_map_demo"/></h2><blockquote>
+<p>记录 Google maps Demo 的搭建过程.</p>
+</blockquote>
+<ul>
+<li>1.从 <a target="_blank" rel="noopener" href="https://github.com/googlemaps/android-samples">GitHub google maps 下载 DEMO</a></li>
+<li>2.用 AS 打开 <code>DEMO</code> 中的 <code>ApiDemos/java</code> 项目(因为我们只要开发 java 环境下的 手机端 map)</li>
+<li>3.到 <a target="_blank" rel="noopener" href="https://console.developers.google.com/">Google Maps 控制台</a> 去申请一个 <code>API KEY</code>,然后填入项目 <code>AndroidManifest.xml</code> 中.<ul>
+<li>1.过程中需要用到 <code>DEBUG</code> 和 <code>RELEASE</code> 的 <code>SHA-1</code>,具体的方法请查看: <a target="_blank" rel="noopener" href="https://developers.google.com/maps/documentation/android-sdk/signup">Get API Key</a></li>
+<li>2.相关的图片:<img src="/assets/imgs/Android/Snip20180911_11.png" width="80%" height="80%"></li>
+<li>3.把得到的 KEY 填入 <code>AndroidManifest.xml</code> 的 <code>android:name=&quot;com.google.android.geo.API_KEY</code> 中…..</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="3-取得当前位置的经纬度-1"><a href="#3-取得当前位置的经纬度-1" class="headerlink" title="3.取得当前位置的经纬度"></a>3.取得当前位置的经纬度<a name="get_current_location"/></h2><h4 id="1-相关的包的导入"><a href="#1-相关的包的导入" class="headerlink" title="1.相关的包的导入"></a>1.相关的包的导入</h4><blockquote>
+<p>不要在 <code>build.gradle</code> 中直接导入 <code>compile &#39;com.google.android.gms:play-services:9.0.1&#39;</code> ,因为 Android 的项目有 <code>65535</code> 的限制,要根据需要导入必要的包: 如:</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">compile &#39;com.google.android.gms:play-services-maps:9.0.1&#39;</span><br><span class="line">compile &#39;com.google.android.gms:play-services-location:9.0.1&#39;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/25370598/cant-import-com-google-android-gms-location-locationservices">1.参考1</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.google.com/android/guides/setup#add_google_play_services_to_your_project">2.参考2</a></li>
+</ul>
+<h4 id="2-获取当前位置的代码-相关的-GitHub-源码"><a href="#2-获取当前位置的代码-相关的-GitHub-源码" class="headerlink" title="2.获取当前位置的代码,相关的 GitHub 源码:"></a>2.获取当前位置的代码,<a target="_blank" rel="noopener" href="https://github.com/ghzjtian/android-samples">相关的 GitHub 源码</a>:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br></pre></td><td class="code"><pre><span class="line">package com.example.mapdemo;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">import android.content.pm.PackageManager;</span><br><span class="line">import android.location.Location;</span><br><span class="line">import android.support.annotation.NonNull;</span><br><span class="line">import android.support.annotation.Nullable;</span><br><span class="line">import android.support.v4.app.ActivityCompat;</span><br><span class="line">import android.support.v4.app.FragmentActivity;</span><br><span class="line">import android.os.Bundle;</span><br><span class="line">import android.support.v7.app.AppCompatActivity;</span><br><span class="line">import android.util.Log;</span><br><span class="line">import android.view.View;</span><br><span class="line">import android.widget.Toast;</span><br><span class="line"></span><br><span class="line">import com.google.android.gms.common.ConnectionResult;</span><br><span class="line">import com.google.android.gms.common.api.GoogleApiClient;</span><br><span class="line">import com.google.android.gms.location.FusedLocationProviderClient;</span><br><span class="line">import com.google.android.gms.location.LocationServices;</span><br><span class="line">import com.google.android.gms.maps.CameraUpdateFactory;</span><br><span class="line">import com.google.android.gms.maps.GoogleMap;</span><br><span class="line">import com.google.android.gms.maps.OnMapReadyCallback;</span><br><span class="line">import com.google.android.gms.maps.SupportMapFragment;</span><br><span class="line">import com.google.android.gms.maps.model.LatLng;</span><br><span class="line">import com.google.android.gms.maps.model.Marker;</span><br><span class="line">import com.google.android.gms.maps.model.MarkerOptions;</span><br><span class="line">import com.google.android.gms.tasks.OnSuccessListener;</span><br><span class="line"></span><br><span class="line">public class GetMyLocationDemoActivity extends AppCompatActivity implements OnMapReadyCallback,</span><br><span class="line">        GoogleApiClient.ConnectionCallbacks,</span><br><span class="line">        GoogleApiClient.OnConnectionFailedListener,</span><br><span class="line">        GoogleMap.OnMarkerDragListener,</span><br><span class="line">        GoogleMap.OnMapLongClickListener,</span><br><span class="line">        GoogleMap.OnMarkerClickListener,</span><br><span class="line">        View.OnClickListener &#123;</span><br><span class="line"></span><br><span class="line">    private static final String TAG &#x3D; &quot;MapsActivity&quot;;</span><br><span class="line">    private GoogleMap mMap;</span><br><span class="line">    private double longitude;</span><br><span class="line">    private double latitude;</span><br><span class="line">    private GoogleApiClient googleApiClient;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.my_location_demo);</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; Obtain the SupportMapFragment and get notified when the map is ready to be used.</span><br><span class="line">        SupportMapFragment mapFragment &#x3D; (SupportMapFragment) getSupportFragmentManager()</span><br><span class="line">                .findFragmentById(R.id.map);</span><br><span class="line">        mapFragment.getMapAsync(this);</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F;Initializing googleApiClient</span><br><span class="line">        googleApiClient &#x3D; new GoogleApiClient.Builder(this)</span><br><span class="line">                .addConnectionCallbacks(this)</span><br><span class="line">                .addOnConnectionFailedListener(this)</span><br><span class="line">                .addApi(LocationServices.API)</span><br><span class="line">                .build();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onMapReady(GoogleMap googleMap) &#123;</span><br><span class="line">        mMap &#x3D; googleMap;</span><br><span class="line">        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);</span><br><span class="line">        &#x2F;&#x2F; googleMapOptions.mapType(googleMap.MAP_TYPE_HYBRID)</span><br><span class="line">        &#x2F;&#x2F;    .compassEnabled(true);</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; Add a marker in Sydney and move the camera</span><br><span class="line">        LatLng india &#x3D; new LatLng(-34, 151);</span><br><span class="line">        mMap.addMarker(new MarkerOptions().position(india).title(&quot;Marker in India&quot;));</span><br><span class="line">        mMap.moveCamera(CameraUpdateFactory.newLatLng(india));</span><br><span class="line">        mMap.setOnMarkerDragListener(this);</span><br><span class="line">        mMap.setOnMapLongClickListener(this);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;Getting current location</span><br><span class="line">    private void getCurrentLocation() &#123;</span><br><span class="line">        mMap.clear();</span><br><span class="line">        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) !&#x3D; PackageManager.PERMISSION_GRANTED &amp;&amp; ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) !&#x3D; PackageManager.PERMISSION_GRANTED) &#123;</span><br><span class="line">            &#x2F;&#x2F; TODO: Consider calling</span><br><span class="line">            &#x2F;&#x2F;    ActivityCompat#requestPermissions</span><br><span class="line">            &#x2F;&#x2F; here to request the missing permissions, and then overriding</span><br><span class="line">            &#x2F;&#x2F;   public void onRequestPermissionsResult(int requestCode, String[] permissions,</span><br><span class="line">            &#x2F;&#x2F;                                          int[] grantResults)</span><br><span class="line">            &#x2F;&#x2F; to handle the case where the user grants the permission. See the documentation</span><br><span class="line">            &#x2F;&#x2F; for ActivityCompat#requestPermissions for more details.</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">&#x2F;&#x2F;        Location location &#x3D; LocationServices.FusedLocationApi.getLastLocation(googleApiClient);</span><br><span class="line">&#x2F;&#x2F;        if (location !&#x3D; null) &#123;</span><br><span class="line">&#x2F;&#x2F;            &#x2F;&#x2F;Getting longitude and latitude</span><br><span class="line">&#x2F;&#x2F;            longitude &#x3D; location.getLongitude();</span><br><span class="line">&#x2F;&#x2F;            latitude &#x3D; location.getLatitude();</span><br><span class="line">&#x2F;&#x2F;</span><br><span class="line">&#x2F;&#x2F;            &#x2F;&#x2F;moving the map to location</span><br><span class="line">&#x2F;&#x2F;            moveMap();</span><br><span class="line">&#x2F;&#x2F;        &#125;</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F;参考:  https:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;46481789&#x2F;android-locationservices-fusedlocationapi-deprecated</span><br><span class="line">        FusedLocationProviderClient mFusedLocationClient &#x3D; LocationServices.getFusedLocationProviderClient(this);</span><br><span class="line"></span><br><span class="line">        mFusedLocationClient.getLastLocation()</span><br><span class="line">                .addOnSuccessListener(this, new OnSuccessListener&lt;Location&gt;() &#123;</span><br><span class="line">                    @Override</span><br><span class="line">                    public void onSuccess(Location location) &#123;</span><br><span class="line">                        &#x2F;&#x2F; Got last known location. In some rare situations, this can be null.</span><br><span class="line">                        if (location !&#x3D; null) &#123;</span><br><span class="line">                            Log.w(TAG,&quot;location,Latitude:&quot;+location.getLatitude()+&quot; Longtitude:&quot;+location.getLongitude());</span><br><span class="line">                            &#x2F;&#x2F; Logic to handle location object</span><br><span class="line">                            &#x2F;&#x2F;Getting longitude and latitude</span><br><span class="line">                            longitude &#x3D; location.getLongitude();</span><br><span class="line">                            latitude &#x3D; location.getLatitude();</span><br><span class="line"></span><br><span class="line">                            &#x2F;&#x2F;moving the map to location</span><br><span class="line">                            moveMap();</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private void moveMap() &#123;</span><br><span class="line">        &#x2F;**</span><br><span class="line">         * Creating the latlng object to store lat, long coordinates</span><br><span class="line">         * adding marker to map</span><br><span class="line">         * move the camera with animation</span><br><span class="line">         *&#x2F;</span><br><span class="line">        LatLng latLng &#x3D; new LatLng(latitude, longitude);</span><br><span class="line">        mMap.addMarker(new MarkerOptions()</span><br><span class="line">                .position(latLng)</span><br><span class="line">                .draggable(true)</span><br><span class="line">                .title(&quot;Marker in India&quot;));</span><br><span class="line"></span><br><span class="line">        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));</span><br><span class="line">        mMap.animateCamera(CameraUpdateFactory.zoomTo(15));</span><br><span class="line">        mMap.getUiSettings().setZoomControlsEnabled(true);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onClick(View view) &#123;</span><br><span class="line">        Log.v(TAG, &quot;view click event&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onConnected(@Nullable Bundle bundle) &#123;</span><br><span class="line">        getCurrentLocation();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onConnectionSuspended(int i) &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onMapLongClick(LatLng latLng) &#123;</span><br><span class="line">        &#x2F;&#x2F; mMap.clear();</span><br><span class="line">        mMap.addMarker(new MarkerOptions().position(latLng).draggable(true));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onMarkerDragStart(Marker marker) &#123;</span><br><span class="line">        Toast.makeText(GetMyLocationDemoActivity.this, &quot;onMarkerDragStart&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onMarkerDrag(Marker marker) &#123;</span><br><span class="line">        Toast.makeText(GetMyLocationDemoActivity.this, &quot;onMarkerDrag&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onMarkerDragEnd(Marker marker) &#123;</span><br><span class="line">        &#x2F;&#x2F; getting the Co-ordinates</span><br><span class="line">        latitude &#x3D; marker.getPosition().latitude;</span><br><span class="line">        longitude &#x3D; marker.getPosition().longitude;</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F;move to current position</span><br><span class="line">        moveMap();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void onStart() &#123;</span><br><span class="line">        googleApiClient.connect();</span><br><span class="line">        super.onStart();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void onStop() &#123;</span><br><span class="line">        googleApiClient.disconnect();</span><br><span class="line">        super.onStop();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public boolean onMarkerClick(Marker marker) &#123;</span><br><span class="line">        Toast.makeText(GetMyLocationDemoActivity.this, &quot;onMarkerClick&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-发现-google-map-地图的坐标在国内显示有偏差"><a href="#3-发现-google-map-地图的坐标在国内显示有偏差" class="headerlink" title="3.发现 google map 地图的坐标在国内显示有偏差"></a>3.发现 google map 地图的坐标在国内显示有偏差</h3><ul>
+<li>1.原因及解决的方法:<ul>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c39a2c72dc65">1.地图坐标转换（火星、谷歌、百度、腾讯、高德等坐标）</a></li>
+</ul>
+</li>
+<li>2.转换前后的对比:<ul>
+<li>1.转换前:<img src="/assets/imgs/Android/Screenshot_20180911-162321.png" width="50%" height="50%">
+* 2.转换后:
+<img src="/assets/imgs/Android/Screenshot_20180911-165421.png" width="50%" height="50%">
+
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="4-国内国外地图切换-1"><a href="#4-国内国外地图切换-1" class="headerlink" title="4.国内国外地图切换"></a>4.国内国外地图切换<a name="amap_switch"/></h2><ul>
+<li>1.参考 <a target="_blank" rel="noopener" href="https://lbs.amap.com/dev/demo/switch-map#Android">高德 国内国外地图切换</a></li>
+<li><a target="_blank" rel="noopener" href="https://sxgfxm.github.io/blog/2016/10/19/iospan-duan-gpszuo-biao-shi-fou-zai-zhong-guo/">2.参考: iOS判断GPS坐标是否在中国</a></li>
+<li><a target="_blank" rel="noopener" href="https://lbs.amap.com/api/android-location-sdk/guide/additional-func/amap-calculate-tool">3.高德:坐标转换与位置判断(更加的准确)</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/09/11/Android_google_map%E5%BC%80%E5%8F%91/" data-id="ckiske0190020bo66fycebj1q" data-title="Android Google Map 开发" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/" rel="tag">Android</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/10/10/iOS%E5%9B%BE%E5%BD%A2%E7%9A%84%E6%8F%8F%E7%BB%98/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          iOS图形的描绘
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/09/11/iOS%E5%9C%B0%E5%9B%BE/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">iOS地图</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Angular/">Angular</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/BLE/">BLE</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CI/">CI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/DB/">DB</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/H5/">H5</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MicroSoft/">MicroSoft</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Office/">Office</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Travel/">Travel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Xamarin/">Xamarin</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/auto-test/">auto-test</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/data/">data</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/frontend/">frontend</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/google/">google</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javaScript/">javaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/postman/">postman</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/speedtest/">speedtest</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ss/">ss</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/word/">word</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E6%9D%82/">日杂</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/" rel="tag">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BLE/" rel="tag">BLE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CI/" rel="tag">CI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DB/" rel="tag">DB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/" rel="tag">H5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MicroSoft/" rel="tag">MicroSoft</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Office/" rel="tag">Office</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Travel/" rel="tag">Travel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xamarin/" rel="tag">Xamarin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auto-test/" rel="tag">auto-test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data/" rel="tag">data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postman/" rel="tag">postman</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ss/" rel="tag">ss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/word/" rel="tag">word</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E6%9D%82/" rel="tag">日杂</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag">虚拟机</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 19px;">Android</a> <a href="/tags/Angular/" style="font-size: 18px;">Angular</a> <a href="/tags/BLE/" style="font-size: 11px;">BLE</a> <a href="/tags/CI/" style="font-size: 10px;">CI</a> <a href="/tags/DB/" style="font-size: 10px;">DB</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/H5/" style="font-size: 10px;">H5</a> <a href="/tags/Linux/" style="font-size: 17px;">Linux</a> <a href="/tags/Mac/" style="font-size: 20px;">Mac</a> <a href="/tags/MicroSoft/" style="font-size: 10px;">MicroSoft</a> <a href="/tags/Office/" style="font-size: 10px;">Office</a> <a href="/tags/Travel/" style="font-size: 15px;">Travel</a> <a href="/tags/Xamarin/" style="font-size: 13px;">Xamarin</a> <a href="/tags/auto-test/" style="font-size: 12px;">auto-test</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/data/" style="font-size: 11px;">data</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/iOS/" style="font-size: 16px;">iOS</a> <a href="/tags/javaScript/" style="font-size: 10px;">javaScript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/php/" style="font-size: 14px;">php</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/ss/" style="font-size: 13px;">ss</a> <a href="/tags/word/" style="font-size: 10px;">word</a> <a href="/tags/%E6%97%A5%E6%9D%82/" style="font-size: 12px;">日杂</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 10px;">虚拟机</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/16/Appium-Learn(javascript)/">Appium-Learn(javascript)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/11/Appium-Learn(python)/">Appium 自动化测试(python3)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/13/Jenkins-install-and-usage/">Jenkins 的安装与使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/11/Mac-crontab/">Mac 创建定时任务</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/08/Mongo-DB/">MongoDB</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2020 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

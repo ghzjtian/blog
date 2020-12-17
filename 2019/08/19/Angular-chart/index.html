@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Angular 图表的使用 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Angular 中对图表使用的记录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Angular 图表的使用">
+<meta property="og:url" content="http://example.com/2019/08/19/Angular-chart/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Angular 中对图表使用的记录">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-08-19T09:46:19.000Z">
+<meta property="article:modified_time" content="2019-12-09T10:22:39.648Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Angular">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Angular-chart" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/08/19/Angular-chart/" class="article-date">
+  <time class="dt-published" datetime="2019-08-19T09:46:19.000Z" itemprop="datePublished">2019-08-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Angular/">Angular</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Angular 图表的使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Angular 中对图表使用的记录</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="1-JavaScript-Chart"><a href="#1-JavaScript-Chart" class="headerlink" title="1.JavaScript Chart"></a><a href="#javascript_chart">1.JavaScript Chart</a></h2><h2 id="2-Angular-Charts"><a href="#2-Angular-Charts" class="headerlink" title="2.Angular Charts"></a><a href="#angular_chart">2.Angular Charts</a></h2><h2 id="3-使用中出现的问题"><a href="#3-使用中出现的问题" class="headerlink" title="3.使用中出现的问题"></a><a href="#issues">3.使用中出现的问题</a></h2><hr>
+<hr>
+<hr>
+<h2 id="1-JavaScript-Chart-1"><a href="#1-JavaScript-Chart-1" class="headerlink" title="1.JavaScript Chart"></a>1.JavaScript Chart<a name="javascript_chart"/></h2><h4 id="1-Google-Charts"><a href="#1-Google-Charts" class="headerlink" title="1.Google Charts"></a>1.<a target="_blank" rel="noopener" href="https://github.com/FERNman/angular-google-charts">Google Charts</a></h4><h4 id="2-Jvectormap-区域性地图"><a href="#2-Jvectormap-区域性地图" class="headerlink" title="2.Jvectormap(区域性地图)"></a>2.Jvectormap(区域性地图)</h4><h5 id="1-参考"><a href="#1-参考" class="headerlink" title="1.参考:"></a>1.参考:</h5><ul>
+<li>1.<a target="_blank" rel="noopener" href="https://github.com/StephanWagner/svgMap">https://github.com/StephanWagner/svgMap</a></li>
+<li>2.<a target="_blank" rel="noopener" href="https://github.com/bjornd/jvectormap">bjornd/jvectormap</a></li>
+<li>3.<a target="_blank" rel="noopener" href="https://github.com/HelloWuJiaYi/jVectorMap-Footprint">教你用 jVectorMap 制作属于自己的旅行足迹</a></li>
+</ul>
+<h5 id="2-在-Angular-中导入-Jvectormap"><a href="#2-在-Angular-中导入-Jvectormap" class="headerlink" title="2.在 Angular 中导入 Jvectormap"></a>2.在 Angular 中导入 Jvectormap</h5><ul>
+<li>1.在 <code>index.html</code> 中导入必要的文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;.&#x2F;assets&#x2F;js&#x2F;jquery-1.9.1.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;.&#x2F;assets&#x2F;js&#x2F;jquery-jvectormap.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;link href&#x3D;&quot;.&#x2F;assets&#x2F;js&#x2F;jquery-jvectormap.min.css&quot; rel&#x3D;&quot;stylesheet&quot; media&#x3D;&quot;screen&quot;&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;.&#x2F;assets&#x2F;js&#x2F;jquery-jvectormap-world-mill.js&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>2.在需要导入的 html 写入以下代码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;div id&#x3D;&quot;world-map&quot; style&#x3D;&quot;width: 100%; height: 100%&quot;  &gt;&lt;&#x2F;div&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>3.然后在 component 中导入 Jvectormap 即可</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line">declare var jQuery: any;</span><br><span class="line">export class WorldMapComponent implements OnInit &#123;</span><br><span class="line">	private  readonly MAP_VIEW_ID &#x3D; &#39;#world-map&#39;;</span><br><span class="line"></span><br><span class="line"> public initVectorChart(regionsData: any, vectorMapConfig: IVectorMapConfigBean) &#123;</span><br><span class="line"></span><br><span class="line">    jQuery(this.MAP_VIEW_ID).vectorMap(&#123;</span><br><span class="line">      map: &#39;world_mill&#39;,</span><br><span class="line">      series: &#123;</span><br><span class="line">        regions: [&#123;</span><br><span class="line">          values: regionsData, &#x2F;&#x2F; Map&#39;s data</span><br><span class="line">          scale: [&#39;#ffffff&#39;, &#39;#4CA858&#39;], &#x2F;&#x2F; color</span><br><span class="line">          normalizeFunction: &#39;polynomial&#39;</span><br><span class="line"></span><br><span class="line">        &#125;]</span><br><span class="line">      &#125;,</span><br><span class="line">      &#x2F;&#x2F; show the tip when mouse hover</span><br><span class="line">      onRegionTipShow: function(e, el, code) &#123;</span><br><span class="line">        &#x2F;&#x2F; [jvectormap-tip](https:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;10664969&#x2F;jvectormap-label-is-not-visible-why)</span><br><span class="line">        &#x2F;&#x2F; CSS: https:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;38656092&#x2F;jvector-map-how-to-change-the-size-of-tooltip-which-are-shown-when-mouse-cursor</span><br><span class="line">        if (regionsData[code]) &#123;</span><br><span class="line">          el.html(&#96;$&#123;el.html()&#125;: $&#123;regionsData[code] &#125;&#96;).css(&quot;fontSize&quot;,&quot;16px&quot;).css(&quot;border-radius&quot;,&quot;1em&quot;).css(&quot;background&quot;,&quot;white&quot;).css(&quot;color&quot;,&quot;black&quot;);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">          el.html(&#96;$&#123;el.html()&#125;&#96;).css(&quot;fontSize&quot;,&quot;16px&quot;).css(&quot;border-radius&quot;,&quot;1em&quot;).css(&quot;background&quot;,&quot;white&quot;).css(&quot;color&quot;,&quot;black&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#x2F;&#x2F; When the region is click, move the camera to the region.</span><br><span class="line">      onRegionClick: function(e,  code,  isSelected,  selectedRegions) &#123;</span><br><span class="line">        jQuery(&#39;#world-map&#39;).vectorMap(&#39;get&#39;,&#39;mapObject&#39;).setFocus(&#123;region: code, animate: true&#125;);</span><br><span class="line">        vectorMapConfig.regionCode &#x3D; code;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#x2F;&#x2F; Get the scale innformation when zoom</span><br><span class="line">      onViewportChange: function( e,  scale) &#123;</span><br><span class="line">        vectorMapConfig.zoomScale &#x3D; scale;</span><br><span class="line">      &#125;,</span><br><span class="line"></span><br><span class="line">      backgroundColor: &#39;#B1C8EF&#39;, &#x2F;&#x2F; Ocean color</span><br><span class="line">      zoomMin: 1,</span><br><span class="line">      zoomMax: 10,</span><br><span class="line">      focusOn: &#123;region: vectorMapConfig.regionCode, animate: vectorMapConfig.isAnimate&#125;, &#x2F;&#x2F; zoom to the region when init</span><br><span class="line">      regionStyle: &#123;</span><br><span class="line">        initial: &#123;</span><br><span class="line">          fill: &#39;#F5F9FB&#39;,   &#x2F;&#x2F; sea default color</span><br><span class="line">          &quot;fill-opacity&quot;: 1, &#x2F;&#x2F;  Province should be hidden? 1:display, 2:hidden</span><br><span class="line">          stroke: &#39;none&#39;,</span><br><span class="line">          &quot;stroke-width&quot;: 0,</span><br><span class="line">          &quot;stroke-opacity&quot;: 1,</span><br><span class="line">        &#x2F;&#x2F; &#125;,</span><br><span class="line">        &#x2F;&#x2F; hover: &#123;</span><br><span class="line">          &#x2F;&#x2F; fill: &#39;#ffffff85&#39;,</span><br><span class="line">          &#x2F;&#x2F; &quot;fill-opacity&quot;: 0.8</span><br><span class="line">          &#x2F;&#x2F; &quot;fill-opacity&quot;: 0.8,</span><br><span class="line">          cursor: &#39;pointer&#39;</span><br><span class="line">        &#125;,</span><br><span class="line">        selected: &#123;</span><br><span class="line">          &#x2F;&#x2F; fill: &#39;yellow&#39;</span><br><span class="line">        &#125;,</span><br><span class="line">        selectedHover: &#123;&#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      regionLabelStyle: &#123;</span><br><span class="line">        initial: &#123;</span><br><span class="line">          fill: &#39;#B90E32&#39;</span><br><span class="line">        &#125;,</span><br><span class="line">        hover: &#123;</span><br><span class="line">          fill: &#39;black&#39;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#x2F;&#x2F; show the text which is still show on the region.</span><br><span class="line">      labels: &#123;</span><br><span class="line">        regions: &#123;</span><br><span class="line">          render: function(code) &#123;</span><br><span class="line">            return regionsData[code];</span><br><span class="line">          &#125;,</span><br><span class="line">          offsets: function(code) &#123;</span><br><span class="line">            return &#123;</span><br><span class="line">              &#39;FR&#39;: [60, -50],</span><br><span class="line">              &#39;AT&#39;: [3, 0],</span><br><span class="line">              &#39;NO&#39;: [-20, 30],</span><br><span class="line">              &#39;SE&#39;: [-5, 0],</span><br><span class="line">              &#39;DK&#39;: [-3, 0],</span><br><span class="line">              &#39;US&#39;: [-280, 30],</span><br><span class="line">            &#125;[code];</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-在-Angular-中导入-javascript-文件"><a href="#3-在-Angular-中导入-javascript-文件" class="headerlink" title="3.在 Angular 中导入 javascript 文件"></a>3.在 Angular 中导入 javascript 文件</h4><ul>
+<li>1.<a target="_blank" rel="noopener" href="https://www.truecodex.com/course/angular-6/how-to-use-external-js-files-and-javascript-code-in-angular">How to use external JS files and JavaScript code in Angular 6/7</a></li>
+</ul>
+<h4 id="4-Leaflet-Map"><a href="#4-Leaflet-Map" class="headerlink" title="4.Leaflet Map"></a>4.<a target="_blank" rel="noopener" href="https://leafletjs.com/">Leaflet Map</a></h4><hr>
+<h2 id="2-Angular-Charts-1"><a href="#2-Angular-Charts-1" class="headerlink" title="2.Angular Charts"></a>2.Angular Charts<a name="angular_chart"/></h2><ul>
+<li><p>1.<a target="_blank" rel="noopener" href="https://medium.com/@alphacoder/angular-4-chart-library-8571c2ef50e4">Angular 4 Chart library</a></p>
+</li>
+<li><p>2.<a target="_blank" rel="noopener" href="https://github.com/swimlane/ngx-charts">https://github.com/swimlane/ngx-charts</a></p>
+</li>
+<li><p>3.<a target="_blank" rel="noopener" href="https://valor-software.com/ng2-charts/#LineChart">ng2-charts</a></p>
+<ul>
+<li>1.<a target="_blank" rel="noopener" href="https://github.com/valor-software/ng2-charts">Github:ng2-charts</a></li>
+<li>2.<a target="_blank" rel="noopener" href="https://www.chartjs.org/docs/latest/general/colors.html">Chart.js docs</a></li>
+<li>3.<a target="_blank" rel="noopener" href="https://stackblitz.com/edit/ng2-charts-line-template-alysmu?file=src/app/app.component.ts">Line demo</a></li>
+</ul>
+</li>
+<li><p>4.<a target="_blank" rel="noopener" href="https://google-developers.appspot.com/chart/interactive/docs/">Google Chart</a></p>
+<ul>
+<li>1.<a target="_blank" rel="noopener" href="http://anthonygiretti.com/2017/10/12/using-google-charts-in-angular-4-project-part-2/">Using Google Charts in Angular 4 project, part 2</a>    * 2.<a target="_blank" rel="noopener" href="https://developers.google.com/chart/interactive/docs/gallery/geochart">GEO Charts(账号需要信用卡去做绑定)</a></li>
+<li>3.<a target="_blank" rel="noopener" href="https://github.com/FERNman/angular-google-charts">GitHub:angular-google-charts</a></li>
+</ul>
+</li>
+<li><p>5.<a target="_blank" rel="noopener" href="https://developers.google.com/maps/documentation">Google Map</a></p>
+<ul>
+<li>1.<a target="_blank" rel="noopener" href="https://medium.com/@balramchavan/integrating-google-maps-in-angular-5-ca5f68009f29">Integrating Google Maps in Angular 6</a></li>
+<li>2.<a target="_blank" rel="noopener" href="https://github.com/SebastianM/angular-google-maps">Angular 包:SebastianM/angular-google-maps</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="3-使用中出现的问题-1"><a href="#3-使用中出现的问题-1" class="headerlink" title="3.使用中出现的问题"></a>3.使用中出现的问题<a name="issues"/></h2><ul>
+<li>1.<a target="_blank" rel="noopener" href="https://github.com/valor-software/ng2-charts/issues/535">出现 <code>Can&#39;t bind to &#39;datasets&#39; since it isn&#39;t a known property of &#39;base-chart&#39;.</code> 问题</a><ul>
+<li>1.如果是在子 Module 中使用，就需要在子 Module 中导入，如我的子 Module 为 <code>HomeModule</code> , 根 Module 为 <code>AppModule</code> ,则在 <code>HomeModule</code> 中写入 <code>  imports: [ ChartsModule, ]</code></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/08/19/Angular-chart/" data-id="ckiske01l002nbo66fhw5asqj" data-title="Angular 图表的使用" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/" rel="tag">Angular</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/08/21/H5%E5%AD%A6%E4%B9%A0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          HTML + CSS 学习记录
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/18/Angular-OIDC/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Angular 集成 OIDC 认证库</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Angular/">Angular</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/BLE/">BLE</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CI/">CI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/DB/">DB</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/H5/">H5</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MicroSoft/">MicroSoft</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Office/">Office</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Travel/">Travel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Xamarin/">Xamarin</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/auto-test/">auto-test</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/data/">data</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/frontend/">frontend</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/google/">google</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javaScript/">javaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/postman/">postman</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/speedtest/">speedtest</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ss/">ss</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/word/">word</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E6%9D%82/">日杂</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/" rel="tag">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BLE/" rel="tag">BLE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CI/" rel="tag">CI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DB/" rel="tag">DB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/" rel="tag">H5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MicroSoft/" rel="tag">MicroSoft</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Office/" rel="tag">Office</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Travel/" rel="tag">Travel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xamarin/" rel="tag">Xamarin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auto-test/" rel="tag">auto-test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data/" rel="tag">data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postman/" rel="tag">postman</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ss/" rel="tag">ss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/word/" rel="tag">word</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E6%9D%82/" rel="tag">日杂</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag">虚拟机</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 19px;">Android</a> <a href="/tags/Angular/" style="font-size: 18px;">Angular</a> <a href="/tags/BLE/" style="font-size: 11px;">BLE</a> <a href="/tags/CI/" style="font-size: 10px;">CI</a> <a href="/tags/DB/" style="font-size: 10px;">DB</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/H5/" style="font-size: 10px;">H5</a> <a href="/tags/Linux/" style="font-size: 17px;">Linux</a> <a href="/tags/Mac/" style="font-size: 20px;">Mac</a> <a href="/tags/MicroSoft/" style="font-size: 10px;">MicroSoft</a> <a href="/tags/Office/" style="font-size: 10px;">Office</a> <a href="/tags/Travel/" style="font-size: 15px;">Travel</a> <a href="/tags/Xamarin/" style="font-size: 13px;">Xamarin</a> <a href="/tags/auto-test/" style="font-size: 12px;">auto-test</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/data/" style="font-size: 11px;">data</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/iOS/" style="font-size: 16px;">iOS</a> <a href="/tags/javaScript/" style="font-size: 10px;">javaScript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/php/" style="font-size: 14px;">php</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/ss/" style="font-size: 13px;">ss</a> <a href="/tags/word/" style="font-size: 10px;">word</a> <a href="/tags/%E6%97%A5%E6%9D%82/" style="font-size: 12px;">日杂</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 10px;">虚拟机</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/16/Appium-Learn(javascript)/">Appium-Learn(javascript)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/11/Appium-Learn(python)/">Appium 自动化测试(python3)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/13/Jenkins-install-and-usage/">Jenkins 的安装与使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/11/Mac-crontab/">Mac 创建定时任务</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/08/Mongo-DB/">MongoDB</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2020 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

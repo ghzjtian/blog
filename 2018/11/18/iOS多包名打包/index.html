@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>iOS多包名打包 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="1.背景">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS多包名打包">
+<meta property="og:url" content="http://example.com/2018/11/18/iOS%E5%A4%9A%E5%8C%85%E5%90%8D%E6%89%93%E5%8C%85/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.背景">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/assets/imgs/iOS/multi_package/Snip20181119_11.png">
+<meta property="og:image" content="http://example.com/assets/imgs/iOS/multi_package/Snip20181119_10.png">
+<meta property="og:image" content="http://example.com/assets/imgs/iOS/multi_package/Snip20181119_13.png">
+<meta property="og:image" content="http://example.com/assets/imgs/iOS/multi_package/Snip20181119_5.png">
+<meta property="og:image" content="http://example.com/assets/imgs/iOS/multi_package/Snip20181119_2.png">
+<meta property="og:image" content="http://example.com/assets/imgs/iOS/multi_package/Snip20181119_14.png">
+<meta property="og:image" content="http://example.com/assets/imgs/iOS/multi_package/Snip20181119_8.png">
+<meta property="og:image" content="http://example.com/assets/imgs/iOS/multi_package/Snip20181119_6.png">
+<meta property="og:image" content="http://example.com/assets/imgs/iOS/multi_package/Snip20181119_7.png">
+<meta property="og:image" content="http://example.com/assets/imgs/iOS/multi_package/Snip20181119_19.png">
+<meta property="og:image" content="http://example.com/assets/imgs/iOS/multi_package/Snip20181119_16.png">
+<meta property="og:image" content="http://example.com/assets/imgs/iOS/multi_package/Snip20181119_17.png">
+<meta property="og:image" content="http://example.com/assets/imgs/iOS/multi_package/Snip20181119_18.png">
+<meta property="og:image" content="http://example.com/assets/imgs/iOS/multi_package/Snip20181119_22.png">
+<meta property="og:image" content="http://example.com/assets/imgs/iOS/multi_package/Snip20181119_13.png">
+<meta property="og:image" content="http://example.com/assets/imgs/iOS/multi_package/Snip20181119_30.png">
+<meta property="og:image" content="http://example.com/assets/imgs/iOS/multi_package/Snip20181119_31.png">
+<meta property="og:image" content="http://example.com/assets/imgs/iOS/multi_package/Snip20181119_29.png">
+<meta property="og:image" content="http://example.com/assets/imgs/iOS/multi_package/Snip20181119_26.png">
+<meta property="og:image" content="http://example.com/assets/imgs/iOS/multi_package/Snip20181119_27.png">
+<meta property="og:image" content="http://example.com/assets/imgs/iOS/multi_package/Snip20181119_28.png">
+<meta property="article:published_time" content="2018-11-18T09:46:19.000Z">
+<meta property="article:modified_time" content="2019-07-16T02:48:04.343Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="iOS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/assets/imgs/iOS/multi_package/Snip20181119_11.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-iOS多包名打包" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/11/18/iOS%E5%A4%9A%E5%8C%85%E5%90%8D%E6%89%93%E5%8C%85/" class="article-date">
+  <time class="dt-published" datetime="2018-11-18T09:46:19.000Z" itemprop="datePublished">2018-11-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      iOS多包名打包
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="1-背景"><a href="#1-背景" class="headerlink" title="1.背景"></a><a href="#background_ifo">1.背景</a></h2><a id="more"></a>
+<h2 id="2-在-workspace-下建立多个-Projects"><a href="#2-在-workspace-下建立多个-Projects" class="headerlink" title="2.在 workspace 下建立多个 Projects"></a><a href="#multi_project">2.在 workspace 下建立多个 Projects</a></h2><h2 id="3-根据环境的不同，打包多个版本的-app"><a href="#3-根据环境的不同，打包多个版本的-app" class="headerlink" title="3.根据环境的不同，打包多个版本的 app"></a><a href="#multi_configuration">3.根据环境的不同，打包多个版本的 app</a></h2><h2 id="4-根据环境不同，新建多个-Target"><a href="#4-根据环境不同，新建多个-Target" class="headerlink" title="4.根据环境不同，新建多个 Target"></a><a href="#multi_target">4.根据环境不同，新建多个 Target</a></h2><h2 id="5-相关的源码地址为"><a href="#5-相关的源码地址为" class="headerlink" title="5.相关的源码地址为:"></a>5.相关的源码地址为:</h2><ul>
+<li>1.<a href="git@github.com:ghzjtian/generated_multi_iOS.git">https://github.com/ghzjtian/generated_multi_iOS</a></li>
+</ul>
+<h2 id="6-多人共用一个证书"><a href="#6-多人共用一个证书" class="headerlink" title="6.多人共用一个证书"></a><a href="#multi_user_public">6.多人共用一个证书</a></h2><hr>
+<hr>
+<hr>
+<h2 id="1-背景-1"><a href="#1-背景-1" class="headerlink" title="1.背景"></a>1.背景<a name="background_ifo"/></h2><ul>
+<li>1.相同的 <code>Project</code> 源码 ,想要打包多个 APP , APP 间有 icon,主题，相关的 label 的不同，其他的逻辑代码都一样.</li>
+</ul>
+<hr>
+<h2 id="2-在-workspace-下建立多个-Projects-1"><a href="#2-在-workspace-下建立多个-Projects-1" class="headerlink" title="2.在 workspace 下建立多个 Projects"></a>2.在 workspace 下建立多个 Projects<a name="multi_project"/></h2><h4 id="1-参考"><a href="#1-参考" class="headerlink" title="1.参考:"></a>1.参考:</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e3cfae830985">1.iOS用workspace和cocoapods管理多个项目</a></li>
+</ul>
+<hr>
+<h2 id="3-根据环境的不同，打包多个版本的-app-1"><a href="#3-根据环境的不同，打包多个版本的-app-1" class="headerlink" title="3.根据环境的不同，打包多个版本的 app"></a>3.根据环境的不同，打包多个版本的 app<a name="multi_configuration"/></h2><h4 id="1-参考-1"><a href="#1-参考-1" class="headerlink" title="1.参考:"></a>1.参考:</h4><ul>
+<li>1.<a target="_blank" rel="noopener" href="https://medium.com/@kavithakumarasamy89/xcode-build-settings-user-defined-settings-manage-multiple-environments-with-single-target-3e5c1a307999">Xcode Build Settings — User Defined Settings — iOS Manage multiple configuration and environments with Single target</a></li>
+</ul>
+<h4 id="2-详细的过程"><a href="#2-详细的过程" class="headerlink" title="2.详细的过程:"></a>2.详细的过程:</h4><ul>
+<li>1.先添加一个 <code>配置环境</code> <ul>
+<li>1.如这里就在  <code>Project/Info</code> 的 <code>Configurations</code> 下,添加了一个 <code>Testing</code> 测试环境的配置.</li>
+</ul>
+</li>
+</ul>
+<img src="/assets/imgs/iOS/multi_package/Snip20181119_11.png" width="70%" height="70%">
+
+<ul>
+<li><p>2.在 <code>Target/BuildSettings</code> 下添加用户自定义的信息.</p>
+<ul>
+<li>1.在 <code>APP/TARGETS/Build Settings</code> 中，添加一个 <code>User-Defined Settings</code>,如这里就添加了 <code>mAPP_BUILD_NUMBER</code>,<code>mAPP_BUNDLE_IDNETIFIER</code>,<code>mAPP_SERVER_URL</code> 等等的信息资料.</li>
+</ul>
+</li>
+</ul>
+<img src="/assets/imgs/iOS/multi_package/Snip20181119_10.png" width="70%" height="70%">
+
+<ul>
+<li>3.在 <code>Info.plist</code> 中，把相关的在 <code>BuildSettings</code> 下的设置做关联:</li>
+</ul>
+<img src="/assets/imgs/iOS/multi_package/Snip20181119_13.png" width="70%" height="70%">
+
+<ul>
+<li>4.同理在 <code>TARGETS/General/Identity </code> 下也一样要与 <code>BuildSettings </code> 关联:</li>
+</ul>
+<img src="/assets/imgs/iOS/multi_package/Snip20181119_5.png" width="70%" height="70%">
+
+<pre><code>* 注意 `Bundle Identifier` 在这里关联没用，要在 `Build Settings/Product Bundle Identifier` 做关联才行 !! 如下图:</code></pre>
+<img src="/assets/imgs/iOS/multi_package/Snip20181119_2.png" width="70%" height="70%">
+<img src="/assets/imgs/iOS/multi_package/Snip20181119_14.png" width="70%" height="70%">
+
+<pre><code>* 可以看到有所改变，如果没有的话，点去其他页面再点回来，这样刷新一下即可</code></pre>
+<img src="/assets/imgs/iOS/multi_package/Snip20181119_8.png" width="70%" height="70%">
+
+<ul>
+<li>5.在 <code>ViewController</code> 中，获取设置的值:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">NSBundle *bundle &#x3D; [NSBundle mainBundle];</span><br><span class="line"> &#x2F;&#x2F;bundle identifier</span><br><span class="line"> NSString *bundleIdentifier &#x3D; [bundle bundleIdentifier];</span><br><span class="line"> &#x2F;&#x2F;display name</span><br><span class="line"> NSString *displayName &#x3D; [bundle objectForInfoDictionaryKey:@&quot;CFBundleDisplayName&quot;];</span><br><span class="line"> &#x2F;&#x2F;Version String</span><br><span class="line"> NSString *versionStr &#x3D; [bundle objectForInfoDictionaryKey:@&quot;CFBundleShortVersionString&quot;];</span><br><span class="line"> &#x2F;&#x2F;Version Build number</span><br><span class="line"> NSString *buildNumber &#x3D; [bundle objectForInfoDictionaryKey:@&quot;CFBundleVersion&quot;];</span><br><span class="line"> &#x2F;&#x2F;APP SERVER URL</span><br><span class="line"> NSString *serverUrl &#x3D; [bundle objectForInfoDictionaryKey:@&quot;ServerURL&quot;];</span><br><span class="line">  </span><br><span class="line"> _titleLb.text&#x3D;[NSString stringWithFormat:@&quot;%@&quot;,displayName];</span><br><span class="line"> _showLb.text &#x3D; [NSString stringWithFormat:@&quot;bundle ID:%@,\nversionStr:%@,\nbuildNumber:%@,\nserverUrl:%@&quot;,bundleIdentifier,versionStr,buildNumber,serverUrl];</span><br><span class="line"> </span><br><span class="line"> NSLog(@&quot;bundle ID:%@,\ndisplayName:%@,\nversionStr:%@,\nbuildNumber:%@,\nserverUrl:%@&quot;,bundleIdentifier,displayName,versionStr,buildNumber,serverUrl);</span><br><span class="line"> </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>6.在运行前，先到 <code>Edit Scheme</code> 中，选择不同的 <code>Build Configuration</code>,然后运行查看效果图:</li>
+</ul>
+<img src="/assets/imgs/iOS/multi_package/Snip20181119_6.png" width="70%" height="70%">
+<img src="/assets/imgs/iOS/multi_package/Snip20181119_7.png" width="70%" height="70%">
+    * 在手机上的效果图
+<img src="/assets/imgs/iOS/multi_package/Snip20181119_19.png" width="70%" height="70%">
+        *  ~
+<img src="/assets/imgs/iOS/multi_package/Snip20181119_16.png" width="70%" height="70%">
+        *  ~
+<img src="/assets/imgs/iOS/multi_package/Snip20181119_17.png" width="70%" height="70%">
+        *  ~
+<img src="/assets/imgs/iOS/multi_package/Snip20181119_18.png" width="70%" height="70%">
+
+
+
+<hr>
+<h2 id="4-根据环境不同，新建多个-Target-1"><a href="#4-根据环境不同，新建多个-Target-1" class="headerlink" title="4.根据环境不同，新建多个 Target"></a>4.根据环境不同，新建多个 Target<a name="multi_target"/></h2><blockquote>
+<p>上一步基本结决了不同的环境下，释放出不同的 APP (如 Debug,Test,Release) 版本，但是如果是想要改变不同的 icon,device orientation 等等的参数，可能就后劲不足了,下面主要讲解通过新建 <code>Target</code> 解决这种问题.</p>
+</blockquote>
+<h4 id="1-参考-2"><a href="#1-参考-2" class="headerlink" title="1.参考:"></a>1.参考:</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://medium.com/@andersongusmao/xcode-targets-with-multiples-build-configuration-90a575ddc687">1.Xcode “Targets” with multiple build configurations</a><ul>
+<li>1.<a target="_blank" rel="noopener" href="https://github.com/heuristisk/hkScopum">相关的 Source code</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="2-步骤"><a href="#2-步骤" class="headerlink" title="2.步骤:"></a>2.步骤:</h4><ul>
+<li>1.右键点击,新建一个 <code>Target</code> 为 <code>Green</code></li>
+</ul>
+<img src="/assets/imgs/iOS/multi_package/Snip20181119_22.png" width="70%" height="70%">
+
+<ul>
+<li>2.设置 <code>Green</code> 的 <code>General</code> 和  <code>Build Settings</code> 的信息:</li>
+</ul>
+<img src="/assets/imgs/iOS/multi_package/Snip20181119_13.png" width="70%" height="70%">
+<img src="/assets/imgs/iOS/multi_package/Snip20181119_30.png" width="70%" height="70%">
+<img src="/assets/imgs/iOS/multi_package/Snip20181119_31.png" width="70%" height="70%">
+
+<ul>
+<li>3.效果图:</li>
+</ul>
+<img src="/assets/imgs/iOS/multi_package/Snip20181119_29.png" width="70%" height="70%">
+
+<hr>
+<img src="/assets/imgs/iOS/multi_package/Snip20181119_26.png" width="70%" height="70%">
+
+<hr>
+<img src="/assets/imgs/iOS/multi_package/Snip20181119_27.png" width="70%" height="70%">
+
+<hr>
+<img src="/assets/imgs/iOS/multi_package/Snip20181119_28.png" width="70%" height="70%">
+
+<ul>
+<li>4.如果需要在代码中判断是哪个 APP ,可以设置一个 <code>Macro</code> ,然后在需要的地方判断即可,如:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;定义一个判断的 宏</span><br><span class="line">#define IS_GREEN_APP [[[NSBundle mainBundle] bundleIdentifier] containsString:@&quot;com.glb.Green&quot;]</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;在有需要的地方判断</span><br><span class="line">if(IS_GREEN_APP)&#123;</span><br><span class="line">    NSLog(@&quot;The APP is Green Guide APP&quot;);</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    NSLog(@&quot;The APP is Cramer APP&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="6-多人共用一个证书-1"><a href="#6-多人共用一个证书-1" class="headerlink" title="6.多人共用一个证书"></a>6.多人共用一个证书<a name="multi_user_public"/></h2><ul>
+<li>1.参考 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/837d64356dac">如何导出 p12 文件</a></li>
+<li>2.通过安装了导出来的 <code>.p12</code> 文件，即可在本电脑打包并发布 APP. </li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/11/18/iOS%E5%A4%9A%E5%8C%85%E5%90%8D%E6%89%93%E5%8C%85/" data-id="ckiske04o009rbo669coj5eu8" data-title="iOS多包名打包" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/11/20/Mac%E4%B8%8A%E4%B8%83%E7%89%9B%E4%BA%91%E7%9A%84%E7%94%A8%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Mac上七牛云的用法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/11/16/Android%E5%A4%9A%E7%89%88%E6%9C%AC%E6%89%93%E5%8C%85/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Android多版本打包</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Angular/">Angular</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/BLE/">BLE</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CI/">CI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/DB/">DB</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/H5/">H5</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MicroSoft/">MicroSoft</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Office/">Office</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Travel/">Travel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Xamarin/">Xamarin</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/auto-test/">auto-test</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/data/">data</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/frontend/">frontend</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/google/">google</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javaScript/">javaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/postman/">postman</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/speedtest/">speedtest</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ss/">ss</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/word/">word</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E6%9D%82/">日杂</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/" rel="tag">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BLE/" rel="tag">BLE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CI/" rel="tag">CI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DB/" rel="tag">DB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/" rel="tag">H5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MicroSoft/" rel="tag">MicroSoft</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Office/" rel="tag">Office</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Travel/" rel="tag">Travel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xamarin/" rel="tag">Xamarin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auto-test/" rel="tag">auto-test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data/" rel="tag">data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postman/" rel="tag">postman</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ss/" rel="tag">ss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/word/" rel="tag">word</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E6%9D%82/" rel="tag">日杂</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag">虚拟机</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 19px;">Android</a> <a href="/tags/Angular/" style="font-size: 18px;">Angular</a> <a href="/tags/BLE/" style="font-size: 11px;">BLE</a> <a href="/tags/CI/" style="font-size: 10px;">CI</a> <a href="/tags/DB/" style="font-size: 10px;">DB</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/H5/" style="font-size: 10px;">H5</a> <a href="/tags/Linux/" style="font-size: 17px;">Linux</a> <a href="/tags/Mac/" style="font-size: 20px;">Mac</a> <a href="/tags/MicroSoft/" style="font-size: 10px;">MicroSoft</a> <a href="/tags/Office/" style="font-size: 10px;">Office</a> <a href="/tags/Travel/" style="font-size: 15px;">Travel</a> <a href="/tags/Xamarin/" style="font-size: 13px;">Xamarin</a> <a href="/tags/auto-test/" style="font-size: 12px;">auto-test</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/data/" style="font-size: 11px;">data</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/iOS/" style="font-size: 16px;">iOS</a> <a href="/tags/javaScript/" style="font-size: 10px;">javaScript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/php/" style="font-size: 14px;">php</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/ss/" style="font-size: 13px;">ss</a> <a href="/tags/word/" style="font-size: 10px;">word</a> <a href="/tags/%E6%97%A5%E6%9D%82/" style="font-size: 12px;">日杂</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 10px;">虚拟机</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/16/Appium-Learn(javascript)/">Appium-Learn(javascript)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/11/Appium-Learn(python)/">Appium 自动化测试(python3)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/13/Jenkins-install-and-usage/">Jenkins 的安装与使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/11/Mac-crontab/">Mac 创建定时任务</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/08/Mongo-DB/">MongoDB</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2020 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

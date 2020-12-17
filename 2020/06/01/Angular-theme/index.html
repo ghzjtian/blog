@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Angular 自定义主题 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Angular 的主题能影响到 Angular Material 所有控件的颜色显示状况.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Angular 自定义主题">
+<meta property="og:url" content="http://example.com/2020/06/01/Angular-theme/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Angular 的主题能影响到 Angular Material 所有控件的颜色显示状况.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://pic.pgyjz.cn/blog/Angular/Xnip2020-06-04_10-53-07.png">
+<meta property="og:image" content="http://pic.pgyjz.cn/blog/Angular/Xnip2020-06-04_11-29-02.png">
+<meta property="og:image" content="http://pic.pgyjz.cn/blog/Angular/Xnip2020-06-04_14-02-10.png">
+<meta property="article:published_time" content="2020-06-01T09:46:19.000Z">
+<meta property="article:modified_time" content="2020-06-05T03:34:36.631Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Angular">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://pic.pgyjz.cn/blog/Angular/Xnip2020-06-04_10-53-07.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Angular-theme" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/06/01/Angular-theme/" class="article-date">
+  <time class="dt-published" datetime="2020-06-01T09:46:19.000Z" itemprop="datePublished">2020-06-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Angular/">Angular</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Angular 自定义主题
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Angular 的主题能影响到 Angular Material 所有控件的颜色显示状况.</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="1-参考"><a href="#1-参考" class="headerlink" title="1.参考"></a><a href="#references">1.参考</a></h2><h2 id="2-自定义一个简单的主题"><a href="#2-自定义一个简单的主题" class="headerlink" title="2.自定义一个简单的主题"></a><a href="#define-new-theme">2.自定义一个简单的主题</a></h2><h2 id="3-新增特殊情况下的主题"><a href="#3-新增特殊情况下的主题" class="headerlink" title="3.新增特殊情况下的主题"></a><a href="#add-special-theme">3.新增特殊情况下的主题</a></h2><h2 id="4-黑白主题的切换"><a href="#4-黑白主题的切换" class="headerlink" title="4.黑白主题的切换"></a><a href="#light-dark-theme-switch">4.黑白主题的切换</a></h2><h2 id="5-自定义多一种颜色"><a href="#5-自定义多一种颜色" class="headerlink" title="5.自定义多一种颜色"></a><a href="#define-new-color">5.自定义多一种颜色</a></h2><h2 id="6-多个主题的切换"><a href="#6-多个主题的切换" class="headerlink" title="6.多个主题的切换"></a><a href="#multi-theme-switch">6.多个主题的切换</a></h2><h2 id="7-自定义文字排版"><a href="#7-自定义文字排版" class="headerlink" title="7.自定义文字排版"></a><a href="#custom-typography">7.自定义文字排版</a></h2><hr>
+<hr>
+<hr>
+<h2 id="1-参考-1"><a href="#1-参考-1" class="headerlink" title="1.参考"></a>1.参考<a name="references"/></h2><ul>
+<li>1.<a target="_blank" rel="noopener" href="https://www.positronx.io/create-angular-material-8-custom-theme/">https://www.positronx.io/create-angular-material-8-custom-theme/</a></li>
+<li>2.<a target="_blank" rel="noopener" href="https://material.angular.cn/guide/theming">设置 Angular Material 应用的主题</a></li>
+<li>3.<a target="_blank" rel="noopener" href="https://material.io/resources/color/">Material COLOR TOOL</a></li>
+</ul>
+<h2 id="2-自定义一个简单的主题-1"><a href="#2-自定义一个简单的主题-1" class="headerlink" title="2.自定义一个简单的主题"></a>2.自定义一个简单的主题<a name="define-new-theme"/></h2><h4 id="1-新建一个-custom-material-theme-scss-文件，写入自定义的主题颜色"><a href="#1-新建一个-custom-material-theme-scss-文件，写入自定义的主题颜色" class="headerlink" title="1.新建一个 custom-material-theme.scss 文件，写入自定义的主题颜色"></a>1.新建一个 <code>custom-material-theme.scss</code> 文件，写入自定义的主题颜色</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">@import &#39;~@angular&#x2F;material&#x2F;theming&#39;;</span><br><span class="line">@include mat-core();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 自定义一个颜色模板</span><br><span class="line">$mat-custom-green: (</span><br><span class="line">  50: #e8f5e9,</span><br><span class="line">  100: #c8e6c9,</span><br><span class="line">  200: #a5d6a7,</span><br><span class="line">  300: #81c784,</span><br><span class="line">  400: #66bb6a,</span><br><span class="line">  500: #4caf50,</span><br><span class="line">  600: #43a047,</span><br><span class="line">  700: #388e3c,</span><br><span class="line">  800: #2e7d32,</span><br><span class="line">  900: #1b5e20,</span><br><span class="line">  A100: #b9f6ca,</span><br><span class="line">  A200: #69f0ae,</span><br><span class="line">  A400: #00e676,</span><br><span class="line">  A700: #00c853,</span><br><span class="line">  contrast: (</span><br><span class="line">    50: $dark-primary-text,</span><br><span class="line">    100: $dark-primary-text,</span><br><span class="line">    200: $dark-primary-text,</span><br><span class="line">    300: $dark-primary-text,</span><br><span class="line">    400: $dark-primary-text,</span><br><span class="line">    500: $light-primary-text,</span><br><span class="line">    600: $light-primary-text,</span><br><span class="line">    700: $light-primary-text,</span><br><span class="line">    800: $light-primary-text,</span><br><span class="line">    900: $light-primary-text,</span><br><span class="line">    A100: $dark-primary-text,</span><br><span class="line">    A200: $light-primary-text,</span><br><span class="line">    A400: $light-primary-text,</span><br><span class="line">    A700: $light-primary-text,</span><br><span class="line">  )</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; $mat-indigo 为 Angular 官方提前定义好的颜色模板, 路径在 &#96;node_modules&#x2F;@angular&#x2F;material&#x2F;_theming.scss&#96;</span><br><span class="line">$candy-app-primary: mat-palette($mat-indigo);</span><br><span class="line">$candy-app-accent: mat-palette($mat-pink);</span><br><span class="line">$candy-app-warn:    mat-palette($mat-custom-green, 400, 50, 900);</span><br><span class="line"></span><br><span class="line">$candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; All materil</span><br><span class="line">@include angular-material-theme($candy-app-theme);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;&#x2F;&#x2F; Special materil</span><br><span class="line">&#x2F;&#x2F;&#x2F;&#x2F; Include the theme styles for only specified components.</span><br><span class="line">&#x2F;&#x2F; @include mat-core-theme($candy-app-theme);</span><br><span class="line">&#x2F;&#x2F; @include mat-button-theme($candy-app-theme);</span><br><span class="line">&#x2F;&#x2F; @include mat-checkbox-theme($candy-app-theme);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-在-angular-json-的-build-styles-加入-custom-material-theme-scss-的路径"><a href="#2-在-angular-json-的-build-styles-加入-custom-material-theme-scss-的路径" class="headerlink" title="2.在 angular.json 的 build/styles 加入 custom-material-theme.scss 的路径"></a>2.在 <code>angular.json</code> 的 <code>build/styles</code> 加入 <code>custom-material-theme.scss</code> 的路径</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&quot;styles&quot;: [</span><br><span class="line">     &quot;.&#x2F;node_modules&#x2F;@angular&#x2F;material&#x2F;prebuilt-themes&#x2F;indigo-pink.css&quot;, &#x2F;&#x2F; 导入默认的主题</span><br><span class="line">     &quot;src&#x2F;styles&#x2F;custom-material-theme.scss&quot;    &#x2F;&#x2F; 导入自定义的主题</span><br><span class="line">]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-查看自定义主题的效果"><a href="#3-查看自定义主题的效果" class="headerlink" title="3.查看自定义主题的效果"></a>3.查看自定义主题的效果</h4><blockquote>
+<p>如: Button 中的 文字及背景 颜色</p>
+</blockquote>
+<ul>
+<li>1.我们定义了 warn 颜色: <code>$candy-app-warn:    mat-palette($mat-custom-green, 400, 50, 900);</code></li>
+<li>2.<code>$mat-custom-green</code> 的定义为: </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">$dark-primary-text: rgba(black, 0.87);</span><br><span class="line">$light-primary-text: white;</span><br><span class="line"></span><br><span class="line">$mat-custom-green: (</span><br><span class="line">  50: #e8f5e9,</span><br><span class="line">  100: #c8e6c9,</span><br><span class="line">  200: #a5d6a7,</span><br><span class="line">  300: #81c784,</span><br><span class="line">  400: #66bb6a,</span><br><span class="line">  500: #4caf50,</span><br><span class="line">  600: #43a047,</span><br><span class="line">  700: #388e3c,</span><br><span class="line">  800: #2e7d32,</span><br><span class="line">  900: #1b5e20,</span><br><span class="line">  A100: #b9f6ca,</span><br><span class="line">  A200: #69f0ae,</span><br><span class="line">  A400: #00e676,</span><br><span class="line">  A700: #00c853,</span><br><span class="line">  contrast: (</span><br><span class="line">    50: $dark-primary-text,</span><br><span class="line">    100: $dark-primary-text,</span><br><span class="line">    200: $dark-primary-text,</span><br><span class="line">    300: $dark-primary-text,</span><br><span class="line">    400: $dark-primary-text,</span><br><span class="line">    500: $light-primary-text,</span><br><span class="line">    600: $light-primary-text,</span><br><span class="line">    700: $light-primary-text,</span><br><span class="line">    800: $light-primary-text,</span><br><span class="line">    900: $light-primary-text,</span><br><span class="line">    A100: $dark-primary-text,</span><br><span class="line">    A200: $light-primary-text,</span><br><span class="line">    A400: $light-primary-text,</span><br><span class="line">    A700: $light-primary-text,</span><br><span class="line">  )</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>3.则 <code>material button</code> 的颜色为 <code>#66bb6a</code> 或 <code>rgba(black, 0.87)</code> 如下图所示</li>
+</ul>
+<p><img src="http://pic.pgyjz.cn/blog/Angular/Xnip2020-06-04_10-53-07.png"></p>
+<h2 id="3-新增特殊情况下的主题-1"><a href="#3-新增特殊情况下的主题-1" class="headerlink" title="3.新增特殊情况下的主题"></a>3.新增特殊情况下的主题<a name="add-special-theme"/></h2><ul>
+<li>1.在 <code>custom-material-theme.scss</code> 下添加以下代码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; Add class</span><br><span class="line">.special-theme &#123;</span><br><span class="line">  $candy-alternate-primary: mat-palette($mat-green);</span><br><span class="line">  $candy-alternate-accent: mat-palette($mat-blue);</span><br><span class="line">  $candy-alternate-warn:    mat-palette($mat-yellow);</span><br><span class="line"></span><br><span class="line">  $candy-alternate-theme: mat-light-theme($candy-alternate-primary, $candy-alternate-accent, $candy-alternate-warn);</span><br><span class="line"></span><br><span class="line">  @include angular-material-theme($candy-alternate-theme);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>2.在 html 父类中添加 <code>alternate-theme1 </code> class.</li>
+<li>3.效果如下所示.</li>
+</ul>
+<p><img src="http://pic.pgyjz.cn/blog/Angular/Xnip2020-06-04_11-29-02.png"></p>
+<h2 id="4-黑白主题的切换-1"><a href="#4-黑白主题的切换-1" class="headerlink" title="4.黑白主题的切换."></a>4.黑白主题的切换.<a name="light-dark-theme-switch"/></h2><ul>
+<li>1.<a target="_blank" rel="noopener" href="https://medium.com/@PhilippKief/automatic-dark-mode-detection-in-angular-material-8342917885a0">Automatic Dark Mode Detection in Angular Material</a></li>
+<li>2.<a target="_blank" rel="noopener" href="https://medium.com/@svenbudak/how-to-implement-dark-light-mode-in-angular-mateiral-with-prefers-color-scheme-ce3e980e2ea5">How to implement dark / light mode in Angular Material with prefers-color-scheme</a></li>
+</ul>
+<h2 id="5-自定义多一种颜色-1"><a href="#5-自定义多一种颜色-1" class="headerlink" title="5.自定义多一种颜色"></a>5.自定义多一种颜色<a name="define-new-color"/></h2><h4 id="1-参考-2"><a href="#1-参考-2" class="headerlink" title="1.参考"></a>1.参考</h4><ul>
+<li>1.<a target="_blank" rel="noopener" href="https://stackoverflow.com/a/48015134/5237440">angular material design - add custom button color</a></li>
+<li>2.<a target="_blank" rel="noopener" href="https://stackblitz.com/edit/tian-angular-button-style?embed=1&file=app/button-types-example.css">Stackblitz: tian-angular-button-style</a></li>
+</ul>
+<blockquote>
+<p>(除了 <code>primary/accent/warn</code> 外.)</p>
+</blockquote>
+<h4 id="2-步骤"><a href="#2-步骤" class="headerlink" title="2.步骤"></a>2.步骤</h4><ul>
+<li>1.在 <code>custom-material-theme.scss</code> 中添加 <code>success</code> color.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 定义</span><br><span class="line">@mixin success-palette &#123;</span><br><span class="line">	.mat-button,</span><br><span class="line">	.mat-stroked-button,</span><br><span class="line">	.mat-icon-button&#123;</span><br><span class="line">	  &amp;.mat-success &#123;</span><br><span class="line">	    color: #155724;</span><br><span class="line">	  &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	.mat-raised-button,</span><br><span class="line">	.mat-flat-button,</span><br><span class="line">	.mat-fab,</span><br><span class="line">	.mat-mini-fab&#123;</span><br><span class="line">	  &amp;.mat-success&#123;</span><br><span class="line">	    color: #f0fff3;</span><br><span class="line">	    background-color: #155724;</span><br><span class="line">	  &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; When is Disable</span><br><span class="line">  $default-disable-bg-color: rgba(0,0,0,.12);</span><br><span class="line"></span><br><span class="line">  .mat-button,</span><br><span class="line">  .mat-stroked-button,</span><br><span class="line">  .mat-icon-button&#123;</span><br><span class="line">    &amp;.mat-success[disabled]&#123;</span><br><span class="line">      color: $default-disable-bg-color;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  .mat-raised-button,</span><br><span class="line">  .mat-flat-button,</span><br><span class="line">  .mat-fab,</span><br><span class="line">  .mat-mini-fab&#123;</span><br><span class="line">    &amp;.mat-success[disabled]&#123;</span><br><span class="line">        color: rgba(0,0,0,.26);</span><br><span class="line">        background-color: $default-disable-bg-color;</span><br><span class="line">        background-image: linear-gradient($default-disable-bg-color, $default-disable-bg-color);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#x2F;&#x2F; 导入</span><br><span class="line">@include success-palette;</span><br><span class="line">  </span><br><span class="line">  &#x2F;&#x2F; 如果是有 特殊情况下的主题, 如上面的步骤三，在特殊主题的类里面也添加, 如</span><br><span class="line">  </span><br><span class="line">	.special-theme &#123;</span><br><span class="line">	  $candy-alternate-primary: mat-palette($mat-green);</span><br><span class="line">	  $candy-alternate-accent: mat-palette($mat-blue);</span><br><span class="line">	  $candy-alternate-warn:    mat-palette($mat-yellow);</span><br><span class="line">	</span><br><span class="line">	  $candy-alternate-theme: mat-light-theme($candy-alternate-primary, $candy-alternate-accent, $candy-alternate-warn);</span><br><span class="line">	</span><br><span class="line">	  @include angular-material-theme($candy-alternate-theme);</span><br><span class="line">	  </span><br><span class="line">	  @include success-palette;</span><br><span class="line">	&#125;</span><br><span class="line">  </span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>2.在 html 中的使用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button mat-flat-button color&#x3D;&quot;success&quot;&gt;Success&lt;&#x2F;button&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>3.效果如下</li>
+</ul>
+<p><img src="http://pic.pgyjz.cn/blog/Angular/Xnip2020-06-04_14-02-10.png"></p>
+<h2 id="6-多个主题的切换-1"><a href="#6-多个主题的切换-1" class="headerlink" title="6.多个主题的切换."></a>6.多个主题的切换.<a name="multi-theme-switch"/></h2><ul>
+<li>1.<a target="_blank" rel="noopener" href="https://medium.com/grensesnittet/dynamic-themes-in-angular-material-b6dc0c88dfd7">Dynamic themes in Angular Material</a></li>
+<li>2.<a target="_blank" rel="noopener" href="https://angular-material-switch-themes-by-toggle.stackblitz.io/">Theme Change Demo</a></li>
+</ul>
+<h2 id="7-自定义文字排版-1"><a href="#7-自定义文字排版-1" class="headerlink" title="7.自定义文字排版"></a>7.自定义文字排版<a name="custom-typography"/></h2><ul>
+<li>1.<a target="_blank" rel="noopener" href="https://material.angular.cn/guide/theming-your-components">使用 Angular Material 的主题体系为自定义组件应用主题</a></li>
+<li>2.<a target="_blank" rel="noopener" href="https://material.angular.cn/guide/typography">Angular Material 的排版</a></li>
+</ul>
+<h4 id="1-增加一个文件-custom-typography-scss，里面定义-Material-排版的情况-如"><a href="#1-增加一个文件-custom-typography-scss，里面定义-Material-排版的情况-如" class="headerlink" title="1.增加一个文件 custom-typography.scss，里面定义 Material 排版的情况, 如:"></a>1.增加一个文件 <code>custom-typography.scss</code>，里面定义 Material 排版的情况, 如:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; custom-typography.scss</span><br><span class="line"></span><br><span class="line">@import &#39;~@angular&#x2F;material&#x2F;theming&#39;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Set the button&#39;s font style</span><br><span class="line">$custom-button-typography-level: mat-typography-level(</span><br><span class="line">  $font-size: 14px,</span><br><span class="line">  $font-weight: 400</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Define a custom typography config that overrides the font-family</span><br><span class="line">$custom-typography-config: mat-typography-config(</span><br><span class="line">  $font-family: &#39;&quot;Helvetica Neue&quot;, Helvetica, cursive&#39;,</span><br><span class="line">    $button: $custom-button-typography-level</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-在-custom-material-theme-scss-中引入-custom-typography-scss"><a href="#2-在-custom-material-theme-scss-中引入-custom-typography-scss" class="headerlink" title="2.在 custom-material-theme.scss 中引入 custom-typography.scss"></a>2.在 <code>custom-material-theme.scss</code> 中引入 <code>custom-typography.scss</code></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@import &quot;.&#x2F;materials&#x2F;custom-typography&quot;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;&#x2F;&#x2F; Override typography CSS classes (e.g., mat-h1, mat-display-1, mat-typography, etc.).</span><br><span class="line">&#x2F;&#x2F;@include mat-base-typography($custom-typography);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;&#x2F;&#x2F; Override typography for a specific Angular Material components.</span><br><span class="line">&#x2F;&#x2F;@include mat-checkbox-typography($custom-typography);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Override typography for all Angular Material, including mat-base-typography and all components.</span><br><span class="line">@include angular-material-typography($custom-typography-config);</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/06/01/Angular-theme/" data-id="ckiske01p002zbo66d2z62yv0" data-title="Angular 自定义主题" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/" rel="tag">Angular</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/06/08/Mongo-DB/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          MongoDB
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/13/Angular_Material_customize/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Angular Material 自定义效果</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Angular/">Angular</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/BLE/">BLE</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CI/">CI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/DB/">DB</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/H5/">H5</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MicroSoft/">MicroSoft</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Office/">Office</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Travel/">Travel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Xamarin/">Xamarin</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/auto-test/">auto-test</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/data/">data</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/frontend/">frontend</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/google/">google</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javaScript/">javaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/postman/">postman</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/speedtest/">speedtest</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ss/">ss</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/word/">word</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E6%9D%82/">日杂</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/" rel="tag">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BLE/" rel="tag">BLE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CI/" rel="tag">CI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DB/" rel="tag">DB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/" rel="tag">H5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MicroSoft/" rel="tag">MicroSoft</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Office/" rel="tag">Office</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Travel/" rel="tag">Travel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xamarin/" rel="tag">Xamarin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auto-test/" rel="tag">auto-test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data/" rel="tag">data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postman/" rel="tag">postman</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ss/" rel="tag">ss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/word/" rel="tag">word</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E6%9D%82/" rel="tag">日杂</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag">虚拟机</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 19px;">Android</a> <a href="/tags/Angular/" style="font-size: 18px;">Angular</a> <a href="/tags/BLE/" style="font-size: 11px;">BLE</a> <a href="/tags/CI/" style="font-size: 10px;">CI</a> <a href="/tags/DB/" style="font-size: 10px;">DB</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/H5/" style="font-size: 10px;">H5</a> <a href="/tags/Linux/" style="font-size: 17px;">Linux</a> <a href="/tags/Mac/" style="font-size: 20px;">Mac</a> <a href="/tags/MicroSoft/" style="font-size: 10px;">MicroSoft</a> <a href="/tags/Office/" style="font-size: 10px;">Office</a> <a href="/tags/Travel/" style="font-size: 15px;">Travel</a> <a href="/tags/Xamarin/" style="font-size: 13px;">Xamarin</a> <a href="/tags/auto-test/" style="font-size: 12px;">auto-test</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/data/" style="font-size: 11px;">data</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/iOS/" style="font-size: 16px;">iOS</a> <a href="/tags/javaScript/" style="font-size: 10px;">javaScript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/php/" style="font-size: 14px;">php</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/ss/" style="font-size: 13px;">ss</a> <a href="/tags/word/" style="font-size: 10px;">word</a> <a href="/tags/%E6%97%A5%E6%9D%82/" style="font-size: 12px;">日杂</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 10px;">虚拟机</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/16/Appium-Learn(javascript)/">Appium-Learn(javascript)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/11/Appium-Learn(python)/">Appium 自动化测试(python3)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/13/Jenkins-install-and-usage/">Jenkins 的安装与使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/11/Mac-crontab/">Mac 创建定时任务</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/08/Mongo-DB/">MongoDB</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2020 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

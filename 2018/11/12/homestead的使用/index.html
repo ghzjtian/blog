@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Homestead 的使用 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="主要记录下 Homestead 的使用方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Homestead 的使用">
+<meta property="og:url" content="http://example.com/2018/11/12/homestead%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="主要记录下 Homestead 的使用方法">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-11-12T09:46:19.000Z">
+<meta property="article:modified_time" content="2018-11-16T07:27:40.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="php">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-homestead的使用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/11/12/homestead%E7%9A%84%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time class="dt-published" datetime="2018-11-12T09:46:19.000Z" itemprop="datePublished">2018-11-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/php/">php</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Homestead 的使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>主要记录下 <code>Homestead</code> 的使用方法</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="1-参考"><a href="#1-参考" class="headerlink" title="1.参考"></a><a href="#referances">1.参考</a></h2><h2 id="2-ssh-连接"><a href="#2-ssh-连接" class="headerlink" title="2.ssh 连接"></a><a href="#ssh_connect">2.ssh 连接</a></h2><h2 id="3-上传文件到服务器"><a href="#3-上传文件到服务器" class="headerlink" title="3.上传文件到服务器"></a><a href="#upload_file">3.上传文件到服务器</a></h2><h2 id="4-mysql-的操作"><a href="#4-mysql-的操作" class="headerlink" title="4.mysql 的操作"></a><a href="#mysql_usage">4.mysql 的操作</a></h2><h2 id="5-MongoDB-的安装"><a href="#5-MongoDB-的安装" class="headerlink" title="5.MongoDB 的安装"></a><a href="#mongoDB_install">5.MongoDB 的安装</a></h2><h2 id="6-相关的问题"><a href="#6-相关的问题" class="headerlink" title="6.相关的问题"></a><a href="#related_issues">6.相关的问题</a></h2><hr>
+<hr>
+<hr>
+<h2 id="1-参考-1"><a href="#1-参考-1" class="headerlink" title="1.参考"></a>1.参考<a name="referances"/></h2><ul>
+<li><a target="_blank" rel="noopener" href="https://laravel-china.org/docs/laravel/5.7/homestead/2245#8875b6">1.Laravel Homestead 5.7 中文文档</a></li>
+</ul>
+<hr>
+<h2 id="2-ssh-连接-1"><a href="#2-ssh-连接-1" class="headerlink" title="2.ssh 连接"></a>2.ssh 连接<a name="ssh_connect"/></h2><ul>
+<li>1.在项目的目录下面，可以用 <code>vagrant ssh</code> 去进入到 Linux 虚拟机下面.</li>
+<li>2.在其他的路径的时候，通过 <code>ssh vagrant@192.168.10.10</code> 去连接,<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/29450404/is-there-a-default-password-to-connect-to-vagrant-when-using-homestead-ssh-for">详细参考这里</a>.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">$ ssh vagrant@192.168.10.10</span><br><span class="line">Welcome to Ubuntu 18.04.1 LTS (GNU&#x2F;Linux 4.15.0-32-generic x86_64)</span><br><span class="line"></span><br><span class="line"> * Documentation:  https:&#x2F;&#x2F;help.ubuntu.com</span><br><span class="line"> * Management:     https:&#x2F;&#x2F;landscape.canonical.com</span><br><span class="line"> * Support:        https:&#x2F;&#x2F;ubuntu.com&#x2F;advantage</span><br><span class="line"></span><br><span class="line">  System information as of Mon Nov 12 11:58:32 UTC 2018</span><br><span class="line"></span><br><span class="line">  System load:  0.0               Processes:           131</span><br><span class="line">  Usage of &#x2F;:   9.6% of 61.80GB   Users logged in:     1</span><br><span class="line">  Memory usage: 21%               IP address for eth0: 10.0.2.15</span><br><span class="line">  Swap usage:   0%                IP address for eth1: 192.168.10.10</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">285 packages can be updated.</span><br><span class="line">96 updates are security updates.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Last login: Mon Nov 12 11:32:02 2018 from 10.0.2.2</span><br><span class="line">vagrant@httpdocs:~$ exit</span><br><span class="line">logout</span><br><span class="line">Connection to 192.168.10.10 closed.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="3-上传文件到服务器-1"><a href="#3-上传文件到服务器-1" class="headerlink" title="3.上传文件到服务器"></a>3.上传文件到服务器<a name="upload_file"/></h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/no7dw/archive/2012/07/07/2580307.html">1.利用 <code>scp</code> 去上传文件</a>:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ scp &#x2F;Users&#x2F;glb_gz&#x2F;Desktop&#x2F;smarttec.sql vagrant@192.168.10.10:&#x2F;tmp</span><br><span class="line">smarttec.sql                                  100% 1556KB  54.1MB&#x2F;s   00:00    </span><br><span class="line">glb-gzdeMacBook-Pro:~ glb_gz$ </span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="4-mysql-的操作-1"><a href="#4-mysql-的操作-1" class="headerlink" title="4.mysql 的操作"></a>4.mysql 的操作<a name="mysql_usage"/></h2><ul>
+<li>1.用户名和密码分别为 <code>homestead</code>/<code>secret</code>,详见 <a target="_blank" rel="noopener" href="https://laravel-china.org/docs/laravel/5.7/homestead/2245#connecting-via-ssh">连接数据库</a>,相关的操作例子:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">vagrant@httpdocs:~$ mysql -u homestead -p</span><br><span class="line">Enter password: </span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection id is 5</span><br><span class="line">Server version: 5.7.23-0ubuntu0.18.04.1 (Ubuntu)</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2018, Oracle and&#x2F;or its affiliates. All rights reserved.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and&#x2F;or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.</span><br><span class="line"></span><br><span class="line">mysql&gt; </span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="5-MongoDB-的安装-1"><a href="#5-MongoDB-的安装-1" class="headerlink" title="5.MongoDB 的安装"></a>5.MongoDB 的安装<a name="mongoDB_install"/></h2><h4 id="1-参考-目前主要用-homestead-vagrant-去安装-mongodb"><a href="#1-参考-目前主要用-homestead-vagrant-去安装-mongodb" class="headerlink" title="1.参考(目前主要用 homestead vagrant 去安装 mongodb):"></a>1.参考(目前主要用 homestead vagrant 去安装 mongodb):</h4><ul>
+<li><p><a target="_blank" rel="noopener" href="https://laravel-china.org/docs/laravel/5.7/homestead/2245#installing-mongodb">1.HomeStead 中安装 MongoDB</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://medium.com/@williamvicary/installing-mongodb-on-homestead-3eb750dcc891">2.Installing MongoDB on Homestead</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.runoob.com/mongodb/mongodb-intro.html">3.PHP7 MongDB 安装与使用</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://silviu-s.com/mongodb-on-laravel-homestead-with-php-7/">4.MongoDB on Laravel Homestead with PHP 7(主要参考这个)</a></p>
+</li>
+<li><p>5.其他的一些信息</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/tutorial/install-mongodb-enterprise-on-ubuntu/">1.Install MongoDB Enterprise on Ubuntu</a></li>
+<li><a target="_blank" rel="noopener" href="http://php.net/manual/zh/mongo.sqltomongo.php">2.SQL 到 Mongo 的对应表 </a></li>
+<li><a target="_blank" rel="noopener" href="http://php.net/manual/zh/set.mongodb.php">3.MongoDB driver ¶</a></li>
+<li><a target="_blank" rel="noopener" href="http://php.net/manual/en/mongodb.tutorial.library.php#mongodb.tutorial.library">4.Using the PHP Library for MongoDB (PHPLIB) ¶</a></li>
+<li><a target="_blank" rel="noopener" href="http://zetcode.com/db/mongodbphp/">5.MongoDB PHP tutorial</a></li>
+<li><a target="_blank" rel="noopener" href="https://medium.com/@matthagemann/how-to-install-mongodb-3-6-on-ubuntu-17-10-ac0bc225e648">6.How to Install and Secure MongoDB 3.6 on Ubuntu 17.10</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="2-在-Homestead-yaml-中安装-mongodb"><a href="#2-在-Homestead-yaml-中安装-mongodb" class="headerlink" title="2.在 Homestead.yaml 中安装 mongodb :"></a>2.在 <code>Homestead.yaml</code> 中安装 <code>mongodb</code> :</h4><ul>
+<li>1.在 <code>Homestead.yaml</code> 中修改文件的配置,如:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">ip: 192.168.10.10</span><br><span class="line">memory: 2048</span><br><span class="line">cpus: 1</span><br><span class="line">provider: virtualbox</span><br><span class="line">authorize: ~&#x2F;.ssh&#x2F;id_rsa.pub</span><br><span class="line">keys:</span><br><span class="line">    - ~&#x2F;.ssh&#x2F;id_rsa</span><br><span class="line">folders:</span><br><span class="line">    -</span><br><span class="line">        map: &#x2F;Users&#x2F;glb_gz&#x2F;Documents&#x2F;php_workplace&#x2F;Test</span><br><span class="line">        to: &#x2F;home&#x2F;vagrant&#x2F;code</span><br><span class="line">sites:</span><br><span class="line">    -</span><br><span class="line">        map: homestead.test</span><br><span class="line">        to: &#x2F;home&#x2F;vagrant&#x2F;code&#x2F;public</span><br><span class="line"></span><br><span class="line">databases:</span><br><span class="line">    - homestead</span><br><span class="line"></span><br><span class="line">name: test</span><br><span class="line">hostname: test</span><br><span class="line">mongodb : true</span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<h4 id="3-SSH-进入-vagrant-后，执行下面的操作-就可以顺利安装好-MongoDB-了"><a href="#3-SSH-进入-vagrant-后，执行下面的操作-就可以顺利安装好-MongoDB-了" class="headerlink" title="3.SSH 进入 vagrant  后，执行下面的操作,就可以顺利安装好 MongoDB 了:"></a>3.SSH 进入 <code>vagrant </code> 后，执行下面的操作,就可以顺利安装好 <code>MongoDB</code> 了:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">$ ssh vagrant@192.168.10.10</span><br><span class="line">vagrant@test:&#x2F;usr&#x2F;local$ sudo apt-key adv --keyserver hkp:&#x2F;&#x2F;keyserver.ubuntu.com:80 --recv 7F0CEB10</span><br><span class="line">Executing: &#x2F;tmp&#x2F;apt-key-gpghome.raLrEy2Bnr&#x2F;gpg.1.sh --keyserver hkp:&#x2F;&#x2F;keyserver.ubuntu.com:80 --recv 7F0CEB10</span><br><span class="line">gpg: key 5F8F93707F0CEB10: public key &quot;Totally Legit Signing Key &lt;mallory@example.org&gt;&quot; imported</span><br><span class="line">gpg: key 9ECBEC467F0CEB10: 1 signature not checked due to a missing key</span><br><span class="line">gpg: key 9ECBEC467F0CEB10: public key &quot;Richard Kreuter &lt;richard@10gen.com&gt;&quot; imported</span><br><span class="line">gpg: Total number processed: 2</span><br><span class="line">gpg:               imported: 2</span><br><span class="line"></span><br><span class="line">vagrant@test:&#x2F;usr&#x2F;local$ echo &quot;deb http:&#x2F;&#x2F;repo.mongodb.org&#x2F;apt&#x2F;ubuntu &quot;$(lsb_release -sc)&quot;&#x2F;mongodb-org&#x2F;3.0 multiverse&quot; | sudo tee &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;mongodb-org-3.0.list</span><br><span class="line">deb http:&#x2F;&#x2F;repo.mongodb.org&#x2F;apt&#x2F;ubuntu bionic&#x2F;mongodb-org&#x2F;3.0 multiverse</span><br><span class="line">vagrant@test:&#x2F;usr&#x2F;local$ sudo apt-get update</span><br><span class="line">Hit:1 https:&#x2F;&#x2F;deb.nodesource.com&#x2F;node_8.x bionic InRelease</span><br><span class="line">vagrant@test:&#x2F;usr&#x2F;local$ sudo apt-get install -y mongodb-org</span><br><span class="line">Reading package lists... Done</span><br><span class="line">Building dependency tree       </span><br><span class="line">Reading state information... Done</span><br><span class="line">mongodb-org is already the newest version (3.6.9).</span><br><span class="line">0 upgraded, 0 newly installed, 0 to remove and 221 not upgraded.</span><br><span class="line">vagrant@test:&#x2F;usr&#x2F;local$ sudo pecl install mongodb</span><br><span class="line">WARNING: channel &quot;pecl.php.net&quot; has updated its protocols, use &quot;pecl channel-update pecl.php.net&quot; to update</span><br><span class="line">downloading mongodb-1.5.3.tgz ...</span><br><span class="line">...</span><br><span class="line">Build complete.</span><br><span class="line">Don&#39;t forget to run &#39;make test&#39;.</span><br><span class="line"></span><br><span class="line">running: make INSTALL_ROOT&#x3D;&quot;&#x2F;tmp&#x2F;pear&#x2F;temp&#x2F;pear-build-rootLH757y&#x2F;install-mongodb-1.5.3&quot; install</span><br><span class="line">Installing shared extensions:     &#x2F;tmp&#x2F;pear&#x2F;temp&#x2F;pear-build-rootLH757y&#x2F;install-mongodb-1.5.3&#x2F;usr&#x2F;lib&#x2F;php&#x2F;20170718&#x2F;</span><br><span class="line">running: find &quot;&#x2F;tmp&#x2F;pear&#x2F;temp&#x2F;pear-build-rootLH757y&#x2F;install-mongodb-1.5.3&quot; | xargs ls -dils</span><br><span class="line">539331    4 drwxr-xr-x 3 root root    4096 Nov 16 07:00 &#x2F;tmp&#x2F;pear&#x2F;temp&#x2F;pear-build-rootLH757y&#x2F;install-mongodb-1.5.3</span><br><span class="line">539739    4 drwxr-xr-x 3 root root    4096 Nov 16 07:00 &#x2F;tmp&#x2F;pear&#x2F;temp&#x2F;pear-build-rootLH757y&#x2F;install-mongodb-1.5.3&#x2F;usr</span><br><span class="line">539740    4 drwxr-xr-x 3 root root    4096 Nov 16 07:00 &#x2F;tmp&#x2F;pear&#x2F;temp&#x2F;pear-build-rootLH757y&#x2F;install-mongodb-1.5.3&#x2F;usr&#x2F;lib</span><br><span class="line">539741    4 drwxr-xr-x 3 root root    4096 Nov 16 07:00 &#x2F;tmp&#x2F;pear&#x2F;temp&#x2F;pear-build-rootLH757y&#x2F;install-mongodb-1.5.3&#x2F;usr&#x2F;lib&#x2F;php</span><br><span class="line">539742    4 drwxr-xr-x 2 root root    4096 Nov 16 07:00 &#x2F;tmp&#x2F;pear&#x2F;temp&#x2F;pear-build-rootLH757y&#x2F;install-mongodb-1.5.3&#x2F;usr&#x2F;lib&#x2F;php&#x2F;20170718</span><br><span class="line">539738 5796 -rwxr-xr-x 1 root root 5934296 Nov 16 07:00 &#x2F;tmp&#x2F;pear&#x2F;temp&#x2F;pear-build-rootLH757y&#x2F;install-mongodb-1.5.3&#x2F;usr&#x2F;lib&#x2F;php&#x2F;20170718&#x2F;mongodb.so</span><br><span class="line"></span><br><span class="line">Build process completed successfully</span><br><span class="line">Installing &#39;&#x2F;usr&#x2F;lib&#x2F;php&#x2F;20170718&#x2F;mongodb.so&#39;</span><br><span class="line">install ok: channel:&#x2F;&#x2F;pecl.php.net&#x2F;mongodb-1.5.3</span><br><span class="line">configuration option &quot;php_ini&quot; is not set to php.ini location</span><br><span class="line">You should add &quot;extension&#x3D;mongodb.so&quot; to php.ini</span><br><span class="line">Segmentation fault</span><br><span class="line">#然后在 php.ini 中写入 extension &#x3D; mongodb.so</span><br><span class="line">vagrant@test:&#x2F;usr&#x2F;local$ sudo find &#x2F; -name &#39;php.ini&#39;</span><br><span class="line">&#x2F;etc&#x2F;php&#x2F;7.1&#x2F;fpm&#x2F;php.ini</span><br><span class="line">&#x2F;etc&#x2F;php&#x2F;7.1&#x2F;cli&#x2F;php.ini</span><br><span class="line">&#x2F;etc&#x2F;php&#x2F;5.6&#x2F;fpm&#x2F;php.ini</span><br><span class="line">&#x2F;etc&#x2F;php&#x2F;5.6&#x2F;cli&#x2F;php.ini</span><br><span class="line">&#x2F;etc&#x2F;php&#x2F;7.3&#x2F;fpm&#x2F;php.ini</span><br><span class="line">&#x2F;etc&#x2F;php&#x2F;7.3&#x2F;cli&#x2F;php.ini</span><br><span class="line">&#x2F;etc&#x2F;php&#x2F;7.2&#x2F;fpm&#x2F;php.ini</span><br><span class="line">&#x2F;etc&#x2F;php&#x2F;7.2&#x2F;cli&#x2F;php.ini</span><br><span class="line">&#x2F;etc&#x2F;php&#x2F;7.0&#x2F;fpm&#x2F;php.ini</span><br><span class="line">&#x2F;etc&#x2F;php&#x2F;7.0&#x2F;cli&#x2F;php.ini</span><br><span class="line">vagrant@test:&#x2F;usr&#x2F;local$ php -v</span><br><span class="line">PHP 7.2.12-1+ubuntu18.04.1+deb.sury.org+1 (cli) (built: Nov 12 2018 09:55:44) ( NTS )</span><br><span class="line">Copyright (c) 1997-2018 The PHP Group</span><br><span class="line">Zend Engine v3.2.0, Copyright (c) 1998-2018 Zend Technologies</span><br><span class="line">    with Zend OPcache v7.2.12-1+ubuntu18.04.1+deb.sury.org+1, Copyright (c) 1999-2018, by Zend Technologies</span><br><span class="line">    with blackfire v1.22.0~linux-x64-non_zts72, https:&#x2F;&#x2F;blackfire.io, by Blackfire</span><br><span class="line">vagrant@test:&#x2F;usr&#x2F;local$ sudo vi &#x2F;etc&#x2F;php&#x2F;7.2&#x2F;fpm&#x2F;php.ini</span><br><span class="line">vagrant@test:&#x2F;usr&#x2F;local$ sudo vi &#x2F;etc&#x2F;php&#x2F;7.2&#x2F;cli&#x2F;php.ini</span><br><span class="line">vagrant@test:&#x2F;usr&#x2F;local$ sudo service php7.2-fpm restart &amp;&amp; sudo service nginx restart</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="6-相关的问题-1"><a href="#6-相关的问题-1" class="headerlink" title="6.相关的问题"></a>6.相关的问题<a name="related_issues"/></h2><ul>
+<li>1.在 Mac 上运行 <code>$ composer require mongodb/mongodb</code> ,出现以下问题:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Problem 1</span><br><span class="line">  - mongodb&#x2F;mongodb 1.4.2 requires ext-mongodb ^1.5.0 -&gt; the requested PHP extension mongodb is missing from your system.</span><br><span class="line">  - mongodb&#x2F;mongodb 1.4.1 requires ext-mongodb ^1.5.0 -&gt; the requested PHP extension mongodb is missing from your system.</span><br><span class="line">  - mongodb&#x2F;mongodb 1.4.0 requires ext-mongodb ^1.5.0 -&gt; the requested PHP extension mongodb is missing from your system.</span><br><span class="line">  - Installation request for mongodb&#x2F;mongodb ^1.4 -&gt; satisfiable by mongodb&#x2F;mongodb[1.4.0, 1.4.1, 1.4.2].</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>1.1 解决方法 <a target="_blank" rel="noopener" href="https://github.com/jenssegers/laravel-mongodb/issues/797">Composer can’t find mongodb extension</a>,运行 <code>$ composer require jenssegers/mongodb --ignore-platform-reqs</code></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/11/12/homestead%E7%9A%84%E4%BD%BF%E7%94%A8/" data-id="ckiske04d0098bo665xg3fcl2" data-title="Homestead 的使用" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/" rel="tag">php</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/11/13/Mac%E7%9A%84PHP%E5%8D%87%E7%BA%A7/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Mac的PHP升级
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/11/12/iOS%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">iOS 问题及解决</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Angular/">Angular</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/BLE/">BLE</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CI/">CI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/DB/">DB</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/H5/">H5</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MicroSoft/">MicroSoft</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Office/">Office</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Travel/">Travel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Xamarin/">Xamarin</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/auto-test/">auto-test</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/data/">data</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/frontend/">frontend</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/google/">google</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javaScript/">javaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/postman/">postman</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/speedtest/">speedtest</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ss/">ss</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/word/">word</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E6%9D%82/">日杂</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/" rel="tag">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BLE/" rel="tag">BLE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CI/" rel="tag">CI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DB/" rel="tag">DB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/" rel="tag">H5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MicroSoft/" rel="tag">MicroSoft</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Office/" rel="tag">Office</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Travel/" rel="tag">Travel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xamarin/" rel="tag">Xamarin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auto-test/" rel="tag">auto-test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data/" rel="tag">data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postman/" rel="tag">postman</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ss/" rel="tag">ss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/word/" rel="tag">word</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E6%9D%82/" rel="tag">日杂</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag">虚拟机</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 19px;">Android</a> <a href="/tags/Angular/" style="font-size: 18px;">Angular</a> <a href="/tags/BLE/" style="font-size: 11px;">BLE</a> <a href="/tags/CI/" style="font-size: 10px;">CI</a> <a href="/tags/DB/" style="font-size: 10px;">DB</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/H5/" style="font-size: 10px;">H5</a> <a href="/tags/Linux/" style="font-size: 17px;">Linux</a> <a href="/tags/Mac/" style="font-size: 20px;">Mac</a> <a href="/tags/MicroSoft/" style="font-size: 10px;">MicroSoft</a> <a href="/tags/Office/" style="font-size: 10px;">Office</a> <a href="/tags/Travel/" style="font-size: 15px;">Travel</a> <a href="/tags/Xamarin/" style="font-size: 13px;">Xamarin</a> <a href="/tags/auto-test/" style="font-size: 12px;">auto-test</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/data/" style="font-size: 11px;">data</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/iOS/" style="font-size: 16px;">iOS</a> <a href="/tags/javaScript/" style="font-size: 10px;">javaScript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/php/" style="font-size: 14px;">php</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/ss/" style="font-size: 13px;">ss</a> <a href="/tags/word/" style="font-size: 10px;">word</a> <a href="/tags/%E6%97%A5%E6%9D%82/" style="font-size: 12px;">日杂</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 10px;">虚拟机</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/16/Appium-Learn(javascript)/">Appium-Learn(javascript)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/11/Appium-Learn(python)/">Appium 自动化测试(python3)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/13/Jenkins-install-and-usage/">Jenkins 的安装与使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/11/Mac-crontab/">Mac 创建定时任务</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/08/Mongo-DB/">MongoDB</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2020 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

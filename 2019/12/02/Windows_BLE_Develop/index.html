@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Windows BLE 开发 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="记录 Windows 平台开发 BLE Application 的过程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows BLE 开发">
+<meta property="og:url" content="http://example.com/2019/12/02/Windows_BLE_Develop/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="记录 Windows 平台开发 BLE Application 的过程">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-12-02T09:46:19.000Z">
+<meta property="article:modified_time" content="2019-12-02T09:20:47.028Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="BLE">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Windows_BLE_Develop" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/12/02/Windows_BLE_Develop/" class="article-date">
+  <time class="dt-published" datetime="2019-12-02T09:46:19.000Z" itemprop="datePublished">2019-12-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/BLE/">BLE</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Windows BLE 开发
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>记录 Windows 平台开发 BLE Application 的过程</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="1-Windows-BLE-开发资料"><a href="#1-Windows-BLE-开发资料" class="headerlink" title="1.Windows BLE 开发资料."></a><a href="#windows_ble_references">1.Windows BLE 开发资料.</a></h2><h2 id="2-USB-BLE-扩展"><a href="#2-USB-BLE-扩展" class="headerlink" title="2.USB BLE 扩展"></a><a href="#win_ble_extend">2.USB BLE 扩展</a></h2><h2 id="3-检查-PC-是否支持蓝牙"><a href="#3-检查-PC-是否支持蓝牙" class="headerlink" title="3.检查 PC 是否支持蓝牙"></a><a href="#win_ble_check_manual">3.检查 PC 是否支持蓝牙</a></h2><h2 id="4-硬件要求"><a href="#4-硬件要求" class="headerlink" title="4.硬件要求"></a><a href="#win_hardware">4.硬件要求</a></h2><h2 id="5-开发步骤"><a href="#5-开发步骤" class="headerlink" title="5.开发步骤"></a><a href="#win_ble_develop">5.开发步骤</a></h2><h2 id="6-问题"><a href="#6-问题" class="headerlink" title="6.问题"></a><a href="#issues">6.问题</a></h2><hr>
+<hr>
+<hr>
+<h2 id="1-Windows-BLE-开发资料-1"><a href="#1-Windows-BLE-开发资料-1" class="headerlink" title="1.Windows BLE 开发资料."></a>1.Windows BLE 开发资料.<a name="windows_ble_references"/></h2><ul>
+<li>1.<a target="_blank" rel="noopener" href="https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BluetoothLE">Windows-universal-samples/Samples/BluetoothLE/</a></li>
+<li>4.<a target="_blank" rel="noopener" href="https://www.cnblogs.com/dearsj001/p/BLE4Windows.html">Windows 8.1 低功耗蓝牙开发</a></li>
+<li>5.<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows/uwp/devices-sensors/gatt-client">Bluetooth GATT Client</a></li>
+<li>6.<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/45946559/how-to-register-for-ble-notifcations-from-a-wpf-app-running-on-windows-10-creato">How to register for BLE notifcations from a WPF app running on Windows 10 Creators Update?</a></li>
+<li>7.<a target="_blank" rel="noopener" href="https://www.nordicsemi.com/Software-and-tools/Development-Tools/nRF-Connect-for-desktop/Download#infotabs">nRF Connect for Desktop</a></li>
+<li>8.<a target="_blank" rel="noopener" href="https://github.com/NordicSemiconductor/pc-nrfconnect-ble">NordicSemiconductor/pc-nrfconnect-ble</a></li>
+<li>9.BluetoothLEExplorer<ul>
+<li>1.<a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/p/bluetooth-le-explorer/9n0ztkf1qd98#activetab=pivot:overviewtab">Windows Download</a></li>
+<li>2.<a target="_blank" rel="noopener" href="https://github.com/Microsoft/BluetoothLEExplorer">Windows microsoft/BluetoothLEExplorer source code</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="2-USB-BLE"><a href="#2-USB-BLE" class="headerlink" title="2.USB BLE "></a>2.USB BLE <a name="win_ble_extend"/></h2><blockquote>
+<p>台式机没有蓝牙硬件，可以买个 USB BLE 芯片去扩展这个功能.</p>
+</blockquote>
+<ul>
+<li>1.<a target="_blank" rel="noopener" href="https://item.jd.com/47752032148.html"> 奥睿科（ORICO）USB蓝牙适配器4.0接收器兼容4.1/4.2/5.0电脑手机耳机音频发射器 黑色-次日达</a></li>
+</ul>
+<hr>
+<h2 id="3-检查-PC-是否支持蓝牙-1"><a href="#3-检查-PC-是否支持蓝牙-1" class="headerlink" title="3.检查 PC 是否支持蓝牙"></a>3.检查 PC 是否支持蓝牙<a name="win_ble_check_manual"/></h2><ul>
+<li>1.<a target="_blank" rel="noopener" href="https://winaero.com/blog/how-to-check-if-your-pc-supports-bluetooth-4-0/">How to check if your PC supports Bluetooth 4.0</a></li>
+<li>2.<a target="_blank" rel="noopener" href="https://www.thewindowsclub.com/how-to-check-bluetooth-version-in-windows-10">How to check Bluetooth Adapter version in Windows 10</a></li>
+</ul>
+<hr>
+<h2 id="4-硬件要求-1"><a href="#4-硬件要求-1" class="headerlink" title="4.硬件要求"></a>4.硬件要求<a name="win_hardware"/></h2><ul>
+<li>1.Windows 10<ul>
+<li>1.Windows 8.1 只支持 Client,为了扩展的需要，最好是用 Windows 10</li>
+</ul>
+</li>
+<li>2.电脑带有 BLE 的支持<ul>
+<li>1.去 “设备管理器”-&gt;蓝牙，查看下面的列表，如果里面有“Microsoft Bluetooth LE 枚举器”, 就代表是支持的.<ul>
+<li>1.如果没有看到 <code>Microsoft Bluetooth LE 枚举器 </code>, 去“设置”-&gt;“更改电脑设置”-&gt;“电脑和设备”-&gt;“蓝牙”中，把蓝牙打开. 如果也没有，就证明电脑的硬件不支持 BLE 或 需要去更新系统和蓝牙驱动.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="5-开发步骤-1"><a href="#5-开发步骤-1" class="headerlink" title="5.开发步骤"></a>5.开发步骤<a name="win_ble_develop"/></h2><h4 id="1-检查蓝牙的状态"><a href="#1-检查蓝牙的状态" class="headerlink" title="1.检查蓝牙的状态:"></a>1.检查蓝牙的状态:</h4><ul>
+<li><p>1.Universal Windows Platform (UWP) 程序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Windows.Devices.Bluetooth.BluetoothAdapter adapter &#x3D; await Windows.Devices.Bluetooth.BluetoothAdapter.GetDefaultAsync();</span><br><span class="line"></span><br><span class="line">         if(adapter &#x3D;&#x3D;  null)</span><br><span class="line">         &#123;</span><br><span class="line">             MessageDialog msg &#x3D; new MessageDialog(&quot;Error getting access to Bluetooth adapter. Do you have a have bluetooth enabled?&quot;, &quot;Error&quot;);</span><br><span class="line">             await msg.ShowAsync();</span><br><span class="line"></span><br><span class="line">             IsPeripheralRoleSupported &#x3D; false;</span><br><span class="line">             IsCentralRoleSupported &#x3D; false;</span><br><span class="line">         &#125;</span><br><span class="line">         else</span><br><span class="line">         &#123; </span><br><span class="line">             IsPeripheralRoleSupported &#x3D; adapter.IsPeripheralRoleSupported;</span><br><span class="line">             IsCentralRoleSupported &#x3D; adapter.IsCentralRoleSupported;</span><br><span class="line">         &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>2.Windows Forms WPF 程序</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line">       *  [How to check if bluetooth is enabled on a device](https:&#x2F;&#x2F;stackoverflow.com&#x2F;a&#x2F;48794678)</span><br><span class="line">       * **&#x2F;</span><br><span class="line">      public bool GetBluetoothIsEnable()</span><br><span class="line">      &#123;</span><br><span class="line">          SelectQuery sq &#x3D; new SelectQuery(&quot;SELECT DeviceId FROM Win32_PnPEntity WHERE service&#x3D;&#39;BthLEEnum&#39;&quot;);</span><br><span class="line">          ManagementObjectSearcher searcher &#x3D; new ManagementObjectSearcher(sq);</span><br><span class="line">          return searcher.Get().Count &gt; 0;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-开始扫描"><a href="#2-开始扫描" class="headerlink" title="2.开始扫描:"></a>2.开始扫描:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">if (ApiInformation.IsApiContractPresent(&quot;Windows.Foundation.UniversalApiContract&quot;, 5))</span><br><span class="line">          &#123;</span><br><span class="line">              string[] requestedProperties &#x3D;</span><br><span class="line">              &#123;</span><br><span class="line">                  &quot;System.Devices.GlyphIcon&quot;,</span><br><span class="line">                  &quot;System.Devices.Aep.Category&quot;,</span><br><span class="line">                  &quot;System.Devices.Aep.ContainerId&quot;,</span><br><span class="line">                  &quot;System.Devices.Aep.DeviceAddress&quot;,</span><br><span class="line">                  &quot;System.Devices.Aep.IsConnected&quot;,</span><br><span class="line">                  &quot;System.Devices.Aep.IsPaired&quot;,</span><br><span class="line">                  &quot;System.Devices.Aep.IsPresent&quot;,</span><br><span class="line">                  &quot;System.Devices.Aep.ProtocolId&quot;,</span><br><span class="line">                  &quot;System.Devices.Aep.Bluetooth.Le.IsConnectable&quot;,</span><br><span class="line">                  &quot;System.Devices.Aep.SignalStrength&quot;,</span><br><span class="line">                  &quot;System.Devices.Aep.Bluetooth.LastSeenTime&quot;,</span><br><span class="line">                  &quot;System.Devices.Aep.Bluetooth.Le.IsConnectable&quot;,</span><br><span class="line">              &#125;;</span><br><span class="line"></span><br><span class="line">              &#x2F;&#x2F; BT_Code: Currently Bluetooth APIs don&#39;t provide a selector to get ALL devices that are both paired and non-paired.</span><br><span class="line">              deviceWatcher &#x3D; DeviceInformation.CreateWatcher(</span><br><span class="line">                  BTLEDeviceWatcherAQSString,</span><br><span class="line">                  requestedProperties,</span><br><span class="line">                  DeviceInformationKind.AssociationEndpoint);</span><br><span class="line">          &#125;</span><br><span class="line">          else</span><br><span class="line">          &#123;</span><br><span class="line">              string[] requestedProperties &#x3D;</span><br><span class="line">              &#123;</span><br><span class="line">                  &quot;System.Devices.GlyphIcon&quot;,</span><br><span class="line">                  &quot;System.Devices.Aep.Category&quot;,</span><br><span class="line">                  &quot;System.Devices.Aep.ContainerId&quot;,</span><br><span class="line">                  &quot;System.Devices.Aep.DeviceAddress&quot;,</span><br><span class="line">                  &quot;System.Devices.Aep.IsConnected&quot;,</span><br><span class="line">                  &quot;System.Devices.Aep.IsPaired&quot;,</span><br><span class="line">                  &quot;System.Devices.Aep.IsPresent&quot;,</span><br><span class="line">                  &quot;System.Devices.Aep.ProtocolId&quot;,</span><br><span class="line">                  &quot;System.Devices.Aep.Bluetooth.Le.IsConnectable&quot;,</span><br><span class="line">                  &quot;System.Devices.Aep.SignalStrength&quot;,</span><br><span class="line">              &#125;;</span><br><span class="line"></span><br><span class="line">              &#x2F;&#x2F; BT_Code: Currently Bluetooth APIs don&#39;t provide a selector to get ALL devices that are both paired and non-paired.</span><br><span class="line">              deviceWatcher &#x3D; DeviceInformation.CreateWatcher(</span><br><span class="line">                  BTLEDeviceWatcherAQSString,</span><br><span class="line">                  requestedProperties,</span><br><span class="line">                  DeviceInformationKind.AssociationEndpoint);</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          &#x2F;&#x2F; Register event handlers before starting the watcher.</span><br><span class="line">          deviceWatcher.Added +&#x3D; DeviceWatcher_Added;</span><br><span class="line">          deviceWatcher.Updated +&#x3D; DeviceWatcher_Updated;</span><br><span class="line">          deviceWatcher.Removed +&#x3D; DeviceWatcher_Removed;</span><br><span class="line">          deviceWatcher.EnumerationCompleted +&#x3D; DeviceWatcher_EnumerationCompleted;</span><br><span class="line">          deviceWatcher.Stopped +&#x3D; DeviceWatcher_Stopped;</span><br><span class="line"></span><br><span class="line">          deviceWatcher.Start();</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">private void DeviceWatcher_Added(DeviceWatcher sender, DeviceInformation deviceInfo)</span><br><span class="line">     &#123;</span><br><span class="line"></span><br><span class="line">         try</span><br><span class="line">         &#123;</span><br><span class="line">             &#x2F;&#x2F; Protect against race condition if the task runs after the app stopped the deviceWatcher.</span><br><span class="line">             if (sender &#x3D;&#x3D; deviceWatcher)</span><br><span class="line">             &#123;</span><br><span class="line">                </span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">         catch (Exception ex)</span><br><span class="line">         &#123;</span><br><span class="line">             Debug.WriteLine(&quot;DeviceWatcher_Added: &quot; + ex.Message);</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     private void DeviceWatcher_Updated(DeviceWatcher sender, DeviceInformationUpdate deviceInfoUpdate)</span><br><span class="line">     &#123;</span><br><span class="line">         if (sender &#x3D;&#x3D; deviceWatcher)</span><br><span class="line">         &#123;</span><br><span class="line">            &#x2F;&#x2F;  Debug.WriteLine(String.Format(&quot;Updated &#123;0&#125;&#123;1&#125;&quot;, deviceInfoUpdate.Id, &quot;&quot;));</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     private void DeviceWatcher_Removed(DeviceWatcher sender, DeviceInformationUpdate deviceInfoUpdate)</span><br><span class="line">     &#123;</span><br><span class="line">         if (sender &#x3D;&#x3D; deviceWatcher)</span><br><span class="line">         &#123;</span><br><span class="line">          &#x2F;&#x2F;   Debug.WriteLine(String.Format(&quot;DeviceWatcher_Removed &#123;0&#125;&#123;1&#125;&quot;, deviceInfoUpdate.Id, &quot;&quot;));</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     private void DeviceWatcher_EnumerationCompleted(DeviceWatcher sender, object e)</span><br><span class="line">     &#123;</span><br><span class="line">         if (sender &#x3D;&#x3D; deviceWatcher)</span><br><span class="line">         &#123;</span><br><span class="line">             Debug.WriteLine(String.Format(&quot;DeviceWatcher_EnumerationCompleted&quot;));</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     private void DeviceWatcher_Stopped(DeviceWatcher sender, object e)</span><br><span class="line">     &#123;</span><br><span class="line">         if (sender &#x3D;&#x3D; deviceWatcher)</span><br><span class="line">         &#123;</span><br><span class="line">             Debug.WriteLine(String.Format(&quot;DeviceWatcher_Stopped&quot;));</span><br><span class="line">         &#125;</span><br><span class="line">        </span><br><span class="line">     &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-连接"><a href="#3-连接" class="headerlink" title="3.连接"></a>3.连接</h4><h4 id="4-查看-Services"><a href="#4-查看-Services" class="headerlink" title="4.查看 Services"></a>4.查看 Services</h4><h4 id="5-查看-Characteristics-and-set-notifications"><a href="#5-查看-Characteristics-and-set-notifications" class="headerlink" title="5.查看 Characteristics and set notifications"></a>5.查看 Characteristics and set notifications</h4><h4 id="6-Write-data-to-Specific-Characteristics"><a href="#6-Write-data-to-Specific-Characteristics" class="headerlink" title="6.Write data to Specific Characteristics"></a>6.Write data to Specific Characteristics</h4><hr>
+<h2 id="6-问题-1"><a href="#6-问题-1" class="headerlink" title="6.问题"></a>6.问题<a name="issues"/></h2><ul>
+<li><p>1.在 <code>References</code> 里不见了 <code>Windows</code> 的 Tab</p>
+<ul>
+<li>1.解决方法:</li>
+<li><a target="_blank" rel="noopener" href="https://social.msdn.microsoft.com/Forums/vstudio/en-US/cbd15b39-f26b-4cc3-8ff1-edbb4beb52fe/how-to-call-windowsdevicesbluetooth-in-wpf-app?forum=wpf">1.How to call Windows.Devices.Bluetooth in WPF app RRS feed</a></li>
+<li>2.在 <code>csproj</code> 处添加 <code>&lt;TargetPlatformVersion&gt;10.0&lt;/TargetPlatformVersion&gt;</code></li>
+</ul>
+</li>
+<li><p>2.出现 <code>未能使用“通用身份验证”连接到设备“127.0.0.1”</code> 问题, 详细如下:</p>
+<ul>
+<li>1.<code>未能使用“通用身份验证”连接到设备“127.0.0.1”。请验证项目调试设置中指定了正确的远程身份验证模式。COMException - 由于目标计算机积极拒绝，无法连接。</code></li>
+<li>2.解决方法, 因为是在本地计算机运行，所以要选择 CPU 架构为 <code>X86</code> or <code>X64</code></li>
+</ul>
+</li>
+<li><p>3.出现项目点击运行,老是跳过的问题</p>
+<ul>
+<li>1.解决方法:右键 <code>Visual Studio 2019</code>, 以管理员方式运行.</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/12/02/Windows_BLE_Develop/" data-id="ckiske03q007tbo66gu48egyy" data-title="Windows BLE 开发" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BLE/" rel="tag">BLE</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/12/22/HomeBrew_setup/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Homebrew 的源配置
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/11/27/PC-Phone-data-transfer/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">电脑与 手机 通过 USB 进行数据传输</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Angular/">Angular</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/BLE/">BLE</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CI/">CI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/DB/">DB</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/H5/">H5</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MicroSoft/">MicroSoft</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Office/">Office</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Travel/">Travel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Xamarin/">Xamarin</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/auto-test/">auto-test</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/data/">data</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/frontend/">frontend</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/google/">google</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javaScript/">javaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/postman/">postman</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/speedtest/">speedtest</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ss/">ss</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/word/">word</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E6%9D%82/">日杂</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/" rel="tag">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BLE/" rel="tag">BLE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CI/" rel="tag">CI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DB/" rel="tag">DB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/" rel="tag">H5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MicroSoft/" rel="tag">MicroSoft</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Office/" rel="tag">Office</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Travel/" rel="tag">Travel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xamarin/" rel="tag">Xamarin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auto-test/" rel="tag">auto-test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data/" rel="tag">data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postman/" rel="tag">postman</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ss/" rel="tag">ss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/word/" rel="tag">word</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E6%9D%82/" rel="tag">日杂</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag">虚拟机</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 19px;">Android</a> <a href="/tags/Angular/" style="font-size: 18px;">Angular</a> <a href="/tags/BLE/" style="font-size: 11px;">BLE</a> <a href="/tags/CI/" style="font-size: 10px;">CI</a> <a href="/tags/DB/" style="font-size: 10px;">DB</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/H5/" style="font-size: 10px;">H5</a> <a href="/tags/Linux/" style="font-size: 17px;">Linux</a> <a href="/tags/Mac/" style="font-size: 20px;">Mac</a> <a href="/tags/MicroSoft/" style="font-size: 10px;">MicroSoft</a> <a href="/tags/Office/" style="font-size: 10px;">Office</a> <a href="/tags/Travel/" style="font-size: 15px;">Travel</a> <a href="/tags/Xamarin/" style="font-size: 13px;">Xamarin</a> <a href="/tags/auto-test/" style="font-size: 12px;">auto-test</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/data/" style="font-size: 11px;">data</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/iOS/" style="font-size: 16px;">iOS</a> <a href="/tags/javaScript/" style="font-size: 10px;">javaScript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/php/" style="font-size: 14px;">php</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/ss/" style="font-size: 13px;">ss</a> <a href="/tags/word/" style="font-size: 10px;">word</a> <a href="/tags/%E6%97%A5%E6%9D%82/" style="font-size: 12px;">日杂</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 10px;">虚拟机</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/16/Appium-Learn(javascript)/">Appium-Learn(javascript)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/11/Appium-Learn(python)/">Appium 自动化测试(python3)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/13/Jenkins-install-and-usage/">Jenkins 的安装与使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/11/Mac-crontab/">Mac 创建定时任务</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/08/Mongo-DB/">MongoDB</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2020 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

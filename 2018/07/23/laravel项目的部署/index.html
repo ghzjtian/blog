@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>laravel项目的部署 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="laravel项目的部署 1.记录把服务器部署在 远程服务器的过程.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="laravel项目的部署">
+<meta property="og:url" content="http://example.com/2018/07/23/laravel%E9%A1%B9%E7%9B%AE%E7%9A%84%E9%83%A8%E7%BD%B2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="laravel项目的部署 1.记录把服务器部署在 远程服务器的过程.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-07-23T09:46:19.000Z">
+<meta property="article:modified_time" content="2018-11-20T10:01:11.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="php">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-laravel项目的部署" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/07/23/laravel%E9%A1%B9%E7%9B%AE%E7%9A%84%E9%83%A8%E7%BD%B2/" class="article-date">
+  <time class="dt-published" datetime="2018-07-23T09:46:19.000Z" itemprop="datePublished">2018-07-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/php/">php</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      laravel项目的部署
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="laravel项目的部署"><a href="#laravel项目的部署" class="headerlink" title="laravel项目的部署"></a>laravel项目的部署</h1><ul>
+<li>1.记录把服务器部署在 远程服务器的过程.</li>
+</ul>
+<a id="more"></a>
+
+
+<h2 id="1-参考"><a href="#1-参考" class="headerlink" title="1.参考"></a><a href="#references">1.参考</a></h2><h2 id="2-安装过程"><a href="#2-安装过程" class="headerlink" title="2.安装过程"></a><a href="#install_step">2.安装过程</a></h2><ul>
+<li>1.mysql 的安装(安装最新版)</li>
+</ul>
+<h2 id="3-遇到的问题"><a href="#3-遇到的问题" class="headerlink" title="3.遇到的问题"></a><a href="#issues">3.遇到的问题</a></h2><ul>
+<li>1.<code>Specified key was too long error</code>错误</li>
+<li>2.<code>public/index.php</code>主页显示没问题, 但 <code>login</code>,<code>register</code> 等等就显示 <code>404</code> 错误</li>
+</ul>
+<h2 id="4-项目的部署"><a href="#4-项目的部署" class="headerlink" title="4.项目的部署"></a><a href="#project_install">4.项目的部署</a></h2><hr>
+<hr>
+<hr>
+<h2 id="1-参考-1"><a href="#1-参考-1" class="headerlink" title="1.参考:"></a>1.参考:<a name="references"/></h2><ul>
+<li>0.服务器(配置支持中文)需要安装的软件(nginx+php+mysql+composer+git+PhpMyAdmin)</li>
+<li>1.<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/6038191ef4fe">LAMP环境下的Laravel项目部署</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/35537084">2.请问laravel5项目部署到生产环境的最佳实践？</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.rosehosting.com/blog/how-to-install-laravel-on-debian-9/">3.How to Install Laravel on Debian 9</a></li>
+<li><a target="_blank" rel="noopener" href="https://hackernoon.com/a-step-by-step-guide-to-setup-php-laravel-environment-linux-50b55a4fd15e">4.A step by step guide to setup PHP (Laravel) environment (Linux).</a></li>
+<li><a target="_blank" rel="noopener" href="https://laravel-china.org/articles/5012/gitlab-webhooks-implements-automated-server-project-deployment">5.【GitLab】：Webhooks 实现自动化服务器项目部署</a></li>
+<li><a target="_blank" rel="noopener" href="https://medium.com/@grmcameron/deploying-your-laravel-web-app-1faaa66f3302">6.Deploying a Laravel 5.6 Web App on Ubuntu</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-composer-on-debian-8">7.How To Install and Use Composer on Debian 8</a></li>
+</ul>
+<hr>
+<h2 id="2-安装过程-1"><a href="#2-安装过程-1" class="headerlink" title="2.安装过程"></a>2.安装过程<a name="install_step"/></h2><h4 id="1-mysql-的安装-安装最新版"><a href="#1-mysql-的安装-安装最新版" class="headerlink" title="1.mysql 的安装(安装最新版)."></a>1.mysql 的安装(安装最新版).</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://www.linode.com/docs/databases/mariadb/mariadb-setup-debian/">1.How to Set Up MariaDB on Debian 9</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.tecmint.com/install-mariadb-in-ubuntu-and-debian/">2.How to Install MariaDB 10 on Debian and Ubuntu</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.londonappdeveloper.com/how-to-completely-uninstall-mariadb-from-a-debian-7-server/">3.uninstall MariaDB</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/8fc90e518e2c">4.开启远程访问的权限</a><ul>
+<li>1.在服务器端进入 mysql ,然后运行命令 <code>grant all privileges on *.* to &#39;root&#39;@&#39;%&#39; identified by &#39;remove1112300&#39;;</code> , <code>flush privileges;</code></li>
+<li>2.注释文件 <code> vi /etc/mysql/my.cnf</code>  中的 <code>bind-address = 127.0.0.1</code><ul>
+<li>1.如果是 MariaDB, <code>bind-address</code> 在 <code>/etc/mysql/mariadb.conf.d/50-server.cnf</code>处</li>
+<li>2.参考: <a target="_blank" rel="noopener" href="https://dba.stackexchange.com/questions/164929/where-is-my-bind-address/164932">Where is my bind address?</a></li>
+<li>3.记得提前查看 mysql 端口的状态是否在监听 3306,<code>netstat -tulpen</code>.</li>
+</ul>
+</li>
+<li>3.重启服务. <code>service mysql restart</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="2-PHP-的安装"><a href="#2-PHP-的安装" class="headerlink" title="2.PHP 的安装."></a>2.PHP 的安装.</h4><ul>
+<li>0.参考: <ul>
+<li>   1.<a target="_blank" rel="noopener" href="https://medium.com/@asked_io/how-to-install-php-7-2-x-nginx-1-10-x-laravel-5-6-f9e30ee30eff">How-to Install PHP 7.2.x, NGINX 1.10.x &amp; Laravel 5.6</a></li>
+<li>2.<a target="_blank" rel="noopener" href="https://www.chris-shaw.com/blog/installing-php-7.2-on-debian-8-jessie-and-debian-9-stretch">Installing Php 7.2 On Debian 8 Jessie And Debian 9 Stretch</a></li>
+</ul>
+</li>
+<li>1.需要安装的 php 的插件有:<ul>
+<li>1.<code>php7.0-zip</code></li>
+<li>2.<code>php7.2-gd</code></li>
+<li>3.<code>php7.2-fpm</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="3-遇到的问题-1"><a href="#3-遇到的问题-1" class="headerlink" title="3.遇到的问题"></a>3.遇到的问题<a name="issues"/></h2><h4 id="1-服务器做-php-artisan-migrate-时，出现-Specified-key-was-too-long-error-错误"><a href="#1-服务器做-php-artisan-migrate-时，出现-Specified-key-was-too-long-error-错误" class="headerlink" title="1.服务器做 php artisan migrate 时，出现 Specified key was too long error 错误"></a>1.服务器做 <code>php artisan migrate</code> 时，出现 <code>Specified key was too long error</code> 错误</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://laravel-news.com/laravel-5-4-key-too-long-error">解决方法1:Laravel 5.4: Specified key was too long error</a></li>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000008416200">同样的方法2:</a></li>
+<li>3.安装新版的 mariaDB(经测试，10.3.8-MariaDB 可以)</li>
+</ul>
+<h4 id="2-public-index-php主页显示没问题-但-login-register-等等就显示-404-错误"><a href="#2-public-index-php主页显示没问题-但-login-register-等等就显示-404-错误" class="headerlink" title="2.public/index.php主页显示没问题, 但 login,register 等等就显示 404 错误"></a>2.<code>public/index.php</code>主页显示没问题, 但 <code>login</code>,<code>register</code> 等等就显示 <code>404</code> 错误</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://laravel-china.org/docs/laravel/5.6/installation/1352">1.配置链接</a><ul>
+<li>1.需要把 <code>/etc/nginx/sites-available/default</code> 中的 <code>root</code>路径设置到 <code>public</code> 中.    </li>
+</ul>
+</li>
+</ul>
+<h4 id="3-执行-composer-install-时，遇到-composer-the-zip-extension-and-unzip-command-are-both-missing-skipping-的问题"><a href="#3-执行-composer-install-时，遇到-composer-the-zip-extension-and-unzip-command-are-both-missing-skipping-的问题" class="headerlink" title="3.执行 composer install  时，遇到 composer the zip extension and unzip command are both missing skipping 的问题"></a>3.执行 <code>composer install </code> 时，遇到 <code>composer the zip extension and unzip command are both missing skipping</code> 的问题</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/41274829/php-error-the-zip-extension-and-unzip-command-are-both-missing-skipping">1.解决方法<code>(sudo) apt install zip unzip php7.0-zip</code></a></li>
+</ul>
+<h4 id="4-只能显示首页，其它页面显示-404-ERROR。"><a href="#4-只能显示首页，其它页面显示-404-ERROR。" class="headerlink" title="4.只能显示首页，其它页面显示 404 ERROR。"></a>4.只能显示首页，其它页面显示 <code>404 ERROR</code>。</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://laravel-china.org/docs/laravel/5.6/deployment/1357">1.需要配置 nginx 的 <code>/etc/nginx/sites-available/default</code> 文件(先 cp 备份好)</a><ul>
+<li>1.配置完成后，重启 <code>nginx</code>.<ul>
+<li>1.检查是否有错误,<code>nginx -t</code>.</li>
+<li>2.重启 <code>nginx</code>,<code>service nginx restart</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-在后台增加图片时，显示Impossible-to-create-the-root-directory-quot-home-tian-www-html-frontend-storage-app-public-users-August2018-quot"><a href="#5-在后台增加图片时，显示Impossible-to-create-the-root-directory-quot-home-tian-www-html-frontend-storage-app-public-users-August2018-quot" class="headerlink" title="5.在后台增加图片时，显示Impossible to create the root directory &quot;/home/tian/www/html/frontend/storage/app/public/users/August2018&quot;."></a>5.在后台增加图片时，显示<code>Impossible to create the root directory &quot;/home/tian/www/html/frontend/storage/app/public/users/August2018&quot;.</code></h4><ul>
+<li>1.在 项目的上级目录下，如 <code>/home/tian/www/html</code> , 运行一下命令: <code>chown -R www-data:root .</code></li>
+</ul>
+<h4 id="6-在运行-composer-install-时，出现-mmap-failed-12-Cannot-allocate-memory-错误"><a href="#6-在运行-composer-install-时，出现-mmap-failed-12-Cannot-allocate-memory-错误" class="headerlink" title="6.在运行 composer install 时，出现 mmap() failed: [12] Cannot allocate memory 错误"></a>6.在运行 <code>composer install</code> 时，出现 <code>mmap() failed: [12] Cannot allocate memory</code> 错误</h4><ul>
+<li>1.<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/18116261/php-composer-update-cannot-allocate-memory-error-using-laravel-4">PHP Composer update “cannot allocate memory” error </a><ul>
+<li>解决的方法，运行 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;bin&#x2F;dd if&#x3D;&#x2F;dev&#x2F;zero of&#x3D;&#x2F;var&#x2F;swap.1 bs&#x3D;1M count&#x3D;1024</span><br><span class="line">&#x2F;sbin&#x2F;mkswap &#x2F;var&#x2F;swap.1</span><br><span class="line">&#x2F;sbin&#x2F;swapon &#x2F;var&#x2F;swap.1</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="4-项目的部署-1"><a href="#4-项目的部署-1" class="headerlink" title="4.项目的部署"></a>4.项目的部署<a name="project_install"/></h2><ul>
+<li><p>1.把代码放到 <code>GitLab</code> 中(因为 <code>GitLab</code> 可以创建私人的仓库,而且日本服务器 <code>clone</code> 的速度比国内的 <code>Gitee</code> 快 n 倍)</p>
+</li>
+<li><p>2.把 <code>nginx</code> 的 <code>root</code> 路径改为当前 laravel 项目的 public 目录.</p>
+<ul>
+<li>1.<code>vi /etc/nginx/sites-available/default</code></li>
+<li>2.修改 <code>root /var/www/html/FastCloud_Server/public/</code></li>
+<li>3.重启 <code>nginx</code>(记得 nginx 要有 phpXX-fpm 的支持才行)<ul>
+<li>1.<code>nginx -t</code></li>
+<li><pre><code>2.`service nginx restart`</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>3.到项目路径下，执行 <code>composer install</code>,安装依赖.</p>
+<ul>
+<li>1.国内的服务器，最好是更改 <code>composer</code> 的源:<ul>
+<li>1.<a target="_blank" rel="noopener" href="https://pkg.phpcomposer.com/">Packagist 镜像使用方法</a><ul>
+<li>1.运行 <code>composer config -g repo.packagist composer https://packagist.phpcomposer.com</code></li>
+</ul>
+</li>
+<li>2.<a target="_blank" rel="noopener" href="https://laravel-china.org/composer">Composer 中文镜像 / Packagist 中国全量镜像正式发布！</a><ul>
+<li>1.运行: <code>composer config -g repo.packagist composer https://packagist.laravel-china.org</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>2.如果是在本地 Mac 下运行出现 <code>In PDOConnection.php line 50:SQLSTATE[HY000] [2002] Connection refused </code> ,就记得打开 Mac 上的 <code>Mysql</code>,否则后续的操作可能会出现问题.</li>
+</ul>
+</li>
+<li><p>4.部署配置</p>
+<ul>
+<li><p>1.生成 <code>.env</code> 文件    ,命令: <code>cp .env.example.product .env</code></p>
+</li>
+<li><p>2.生成 <code>APP_KEY</code> ,命令: <code>php artisan key:generate</code></p>
+</li>
+<li><p>3.设置文件夹的权限:</p>
+<p>  <code>chmod -R 777 storage</code><br>  <code>chmod -R 777 bootstrap/cache</code></p>
+</li>
+<li><p>4.运行数据库的迁移:</p>
+<ul>
+<li>1.<code>php artisan migrate</code></li>
+</ul>
+</li>
+<li><p>5.安装 voyager</p>
+<ul>
+<li>1.安装<code>php artisan voyager:install --with-dummy</code></li>
+</ul>
+</li>
+<li><p>6.设置 <code>storage</code> 连接.</p>
+<ul>
+<li>0.到服务器项目目录运行: <code>php artisan storage:link</code></li>
+<li>1.或手动链接: <code>ln -s /var/www/html/FastCloud_Server/storage/app/public /var/www/html/FastCloud_Server/public/storage</code> </li>
+</ul>
+</li>
+<li><p>7.<a target="_blank" rel="noopener" href="http://jwt-auth.readthedocs.io/en/develop/laravel-installation/">生成 JWT 认证的 KEY</a> ,<code>php artisan jwt:secret</code></p>
+<ul>
+<li>1.如果不生成，在取得 <code>API</code> 数据的时候，会有 500 错误弹出.</li>
+</ul>
+</li>
+<li><p>8.暂时如果服务器有更新的步骤:</p>
+<ul>
+<li>1.先在本地 push 到 GitLab</li>
+<li>2.ssh 登录到服务器，执行 <code>php artisan down (--message=&quot;Upgrading Database&quot; --retry=60)</code>，命令，让服务器<a target="_blank" rel="noopener" href="https://laravel-china.org/docs/laravel/5.6/configuration/1353">进入 维护 模式</a>.</li>
+<li>3.<code>git pull origin master</code> ,把源码下载下来.</li>
+<li>4.修改好一些依赖后，就执行 <code>php artisan up</code> 上线.</li>
+</ul>
+</li>
+<li><p>9.数据的迁移及保存</p>
+<ul>
+<li>1.Mysql 数据库的内容就用 Sequel Pro 把数据导出或导入.<ul>
+<li>1.一般需要导出的数据库为:<code>abouts,events,permission_role,permissions,pictures,products,users</code></li>
+</ul>
+</li>
+<li>2.其它的 <code>public</code> 中的数据就通过 <a target="_blank" rel="noopener" href="https://unix.stackexchange.com/questions/188285/how-to-copy-a-file-from-a-remote-server-to-a-local-machine"><code>scp</code></a> 命令去导出和导入.<ul>
+<li>1.下载,如在本地电脑运行以下的命令: <code>scp -r tian@10.100.0.1:/home/tian/www/html/frontend/storage/app/public /Users/tianzeng/Desktop</code></li>
+<li>2.Logs 的下载,<code>scp -r tian@10.100.1.217:/home/tian/www/html/frontend/storage/logs/laravel.log /Users/tianzeng/Desktop</code></li>
+<li>3.数据的上传,在本地电脑运行一下命令: <code>scp -r /Users/tianzeng/Desktop/public tian@10.100.1.217:/home/tian/www/html/GLB/storage/app</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<hr>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/07/23/laravel%E9%A1%B9%E7%9B%AE%E7%9A%84%E9%83%A8%E7%BD%B2/" data-id="ckiske04s00a2bo665lss2g3c" data-title="laravel项目的部署" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/" rel="tag">php</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/07/29/DB_Browser_for_SQLite%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          DB_Browser_for_SQLite的使用方法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/07/18/Android_%20BottomNavigationView_%E7%94%A8%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Android BottomNavigationView 的用法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Angular/">Angular</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/BLE/">BLE</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CI/">CI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/DB/">DB</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/H5/">H5</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MicroSoft/">MicroSoft</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Office/">Office</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Travel/">Travel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Xamarin/">Xamarin</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/auto-test/">auto-test</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/data/">data</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/frontend/">frontend</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/google/">google</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javaScript/">javaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/postman/">postman</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/speedtest/">speedtest</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ss/">ss</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/word/">word</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E6%9D%82/">日杂</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/" rel="tag">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BLE/" rel="tag">BLE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CI/" rel="tag">CI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DB/" rel="tag">DB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/" rel="tag">H5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MicroSoft/" rel="tag">MicroSoft</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Office/" rel="tag">Office</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Travel/" rel="tag">Travel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xamarin/" rel="tag">Xamarin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auto-test/" rel="tag">auto-test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data/" rel="tag">data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postman/" rel="tag">postman</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ss/" rel="tag">ss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/word/" rel="tag">word</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E6%9D%82/" rel="tag">日杂</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag">虚拟机</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 19px;">Android</a> <a href="/tags/Angular/" style="font-size: 18px;">Angular</a> <a href="/tags/BLE/" style="font-size: 11px;">BLE</a> <a href="/tags/CI/" style="font-size: 10px;">CI</a> <a href="/tags/DB/" style="font-size: 10px;">DB</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/H5/" style="font-size: 10px;">H5</a> <a href="/tags/Linux/" style="font-size: 17px;">Linux</a> <a href="/tags/Mac/" style="font-size: 20px;">Mac</a> <a href="/tags/MicroSoft/" style="font-size: 10px;">MicroSoft</a> <a href="/tags/Office/" style="font-size: 10px;">Office</a> <a href="/tags/Travel/" style="font-size: 15px;">Travel</a> <a href="/tags/Xamarin/" style="font-size: 13px;">Xamarin</a> <a href="/tags/auto-test/" style="font-size: 12px;">auto-test</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/data/" style="font-size: 11px;">data</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/iOS/" style="font-size: 16px;">iOS</a> <a href="/tags/javaScript/" style="font-size: 10px;">javaScript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/php/" style="font-size: 14px;">php</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/ss/" style="font-size: 13px;">ss</a> <a href="/tags/word/" style="font-size: 10px;">word</a> <a href="/tags/%E6%97%A5%E6%9D%82/" style="font-size: 12px;">日杂</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 10px;">虚拟机</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/16/Appium-Learn(javascript)/">Appium-Learn(javascript)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/11/Appium-Learn(python)/">Appium 自动化测试(python3)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/13/Jenkins-install-and-usage/">Jenkins 的安装与使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/11/Mac-crontab/">Mac 创建定时任务</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/08/Mongo-DB/">MongoDB</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2020 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

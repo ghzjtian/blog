@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>代码混淆 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="记录 Android Minify 代码混淆相关">
+<meta property="og:type" content="article">
+<meta property="og:title" content="代码混淆">
+<meta property="og:url" content="http://example.com/2018/02/01/Android_apk%E6%B7%B7%E6%B7%86/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="记录 Android Minify 代码混淆相关">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-02-01T09:46:19.000Z">
+<meta property="article:modified_time" content="2018-10-24T09:09:05.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Android">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Android_apk混淆" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/02/01/Android_apk%E6%B7%B7%E6%B7%86/" class="article-date">
+  <time class="dt-published" datetime="2018-02-01T09:46:19.000Z" itemprop="datePublished">2018-02-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      代码混淆
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>记录 Android Minify 代码混淆相关</p>
+</blockquote>
+<a id="more"></a>
+
+
+<h1 id="Android-Minify-代码混淆"><a href="#Android-Minify-代码混淆" class="headerlink" title="Android Minify 代码混淆"></a>Android Minify 代码混淆</h1><h3 id="1-参考"><a href="#1-参考" class="headerlink" title="1.参考:"></a><a href="#references">1.参考:</a></h3><h3 id="2-APP-中-build-gradle-的配置"><a href="#2-APP-中-build-gradle-的配置" class="headerlink" title="2.APP 中 build.gradle 的配置."></a><a href="#setting">2.APP 中 build.gradle 的配置.</a></h3><h3 id="3-proguard-rules-pro-混淆的代码-cramer-app"><a href="#3-proguard-rules-pro-混淆的代码-cramer-app" class="headerlink" title="3.proguard-rules.pro 混淆的代码(cramer app)"></a><a href="#proguard_code">3.proguard-rules.pro 混淆的代码(cramer app)</a></h3><h3 id="4-混淆后的反编译"><a href="#4-混淆后的反编译" class="headerlink" title="4.混淆后的反编译"></a><a href="#check_uncode">4.混淆后的反编译</a></h3><h3 id="5-注意事项"><a href="#5-注意事项" class="headerlink" title="5.注意事项"></a><a href="#attertian">5.注意事项</a></h3><hr>
+<hr>
+<hr>
+<h3 id="1-参考-1"><a href="#1-参考-1" class="headerlink" title="1.参考:"></a>1.参考:<a name="references"/></h3><ul>
+<li>1.<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/d7b7e903cfa7">Android Studio混淆打包</a></li>
+<li>2.<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f140a967b789">Android Studio Apk 打包 混淆</a></li>
+<li>3.<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/b471db6a01af">https://www.jianshu.com/p/b471db6a01af</a></li>
+<li></li>
+<li>4.<a target="_blank" rel="noopener" href="https://www.guardsquare.com/en/proguard/manual/examples#library">官方文档:</a></li>
+<li>5.<a target="_blank" rel="noopener" href="https://developer.android.com/studio/build/shrink-code.html">https://developer.android.com/studio/build/shrink-code.html</a></li>
+<li>6.<a target="_blank" rel="noopener" href="http://blog.csdn.net/qq_33689414/article/details/69630673">http://blog.csdn.net/qq_33689414/article/details/69630673</a></li>
+</ul>
+<hr>
+<h3 id="2-APP-中-build-gradle-的配置-1"><a href="#2-APP-中-build-gradle-的配置-1" class="headerlink" title="2.APP 中 build.gradle 的配置."></a>2.APP 中 build.gradle 的配置.<a name="setting"/></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">buildTypes &#123;</span><br><span class="line">       release &#123;</span><br><span class="line">           minifyEnabled true</span><br><span class="line">           shrinkResources true</span><br><span class="line">           proguardFiles getDefaultProguardFile(&#39;proguard-android.txt&#39;), &#39;proguard-rules.pro&#39;</span><br><span class="line">           signingConfig signingConfigs.config</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       &#x2F;&#x2F;暂时测试都为 true,如果发现影响构建速度可以设置为 false</span><br><span class="line">       debug &#123;</span><br><span class="line">           minifyEnabled true</span><br><span class="line">           shrinkResources true</span><br><span class="line">           proguardFiles getDefaultProguardFile(&#39;proguard-android.txt&#39;), &#39;proguard-rules.pro&#39;</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="3-proguard-rules-pro-混淆的代码-cramer-APP"><a href="#3-proguard-rules-pro-混淆的代码-cramer-APP" class="headerlink" title="3.proguard-rules.pro 混淆的代码(cramer APP )"></a>3.proguard-rules.pro 混淆的代码(cramer APP )<a name="proguard_code"/></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#############################################</span><br><span class="line">#</span><br><span class="line"># 对于一些基本指令的添加</span><br><span class="line">#</span><br><span class="line">#############################################</span><br><span class="line"></span><br><span class="line">-ignorewarnings</span><br><span class="line"></span><br><span class="line"># 代码混淆压缩比，在0~7之间，默认为5，一般不做修改</span><br><span class="line">-optimizationpasses 5</span><br><span class="line"></span><br><span class="line"># 混合时不使用大小写混合，混合后的类名为小写</span><br><span class="line">-dontusemixedcaseclassnames</span><br><span class="line"></span><br><span class="line"># 指定不去忽略非公共库的类</span><br><span class="line">-dontskipnonpubliclibraryclasses</span><br><span class="line"></span><br><span class="line"># 这句话能够使我们的项目混淆后产生映射文件</span><br><span class="line"># 包含有类名-&gt;混淆后类名的映射关系</span><br><span class="line">-verbose</span><br><span class="line"></span><br><span class="line"># 指定不去忽略非公共库的类成员</span><br><span class="line">-dontskipnonpubliclibraryclassmembers</span><br><span class="line"></span><br><span class="line"># 不做预校验，preverify是proguard的四个步骤之一，Android不需要preverify，去掉这一步能够加快混淆速度。</span><br><span class="line">-dontpreverify</span><br><span class="line"></span><br><span class="line"># 保留Annotation不混淆</span><br><span class="line">-keepattributes *Annotation*,InnerClasses</span><br><span class="line"></span><br><span class="line"># 避免混淆泛型</span><br><span class="line">-keepattributes Signature</span><br><span class="line"></span><br><span class="line"># 抛出异常时保留代码行号</span><br><span class="line">-keepattributes SourceFile,LineNumberTable</span><br><span class="line"></span><br><span class="line"># 指定混淆是采用的算法，后面的参数是一个过滤器</span><br><span class="line"># 这个过滤器是谷歌推荐的算法，一般不做更改</span><br><span class="line">-optimizations !code&#x2F;simplification&#x2F;cast,!field&#x2F;*,!class&#x2F;merging&#x2F;*</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#############################################</span><br><span class="line">#</span><br><span class="line"># Android开发中一些需要保留的公共部分</span><br><span class="line">#</span><br><span class="line">#############################################</span><br><span class="line"></span><br><span class="line"># 保留我们使用的四大组件，自定义的Application等等这些类不被混淆</span><br><span class="line"># 因为这些子类都有可能被外部调用</span><br><span class="line">-keep public class * extends android.app.Activity</span><br><span class="line">-keep public class * extends android.app.Appliction</span><br><span class="line">-keep public class * extends android.app.Service</span><br><span class="line">-keep public class * extends android.content.BroadcastReceiver</span><br><span class="line">-keep public class * extends android.content.ContentProvider</span><br><span class="line">-keep public class * extends android.app.backup.BackupAgentHelper</span><br><span class="line">-keep public class * extends android.preference.Preference</span><br><span class="line">-keep public class * extends android.view.View</span><br><span class="line">-keep public class com.android.vending.licensing.ILicensingService</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 保留support下的所有类及其内部类</span><br><span class="line">-keep class android.support.** &#123;*;&#125;</span><br><span class="line"></span><br><span class="line"># 保留继承的</span><br><span class="line">-keep public class * extends android.support.v4.**</span><br><span class="line">-keep public class * extends android.support.v7.**</span><br><span class="line">-keep public class * extends android.support.annotation.**</span><br><span class="line"></span><br><span class="line"># 保留R下面的资源</span><br><span class="line">-keep class **.R$* &#123;*;&#125;</span><br><span class="line"></span><br><span class="line"># 保留本地native方法不被混淆</span><br><span class="line">-keepclasseswithmembernames class * &#123;</span><br><span class="line">    native &lt;methods&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 保留在Activity中的方法参数是view的方法，</span><br><span class="line"># 这样以来我们在layout中写的onClick就不会被影响</span><br><span class="line">-keepclassmembers class * extends android.app.Activity&#123;</span><br><span class="line">    public void *(android.view.View);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 保留枚举类不被混淆</span><br><span class="line">-keepclassmembers enum * &#123;</span><br><span class="line">    public static **[] values();</span><br><span class="line">    public static ** valueOf(java.lang.String);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 保留我们自定义控件（继承自View）不被混淆</span><br><span class="line">-keep public class * extends android.view.View&#123;</span><br><span class="line">    *** get*();</span><br><span class="line">    void set*(***);</span><br><span class="line">    public &lt;init&gt;(android.content.Context);</span><br><span class="line">    public &lt;init&gt;(android.content.Context, android.util.AttributeSet);</span><br><span class="line">    public &lt;init&gt;(android.content.Context, android.util.AttributeSet, int);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 保留Parcelable序列化类不被混淆</span><br><span class="line">-keep class * implements android.os.Parcelable &#123;</span><br><span class="line">    public static final android.os.Parcelable$Creator *;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 保留Serializable序列化的类不被混淆</span><br><span class="line">-keepnames class * implements java.io.Serializable</span><br><span class="line">-keepclassmembers class * implements java.io.Serializable &#123;</span><br><span class="line">    static final long serialVersionUID;</span><br><span class="line">    private static final java.io.ObjectStreamField[] serialPersistentFields;</span><br><span class="line">    !static !transient &lt;fields&gt;;</span><br><span class="line">    !private &lt;fields&gt;;</span><br><span class="line">    !private &lt;methods&gt;;</span><br><span class="line">    private void writeObject(java.io.ObjectOutputStream);</span><br><span class="line">    private void readObject(java.io.ObjectInputStream);</span><br><span class="line">    java.lang.Object writeReplace();</span><br><span class="line">    java.lang.Object readResolve();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 对于带有回调函数的onXXEvent、**On*Listener的，不能被混淆</span><br><span class="line">-keepclassmembers class * &#123;</span><br><span class="line">    void *(**On*Event);</span><br><span class="line">    void *(**On*Listener);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># webView处理，项目中没有使用到webView忽略即可</span><br><span class="line">-keepclassmembers class fqcn.of.javascript.interface.for.webview &#123;</span><br><span class="line">    public *;</span><br><span class="line">&#125;</span><br><span class="line">-keepclassmembers class * extends android.webkit.webViewClient &#123;</span><br><span class="line">    public void *(android.webkit.WebView, java.lang.String, android.graphics.Bitmap);</span><br><span class="line">    public boolean *(android.webkit.WebView, java.lang.String);</span><br><span class="line">&#125;</span><br><span class="line">-keepclassmembers class * extends android.webkit.webViewClient &#123;</span><br><span class="line">    public void *(android.webkit.webView, jav.lang.String);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 移除Log类打印各个等级日志的代码，打正式包的时候可以做为禁log使用，这里可以作为禁止log打印的功能使用</span><br><span class="line"># 记得proguard-android.txt中一定不要加-dontoptimize才起作用</span><br><span class="line"># 另外的一种实现方案是通过BuildConfig.DEBUG的变量来控制</span><br><span class="line">#-assumenosideeffects class android.util.Log &#123;</span><br><span class="line">#    public static int v(...);</span><br><span class="line">#    public static int i(...);</span><br><span class="line">#    public static int w(...);</span><br><span class="line">#    public static int d(...);</span><br><span class="line">#    public static int e(...);</span><br><span class="line">#&#125;</span><br><span class="line"></span><br><span class="line">#############################################</span><br><span class="line">#</span><br><span class="line"># 项目中特殊处理部分</span><br><span class="line">#</span><br><span class="line">#############################################</span><br><span class="line"></span><br><span class="line">#-----------处理反射类---------------</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#-----------处理js交互---------------</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#-----------处理实体类---------------</span><br><span class="line"># 在开发的时候我们可以将所有的实体类放在一个包内，这样我们写一次混淆就行了。</span><br><span class="line">#-keep class com.blankj.data.bean.**&#123; *; &#125;</span><br><span class="line"></span><br><span class="line">#保护 Application 类</span><br><span class="line">-keep class com.greenworks.guide.GreenworksApplication &#123; *; &#125;</span><br><span class="line"></span><br><span class="line">#保护 HttpManage 下的 bean 类</span><br><span class="line">-keep class com.greenworks.guide.net.HttpManage$ResultCallback &#123; *; &#125;</span><br><span class="line">-keep class com.greenworks.guide.net.HttpManage$Error &#123; *; &#125;</span><br><span class="line">-keep class com.greenworks.guide.net.HttpManage$ErrorEntity &#123; *; &#125;</span><br><span class="line"></span><br><span class="line"># keep 其它 bean 类</span><br><span class="line">-keep class com.greenworks.guide.eventbus.ChargeFinishEvent &#123; *; &#125;</span><br><span class="line">-keep class com.greenworks.guide.upgrade.** &#123; *; &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#-----------处理第三方依赖库---------</span><br><span class="line">#项目所用到的第三方的库,不要混淆</span><br><span class="line"></span><br><span class="line">#jar 包</span><br><span class="line"></span><br><span class="line">#android-async-http</span><br><span class="line">-keep class com.loopj.android.http.** &#123; *; &#125;</span><br><span class="line"></span><br><span class="line">#hiflying-iots-android-smartlink</span><br><span class="line">-keep class com.hiflying.smartlink.** &#123; *; &#125;</span><br><span class="line"></span><br><span class="line">#httpclient, httpmime</span><br><span class="line">-keep class org.apache.http.entity.mime.** &#123; *; &#125;</span><br><span class="line"></span><br><span class="line">#xlink-wifi-official-sdk,云智易 wifi  sdk</span><br><span class="line">-keep class io.xlink.wifi.sdk.** &#123; *; &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#自定义view</span><br><span class="line"></span><br><span class="line">#pickerview</span><br><span class="line">-keep class com.bigkoo.pickerview.** &#123; *; &#125;</span><br><span class="line"></span><br><span class="line">#bean,如果使用了Gson之类的工具要使被它解析的JavaBean类即实体类不被混淆。</span><br><span class="line">-keep class com.greenworks.guide.bean.** &#123; *; &#125;</span><br><span class="line"></span><br><span class="line">#网络自动下载 lib 包</span><br><span class="line"></span><br><span class="line">#android 包</span><br><span class="line">-keep class android.** &#123; *; &#125;</span><br><span class="line"></span><br><span class="line">#apache 包</span><br><span class="line">-keep class org.apache.http.** &#123; *; &#125;</span><br><span class="line"></span><br><span class="line">#facebook.fresco</span><br><span class="line">-keep class com.facebook.** &#123; *; &#125;</span><br><span class="line"></span><br><span class="line">#nordicsemi , DFU,</span><br><span class="line">-keep class no.nordicsemi.android.dfu.** &#123; *; &#125;</span><br><span class="line"></span><br><span class="line">#okhttp</span><br><span class="line">-keep class okhttp3.** &#123; *; &#125;</span><br><span class="line"></span><br><span class="line">#Event Bus</span><br><span class="line"># https:&#x2F;&#x2F;github.com&#x2F;greenrobot&#x2F;EventBus&#x2F;issues&#x2F;503</span><br><span class="line">-keepattributes *Annotation*</span><br><span class="line">-keepclassmembers class ** &#123;</span><br><span class="line">    @org.greenrobot.eventbus.Subscribe &lt;methods&gt;;</span><br><span class="line">&#125;</span><br><span class="line">-keep enum org.greenrobot.eventbus.ThreadMode &#123; *; &#125;</span><br><span class="line"></span><br><span class="line"># Only required if you use AsyncExecutor</span><br><span class="line">-keepclassmembers class * extends org.greenrobot.eventbus.util.ThrowableFailureEvent &#123;</span><br><span class="line">    &lt;init&gt;(java.lang.Throwable);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#butterknife</span><br><span class="line">-keep class butterknife.** &#123; *; &#125;</span><br><span class="line">-dontwarn butterknife.internal.**</span><br><span class="line">-keep class **$$ViewBinder &#123; *; &#125;</span><br><span class="line">-keepclasseswithmembernames class * &#123;</span><br><span class="line">    @butterknife.* &lt;fields&gt;;</span><br><span class="line">&#125;</span><br><span class="line">-keepclasseswithmembernames class * &#123;</span><br><span class="line">    @butterknife.* &lt;methods&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#takephoto</span><br><span class="line">-keep class com.jph.takephoto.** &#123; *; &#125;</span><br><span class="line"></span><br><span class="line">#google map</span><br><span class="line">-keep class com.google.** &#123; *; &#125;</span><br><span class="line"></span><br><span class="line">#barteksc&#x2F;AndroidPdfViewer</span><br><span class="line">-keep class com.shockwave.**</span><br><span class="line"></span><br><span class="line">#orhanobut logger</span><br><span class="line">-keep class com.orhanobut.logger.** &#123; *; &#125;</span><br><span class="line"></span><br><span class="line">#nrf logger</span><br><span class="line">-keep class no.nordicsemi.android.log.** &#123; *; &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="4-混淆后的反编译-1"><a href="#4-混淆后的反编译-1" class="headerlink" title="4.混淆后的反编译"></a>4.混淆后的反编译<a name="check_uncode"/></h3><blockquote>
+<p>参考： <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a21edfa632cf">https://www.jianshu.com/p/a21edfa632cf</a></p>
+<p>所用到的软件的下载: 链接:<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1kWySit5">https://pan.baidu.com/s/1kWySit5</a>  密码:81u7</p>
+</blockquote>
+<hr>
+<h3 id="5-注意事项-1"><a href="#5-注意事项-1" class="headerlink" title="5.注意事项"></a>5.注意事项<a name="attertian"/></h3><ul>
+<li><p>5.1发现查看反编译的代码时,每次都需要重启 JD-GUI.app ,否则显示的还是上一次查看的结果.</p>
+</li>
+<li><p>5.2 要注意 bean 不能被混淆.</p>
+</li>
+<li><p>5.3 所有用到的第三方的 lib ,自定义的 view ，最好都添加到 -keep 里面.</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/02/01/Android_apk%E6%B7%B7%E6%B7%86/" data-id="ckiske018001ybo66gbx686fw" data-title="代码混淆" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/" rel="tag">Android</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/02/08/bugly%E9%9B%86%E6%88%90/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Android bugly集成
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/28/Android_nrf_Toolbox%E5%AD%A6%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Android nrf Toolbox 学习</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Angular/">Angular</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/BLE/">BLE</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CI/">CI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/DB/">DB</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/H5/">H5</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MicroSoft/">MicroSoft</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Office/">Office</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Travel/">Travel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Xamarin/">Xamarin</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/auto-test/">auto-test</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/data/">data</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/frontend/">frontend</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/google/">google</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javaScript/">javaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/postman/">postman</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/speedtest/">speedtest</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ss/">ss</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/word/">word</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E6%9D%82/">日杂</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/" rel="tag">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BLE/" rel="tag">BLE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CI/" rel="tag">CI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DB/" rel="tag">DB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/" rel="tag">H5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MicroSoft/" rel="tag">MicroSoft</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Office/" rel="tag">Office</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Travel/" rel="tag">Travel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xamarin/" rel="tag">Xamarin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auto-test/" rel="tag">auto-test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data/" rel="tag">data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postman/" rel="tag">postman</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ss/" rel="tag">ss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/word/" rel="tag">word</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E6%9D%82/" rel="tag">日杂</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag">虚拟机</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 19px;">Android</a> <a href="/tags/Angular/" style="font-size: 18px;">Angular</a> <a href="/tags/BLE/" style="font-size: 11px;">BLE</a> <a href="/tags/CI/" style="font-size: 10px;">CI</a> <a href="/tags/DB/" style="font-size: 10px;">DB</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/H5/" style="font-size: 10px;">H5</a> <a href="/tags/Linux/" style="font-size: 17px;">Linux</a> <a href="/tags/Mac/" style="font-size: 20px;">Mac</a> <a href="/tags/MicroSoft/" style="font-size: 10px;">MicroSoft</a> <a href="/tags/Office/" style="font-size: 10px;">Office</a> <a href="/tags/Travel/" style="font-size: 15px;">Travel</a> <a href="/tags/Xamarin/" style="font-size: 13px;">Xamarin</a> <a href="/tags/auto-test/" style="font-size: 12px;">auto-test</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/data/" style="font-size: 11px;">data</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/iOS/" style="font-size: 16px;">iOS</a> <a href="/tags/javaScript/" style="font-size: 10px;">javaScript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/php/" style="font-size: 14px;">php</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/ss/" style="font-size: 13px;">ss</a> <a href="/tags/word/" style="font-size: 10px;">word</a> <a href="/tags/%E6%97%A5%E6%9D%82/" style="font-size: 12px;">日杂</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 10px;">虚拟机</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/16/Appium-Learn(javascript)/">Appium-Learn(javascript)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/11/Appium-Learn(python)/">Appium 自动化测试(python3)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/13/Jenkins-install-and-usage/">Jenkins 的安装与使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/11/Mac-crontab/">Mac 创建定时任务</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/08/Mongo-DB/">MongoDB</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2020 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
