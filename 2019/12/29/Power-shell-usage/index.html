@@ -28,7 +28,7 @@
 <meta property="og:description" content="记录 Mac 上 Powershell 的安装及使用">
 <meta property="og:locale">
 <meta property="article:published_time" content="2019-12-29T09:46:19.000Z">
-<meta property="article:modified_time" content="2020-12-18T03:23:23.854Z">
+<meta property="article:modified_time" content="2020-12-20T08:37:19.666Z">
 <meta property="article:author" content="Tim">
 <meta property="article:tag" content="Mac">
 <meta name="twitter:card" content="summary">
@@ -219,7 +219,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-18 11:23:23" itemprop="dateModified" datetime="2020-12-18T11:23:23+08:00">2020-12-18</time>
+                <time title="Modified: 2020-12-20 16:37:19" itemprop="dateModified" datetime="2020-12-20T16:37:19+08:00">2020-12-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -247,22 +247,22 @@
 </blockquote>
 <a id="more"></a>
 
-<h2 id="1-参考"><a href="#1-参考" class="headerlink" title="1.参考"></a>1.参考</h2><h2 id="2-Mac-安装-Powershell"><a href="#2-Mac-安装-Powershell" class="headerlink" title="2.Mac 安装 Powershell"></a>2.Mac 安装 Powershell</h2><h2 id="3-Powershell-使用"><a href="#3-Powershell-使用" class="headerlink" title="3.Powershell 使用"></a>3.Powershell 使用</h2><hr>
-<hr>
-<hr>
-<h2 id="1-参考-1"><a href="#1-参考-1" class="headerlink" title="1.参考"></a>1.参考</h2><ul>
+
+<h2 id="1-参考"><a href="#1-参考" class="headerlink" title="1.参考"></a>1.参考</h2><ul>
 <li>1.<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-macos?view=powershell-6">Installing PowerShell Core on macOS</a></li>
 <li>2.<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/2688547/multiple-foreground-colors-in-powershell-in-one-command">Multiple foreground colors in PowerShell in one command</a></li>
 <li>3.<a target="_blank" rel="noopener" href="https://yanxyz.github.io/powershell/scripts/">Run PowerShell 脚本</a></li>
 <li>4.<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/powershell/scripting/learn/ps101/00-introduction?view=powershell-7.1">Learn PowerShell</a></li>
+<li>5.<a target="_blank" rel="noopener" href="https://www.red-gate.com/simple-talk/sysadmin/powershell/how-to-use-parameters-in-powershell/">How to use parameters in powershell</a></li>
+<li>6.<a target="_blank" rel="noopener" href="https://jdhitsolutions.com/blog/powershell/7278/friday-fun-powershell-ascii-art/">Friday Fun PowerShell ASCII Art</a></li>
 </ul>
-<h2 id="2-Mac-安装-Powershell-1"><a href="#2-Mac-安装-Powershell-1" class="headerlink" title="2.Mac 安装 Powershell"></a>2.Mac 安装 Powershell</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;  install PowerShell from brew.</span><br><span class="line">brew cask install powershell</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="2-Mac-安装-Powershell"><a href="#2-Mac-安装-Powershell" class="headerlink" title="2.Mac 安装 Powershell"></a>2.Mac 安装 Powershell</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;  install PowerShell from brew.</span><br><span class="line">brew cask install powershell</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 进入 Powershell</span><br><span class="line">$: pwsh</span><br><span class="line"></span><br><span class="line">PowerShell 7.1.0</span><br><span class="line">Copyright (c) Microsoft Corporation.</span><br><span class="line"></span><br><span class="line">https:&#x2F;&#x2F;aka.ms&#x2F;powershell</span><br><span class="line">Type &#39;help&#39; to get help.</span><br><span class="line"></span><br><span class="line">PS &#x2F;Users&#x2F;glb_gz&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 退出 Powershell</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
 
-<h2 id="3-Powershell-使用-1"><a href="#3-Powershell-使用-1" class="headerlink" title="3.Powershell 使用"></a>3.Powershell 使用</h2><h3 id="1-常用命令"><a href="#1-常用命令" class="headerlink" title="1.常用命令"></a>1.常用命令</h3><ul>
+<h2 id="3-Powershell-使用"><a href="#3-Powershell-使用" class="headerlink" title="3.Powershell 使用"></a>3.Powershell 使用</h2><h3 id="1-常用命令"><a href="#1-常用命令" class="headerlink" title="1.常用命令"></a>1.常用命令</h3><ul>
 <li>1.输出</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Write-Host &quot;Blue&quot; -ForegroundColor Blue</span><br></pre></td></tr></table></figure>
@@ -276,6 +276,11 @@
 <li>3.方法</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 无参</span><br><span class="line">function listAllExchange &#123;</span><br><span class="line">&#125;</span><br><span class="line">listAllExchange</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 一个参数</span><br><span class="line">function customEchoRed($message) &#123;</span><br><span class="line">    Write-Host $message -ForegroundColor Red</span><br><span class="line">&#125;</span><br><span class="line">customEchoRed(&quot;abc&quot;)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 多个参数</span><br><span class="line">function executeCommand($message, $rabbit_mq_command)&#123;</span><br><span class="line">&#125;</span><br><span class="line">executeCommand &quot;List all exchanges&quot;  &quot;rabbitmqadmin list exchanges&quot;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>4.获取脚本参数</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">param ([Parameter(Mandatory)]$command, [int]$portNumber&#x3D;&#39;15672&#39;, $ipAddress&#x3D;&#39;localhost&#39;)</span><br><span class="line"></span><br><span class="line">[Parameter(Mandatory)]: 表示强制要输入，否则后面会提示输入.</span><br><span class="line">[int]: 转为 int 类型</span><br><span class="line">&#x3D;&#39;15672&#39;: 默认的参数</span><br></pre></td></tr></table></figure>
 
 
 <h3 id="2-IDE"><a href="#2-IDE" class="headerlink" title="2.IDE"></a>2.IDE</h3><h4 id="1-VS-code"><a href="#1-VS-code" class="headerlink" title="1.VS code"></a>1.VS code</h4><ul>
@@ -372,7 +377,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%8F%82%E8%80%83"><span class="nav-number">1.</span> <span class="nav-text">1.参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Mac-%E5%AE%89%E8%A3%85-Powershell"><span class="nav-number">2.</span> <span class="nav-text">2.Mac 安装 Powershell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Powershell-%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">3.Powershell 使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%8F%82%E8%80%83-1"><span class="nav-number">4.</span> <span class="nav-text">1.参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Mac-%E5%AE%89%E8%A3%85-Powershell-1"><span class="nav-number">5.</span> <span class="nav-text">2.Mac 安装 Powershell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Powershell-%E4%BD%BF%E7%94%A8-1"><span class="nav-number">6.</span> <span class="nav-text">3.Powershell 使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">6.1.</span> <span class="nav-text">1.常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-IDE"><span class="nav-number">6.2.</span> <span class="nav-text">2.IDE</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-VS-code"><span class="nav-number">6.2.1.</span> <span class="nav-text">1.VS code</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%BF%90%E8%A1%8C-PowerShell-%E6%96%87%E4%BB%B6"><span class="nav-number">6.3.</span> <span class="nav-text">3.运行 PowerShell 文件</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%8F%82%E8%80%83"><span class="nav-number">1.</span> <span class="nav-text">1.参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Mac-%E5%AE%89%E8%A3%85-Powershell"><span class="nav-number">2.</span> <span class="nav-text">2.Mac 安装 Powershell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Powershell-%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">3.Powershell 使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">3.1.</span> <span class="nav-text">1.常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-IDE"><span class="nav-number">3.2.</span> <span class="nav-text">2.IDE</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-VS-code"><span class="nav-number">3.2.1.</span> <span class="nav-text">1.VS code</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%BF%90%E8%A1%8C-PowerShell-%E6%96%87%E4%BB%B6"><span class="nav-number">3.3.</span> <span class="nav-text">3.运行 PowerShell 文件</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
