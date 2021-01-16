@@ -28,7 +28,7 @@
 <meta property="og:description" content="配置 npm 的源">
 <meta property="og:locale">
 <meta property="article:published_time" content="2019-09-05T09:46:19.000Z">
-<meta property="article:modified_time" content="2020-11-06T06:23:40.269Z">
+<meta property="article:modified_time" content="2021-01-15T06:58:29.901Z">
 <meta property="article:author" content="Tim">
 <meta property="article:tag" content="node">
 <meta name="twitter:card" content="summary">
@@ -216,7 +216,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-06 14:23:40" itemprop="dateModified" datetime="2020-11-06T14:23:40+08:00">2020-11-06</time>
+                <time title="Modified: 2021-01-15 14:58:29" itemprop="dateModified" datetime="2021-01-15T14:58:29+08:00">2021-01-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -265,7 +265,11 @@
 <h2 id="3-错误处理-1"><a href="#3-错误处理-1" class="headerlink" title="3.错误处理"></a>3.错误处理<a name="error_process"/></h2><h4 id="1-Angular-运行命令ng-test-出现jasminerequire-not-defined-解决-ng-test-jasminerequire-not-defined问题"><a href="#1-Angular-运行命令ng-test-出现jasminerequire-not-defined-解决-ng-test-jasminerequire-not-defined问题" class="headerlink" title="1.Angular 运行命令ng test, [出现jasminerequire not defined](解决 ng test jasminerequire not defined问题)"></a>1.Angular 运行命令<code>ng test</code>, [出现<code>jasminerequire not defined</code>](解决 ng test jasminerequire not defined问题)</h4><ul>
 <li>1.删除 <code>node_modules</code> 文件夹，然后运行以下命令 <code>npm install --registry=https://registry.npm.taobao.org</code>;</li>
 </ul>
-<h4 id="2-使用淘宝镜像的后遗症及解决方法-npm-ERR-Unexpected-end-of-JSON-input-while-parsing-near-‘"><a href="#2-使用淘宝镜像的后遗症及解决方法-npm-ERR-Unexpected-end-of-JSON-input-while-parsing-near-‘" class="headerlink" title="2.使用淘宝镜像的后遗症及解决方法: npm ERR! Unexpected end of JSON input while parsing near ‘"></a>2.使用淘宝镜像的后遗症及解决方法: <a target="_blank" rel="noopener" href="https://github.com/vuejs-templates/webpack/issues/990#issuecomment-343736884">npm ERR! Unexpected end of JSON input while parsing near ‘</a></h4>
+<h4 id="2-使用淘宝镜像的后遗症及解决方法-npm-ERR-Unexpected-end-of-JSON-input-while-parsing-near-‘"><a href="#2-使用淘宝镜像的后遗症及解决方法-npm-ERR-Unexpected-end-of-JSON-input-while-parsing-near-‘" class="headerlink" title="2.使用淘宝镜像的后遗症及解决方法: npm ERR! Unexpected end of JSON input while parsing near ‘"></a>2.使用淘宝镜像的后遗症及解决方法: <a target="_blank" rel="noopener" href="https://github.com/vuejs-templates/webpack/issues/990#issuecomment-343736884">npm ERR! Unexpected end of JSON input while parsing near ‘</a></h4><h2 id="4-配置"><a href="#4-配置" class="headerlink" title="4.配置"></a>4.配置</h2><ul>
+<li>1.npm 全局安装包的路径: <code>/usr/local/lib/node_modules</code></li>
+<li>2.显示全局安装的包: <code>npm list -g --depth 0</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">~ $ npm list -g --depth 0</span><br><span class="line">&#x2F;Users&#x2F;glb&#x2F;.nvm&#x2F;versions&#x2F;node&#x2F;v15.2.1&#x2F;lib</span><br><span class="line">├── archiver@5.2.0</span><br><span class="line">├── hexo-cli@4.2.0</span><br><span class="line">├── javascripting@2.7.3</span><br><span class="line">├── npm@7.0.8</span><br><span class="line">├── stream-adventure@4.3.0</span><br><span class="line">├── ts-node@9.1.1</span><br><span class="line">└── typescript@4.1.2</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -348,7 +352,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%8F%82%E8%80%83"><span class="nav-number">1.</span> <span class="nav-text">1.参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E8%BF%87%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">2.过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">3.错误处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%8F%82%E8%80%83-1"><span class="nav-number">4.</span> <span class="nav-text">1.参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E8%BF%87%E7%A8%8B-1"><span class="nav-number">5.</span> <span class="nav-text">2.过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86-1"><span class="nav-number">6.</span> <span class="nav-text">3.错误处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Angular-%E8%BF%90%E8%A1%8C%E5%91%BD%E4%BB%A4ng-test-%E5%87%BA%E7%8E%B0jasminerequire-not-defined-%E8%A7%A3%E5%86%B3-ng-test-jasminerequire-not-defined%E9%97%AE%E9%A2%98"><span class="nav-number">6.0.1.</span> <span class="nav-text">1.Angular 运行命令ng test, [出现jasminerequire not defined](解决 ng test jasminerequire not defined问题)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E4%BD%BF%E7%94%A8%E6%B7%98%E5%AE%9D%E9%95%9C%E5%83%8F%E7%9A%84%E5%90%8E%E9%81%97%E7%97%87%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-npm-ERR-Unexpected-end-of-JSON-input-while-parsing-near-%E2%80%98"><span class="nav-number">6.0.2.</span> <span class="nav-text">2.使用淘宝镜像的后遗症及解决方法: npm ERR! Unexpected end of JSON input while parsing near ‘</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%8F%82%E8%80%83"><span class="nav-number">1.</span> <span class="nav-text">1.参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E8%BF%87%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">2.过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">3.错误处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%8F%82%E8%80%83-1"><span class="nav-number">4.</span> <span class="nav-text">1.参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E8%BF%87%E7%A8%8B-1"><span class="nav-number">5.</span> <span class="nav-text">2.过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86-1"><span class="nav-number">6.</span> <span class="nav-text">3.错误处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Angular-%E8%BF%90%E8%A1%8C%E5%91%BD%E4%BB%A4ng-test-%E5%87%BA%E7%8E%B0jasminerequire-not-defined-%E8%A7%A3%E5%86%B3-ng-test-jasminerequire-not-defined%E9%97%AE%E9%A2%98"><span class="nav-number">6.0.1.</span> <span class="nav-text">1.Angular 运行命令ng test, [出现jasminerequire not defined](解决 ng test jasminerequire not defined问题)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E4%BD%BF%E7%94%A8%E6%B7%98%E5%AE%9D%E9%95%9C%E5%83%8F%E7%9A%84%E5%90%8E%E9%81%97%E7%97%87%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-npm-ERR-Unexpected-end-of-JSON-input-while-parsing-near-%E2%80%98"><span class="nav-number">6.0.2.</span> <span class="nav-text">2.使用淘宝镜像的后遗症及解决方法: npm ERR! Unexpected end of JSON input while parsing near ‘</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E9%85%8D%E7%BD%AE"><span class="nav-number">7.</span> <span class="nav-text">4.配置</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -362,20 +366,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">103</span>
+          <span class="site-state-item-count">104</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-count">31</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
